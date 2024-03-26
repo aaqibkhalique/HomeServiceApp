@@ -1,0 +1,156 @@
+﻿@page "/Notification"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        height: 900px;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text{
+        font-weight: bold;
+    }
+    .smalltext{
+        font-size: smaller;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Notification</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+    <div class="row ml-5">
+        <div class="col ">
+            <MudText Typo="Typo.subtitle1" Class="Text">Today</MudText>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard  Style="border-radius:10px;margin-top:10px;width:326px;">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/n1.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Payment Successful!</MudText>
+                        <MudText Class="smalltext" Typo="Typo.body2">You have made a services payment</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/n2.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">New Category Services!</MudText>
+                        <MudText Class="smalltext" Typo="Typo.body2">Now the plumbing services is available</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row ml-5">
+        <div class="col ">
+            <MudText Typo="Typo.subtitle1" Class="Text">Yesterday</MudText>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/n3.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Todays Special Offers</MudText>
+                        <MudText Class="smalltext" Typo="Typo.body2">You have made a services payment</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+    <div class="row ml-5">
+        <div class="col ">
+            <MudText Typo="Typo.subtitle1" Class="Text">December 22, 2024</MudText>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/n1.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Payment Successful!</MudText>
+                        <MudText Class="smalltext" Typo="Typo.body2">You have made a services payment</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/n4.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">New Category Services!</MudText>
+                        <MudText Class="smalltext"  Typo="Typo.body2">Now the plumbing services is available</MudText>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+  
+
+}
+

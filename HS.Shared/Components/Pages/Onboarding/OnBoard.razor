@@ -1,0 +1,61 @@
+﻿@using MudBlazor
+@page "/"
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .nextBtn {
+        border-radius: 30px;
+        margin-top: 89px;
+        width: 330px;
+    }
+
+    .text {
+        font-weight: bolder;
+        margin-top: 89px;
+        width: 330px;
+        text-align: center;
+    }
+
+    .col-sm-1 {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+</style>
+
+
+<div class="container">
+    <MudImage Src="images/img1.png" Elevation="0" Height="380" Width="500" />
+</div>
+
+<div class="row">
+    <div class="col-sm-1">
+
+        <MudText Typo="Typo.h4" Class="text">We provide professional service at a friendly price</MudText>
+    </div>
+
+    <div class="col-sm-1 ">
+        <MudButton Class="nextBtn" Variant="Variant.Filled" OnClick="BtnNextClick" Color="Color.Primary">Next</MudButton>
+    </div>
+
+
+
+</div>
+
+
+@code {
+    @inject NavigationManager Navigation;
+
+    private void BtnNextClick()
+    {
+        Navigation.NavigateTo("SignUp");
+    }
+
+}

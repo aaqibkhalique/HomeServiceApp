@@ -1,0 +1,13 @@
+﻿@page "/"
+@namespace  HS.Web
+
+@using HS.Shared
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+
+<component type="typeof(App)" render-mode="ServerPrerendered" />

@@ -1,0 +1,205 @@
+﻿@page "/MyCalendar"
+
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        height:900px;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+    .mud-picker-datepicker-toolbar{
+        display:none!important;
+    }
+
+    .mud-picker-calendar-container {
+        background-color: #F4ECFF;
+        border-radius: 13px;
+      
+    }
+
+    .mud-picker-nav-button-prev{
+        background-color: #F4ECFF!important;
+    }
+
+    .mud-picker-nav-button-next{
+        background-color: #F4ECFF !important;
+    }
+
+
+    .ServiceCard {
+        height: 144px;
+        margin-right: 5px;
+        border-radius: 38px;
+        margin-top: 20px;
+    }
+
+    .headerContent {
+        display: flex;
+    }
+
+    .serviceName {
+        margin-top: 7px;
+    }
+
+    .price {
+        margin-top: 3px;
+    }
+
+    .reviews {
+        margin-top: 7px;
+    }
+
+    @@media (max-width: 410px) {
+        .ServiceCard {
+            width: 355px;
+            height: 161px;
+        }
+
+        .serviceName {
+            margin-top: 2px;
+            font-size: larger;
+        }
+
+        .reviews {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+    }
+
+    @@media (max-width: 375px) {
+        .ServiceCard {
+            width: 345px;
+        }
+
+        .serviceName {
+            margin-top: 2px;
+            font-size: larger;
+        }
+
+        .reviews {
+            margin-top: 2px;
+            font-size: small;
+        }
+    }
+
+    .chatimage{
+        margin-top: 44px;
+        margin-right: 10px;
+    }
+
+    .Bookingtext {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 9px;margin-left: 5px;">
+        <div class="col ml-3 mt-1">
+            <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
+            <span class="IconText">My Calendar</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+   
+
+    <div class="row DivCenter ">
+        <div class="col DivCenter ml-10">
+            <MudDatePicker PickerVariant="PickerVariant.Static" Color="Color.Primary" Rounded="true" Date="@(DateTime.Today)" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ml-3 ">
+            <MudCardActions Class="text Bookingtext">
+                <MudText Style="font-weight:bold" Typo="Typo.h6">Services Booking(2)</MudText>
+                <MudButton Variant="Variant.Text"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
+            </MudCardActions>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ml-2  mb-5 ">
+            <MudCard Elevation="5" Class="ServiceCard">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <div class="headerContent">
+                            <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
+                            <div style="margin-left:26px;">
+                                <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
+                                <MudText Typo="Typo.subtitle1">Jerry Wilson</MudText>
+                                <MudChip Variant="Variant.Text" Color="Color.Primary">Upcoming</MudChip>
+                             
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudImage Class="img-fluid chatimage" Src="images/chatIcon.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudCard>
+            <MudCard Elevation="5" Class="ServiceCard">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <div class="headerContent">
+                            <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
+                            <div style="margin-left:26px;">
+                                <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">Appliance Service</MudText>
+                                <MudText Typo="Typo.subtitle1">Alex Niguyen</MudText>
+                                <MudChip Variant="Variant.Text" Color="Color.Primary">Upcoming</MudChip>
+
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudImage Class="img-fluid chatimage" Src="images/chatIcon.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+@code {
+
+   
+
+
+}
+

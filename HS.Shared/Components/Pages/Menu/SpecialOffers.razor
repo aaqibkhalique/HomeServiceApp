@@ -1,0 +1,73 @@
+﻿@page "/SpecialOffers"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Special Offers</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+
+
+    <div class="row mt-5">
+        <div>
+            <MudImage Class="mx-auto my-auto" Src="images/T1.png" Elevation="0" Style="height:100%;width:100%" />
+        </div>
+        <div>
+            <MudImage Class="mx-auto my-auto" Src="images/T2.png" Elevation="0" Style="height:100%;width:100%" />
+        </div>
+        <div>
+            <MudImage Class="mx-auto my-auto" Src="images/T3.png" Elevation="0" Style="height:100%;width:100%" />
+        </div>
+        <div>
+            <MudImage Class="mx-auto my-auto" Src="images/T4.png" Elevation="0" Style="height:100%;width:100%" />
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+ 
+
+}

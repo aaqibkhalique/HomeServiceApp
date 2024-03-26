@@ -1,0 +1,191 @@
+﻿@page "/SignUp"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+ 
+    }
+    .text{
+        font-weight: bolder;
+        margin-top:15px;
+    }
+
+    .email{
+        margin-top:20px;
+    }
+
+    .DivCenter{
+        display: flex;
+        justify-content: center;
+    }
+
+    .SignUpBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+    }
+
+    .hr-sect {
+        display: flex;
+        flex-basis: 80%;
+        align-items: center;
+        color: black;
+        margin: 8px 0px;
+        margin-top: 40px;
+    }
+
+        .hr-sect::before,
+        .hr-sect::after {
+            content: "";
+            flex-grow: 1;
+            background: rgba(0, 0, 0, 0.35);
+            height: 1px;
+            font-size: 0px;
+            line-height: 0px;
+            margin: 0px 8px;
+        }
+
+        .BtnIcon{
+        border-radius: 8px;
+        border-color: gray;
+        }
+
+    .PasswordIcon {
+        border-bottom: solid 1px #bdbdbd;
+        position: relative;
+        padding-top: 15px;
+        background-color: #e8e8e8;
+        height: 56px;
+        margin-top: 6px;
+        border-top-left-radius: 5px;
+        padding-left: 3px;
+    }
+
+    .EmailIcon {
+        border-bottom: solid 1px #bdbdbd;
+        position: relative;
+        padding-top: 15px;
+        background-color: #e8e8e8;
+        height: 56px;
+        margin-top: 6px;
+        border-top-left-radius: 5px;
+        padding-left: 3px;
+    }
+
+    .mud-input-label-filled {
+        margin-left: 36px !important;
+    }
+
+    .mud-input-slot {
+        margin-left: 34px !important;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack"></MudIconButton>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col  ml-5 text">
+            <MudText Typo="Typo.h3" Class="text">Create your Acount</MudText>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 ml-7  mr-5 email DivCenter">
+            <div class="EmailIcon">
+                <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Email" Size="Size.Medium" />
+            </div>
+            <MudTextField Class="mr-7" @bind-Value="Email" Label="Email" Variant="Variant.Filled" Adornment="Adornment.None" />
+        </div>
+        <div class="col-12 ml-7 mr-5 mt-5 DivCenter">
+            <div class="PasswordIcon">
+                <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Lock" Size="Size.Medium" />
+            </div>
+            <MudTextField Class="mr-7" @bind-Value="Password" Label="Password" Variant="Variant.Filled" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ShowPassword" />
+        </div>
+    </div>
+
+
+    <div class="row ">
+        <div class="col DivCenter">
+            <MudCheckBox  @bind-Value="@RememberMe" Size="Size.Medium" Color="Color.Primary" Label="Remember Me"></MudCheckBox>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col mt-5 DivCenter">
+            <MudButton Class="SignUpBtn" Variant="Variant.Filled" Color="Color.Primary">Sign Up</MudButton>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col  DivCenter">
+            <div class="hr-sect"> <p style="font-weight:200;">or continue with</p></div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col DivCenter">
+            <MudButton Class="BtnIcon" Variant="Variant.Outlined" Style="@($"color:{Colors.Blue.Default};")" Size="Size.Large"><MudIcon Icon="@Icons.Custom.Brands.Facebook" Size="Size.Large" /></MudButton>
+            <MudButton Class="BtnIcon ml-5" Variant="Variant.Outlined" Style="@($"color:{Colors.Shades.Black};")" Size="Size.Large"><MudIcon Icon="@GoogleIconSvg" Size="Size.Large" /></MudButton>
+            <MudButton Class="BtnIcon ml-5" Variant="Variant.Outlined" Style="@($"color:{Colors.Shades.Black};")" Size="Size.Large"><MudIcon Icon="@Icons.Custom.Brands.Apple" Size="Size.Large" /></MudButton>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+        <div class="col DivCenter" >
+            <MudLink Href="/SignIn" Disabled="true">Already have an account?  </MudLink> &nbsp;&nbsp; <MudLink Href="/SignIn" Style="font-weight:bolder;">  Sign In</MudLink>
+        </div>
+    </div>
+</div>
+@code {
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("/");
+    }
+    public string? Email { get; set; }
+    public string? Password { get; set; } 
+    public bool RememberMe { get; set; } = false;
+    bool isShow;
+    InputType PasswordInput = InputType.Password;
+    string PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+
+    const string GoogleIconSvg = @"<svg viewBox=""0 0 48 48"" >
+  <title>Google Logo</title>
+  <clipPath id=""g"" >
+    <path d=""M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"" />
+  </clipPath>
+  <g class=""colors"" clip-path=""url(#g)"" >
+    <path fill=""#FBBC05"" d=""M0 37V11l17 13z"" />
+    <path fill=""#EA4335"" d=""M0 11l17 13 7-6.1L48 14V0H0z"" />
+    <path fill=""#34A853"" d=""M0 37l30-23 7.9 1L48 0v48H0z""/>
+    <path fill=""#4285F4"" d=""M48 48L17 24l-4-3 35-10z"" />
+  </g>
+</svg>";
+
+
+    void ShowPassword()
+    {
+        @if (isShow)
+        {
+            isShow = false;
+            PasswordInputIcon = Icons.Material.Filled.VisibilityOff;
+            PasswordInput = InputType.Password;
+        }
+        else
+        {
+            isShow = true;
+            PasswordInputIcon = Icons.Material.Filled.Visibility;
+            PasswordInput = InputType.Text;
+        }
+    }
+
+}

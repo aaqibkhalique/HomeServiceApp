@@ -1,0 +1,377 @@
+﻿@page "/ActionMenu"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+
+
+
+<style>
+
+    .container {
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin-bottom:5px;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .mud-image {
+        height: 50px;
+    }
+
+    .text {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .services {
+        display: flex;
+        justify-content: space-between;
+        width: 90%
+    }
+
+    .linetop {
+        border-top: solid 1px #e8e8e8;
+    }
+
+    .mud-chip {
+        border: solid !important;
+    }
+
+    .scroll {
+        margin: 4px, 4px;
+        padding: 4px;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+    .ServiceCard {
+        height: 156px;
+    margin-right:5px;
+        border-radius: 38px;
+        margin-top:20px;
+    }
+
+    .headerContent {
+        display:flex;
+    }
+
+    .serviceName{
+        margin-top:7px;
+    }
+    .price{
+        margin-top: 3px;
+    }
+
+    .reviews{
+        margin-top: 2px;
+    }
+
+    @@media (max-width: 410px) {
+        .ServiceCard {
+            width: 355px;
+            height: 161px;
+        
+        }
+
+        .serviceName {
+            margin-top: 2px;
+            font-size: larger;
+        }
+        .reviews{
+            font-size: 14px;
+            margin-top: 8px;
+        }
+    }
+
+    @@media (max-width: 375px) {
+        .ServiceCard {
+            width: 345px;
+        }
+
+        .serviceName {
+            margin-top: 2px;
+            font-size: larger;
+        }
+
+        .reviews {
+            margin-top: 2px;
+            font-size: small;
+        }
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" >
+        <div class="col ml-3 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/DP.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.body2">Good Morning 👋</MudText>
+                    <MudText Style="font-weight:bold" Typo="Typo.h6">Andrew Ainsley</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.NotificationsNone" Color="Color.Default" OnClick="NavigateToNotification" />
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.BookmarkBorder" Color="Color.Default" OnClick="NavigateToBookmark" />
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudTextField @bind-Value="Search" Label="Search" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.FilterList" AdornmentColor="Color.Primary" />
+            </MudCardContent>
+            <MudCardActions Class="text">
+                <MudText Style="font-weight:bold" Typo="Typo.h6">Special Offers</MudText>
+                <MudButton Variant="Variant.Text" OnClick="NavigateToSpecialOffers"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
+            </MudCardActions>
+        </div>
+    </div>
+
+    <div class="row">
+        <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="false" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="true" TData="object">
+            <MudCarouselItem Transition="transition">
+                <div class="d-flex" style="height:100%">
+                    <MudImage Class="mx-auto my-auto" Src="images/T1.png" Elevation="0" Style="height:100%;width:100%" />
+                </div>
+            </MudCarouselItem>
+            <MudCarouselItem Transition="transition">
+                <div class="d-flex" style="height:100%">
+                    <MudImage Class="mx-auto my-auto" Src="images/T2.png" Elevation="0" Style="height:100%;width:100%" />
+                </div>
+            </MudCarouselItem>
+            <MudCarouselItem Transition="transition">
+                <div class="d-flex" style="height:100%">
+                    <MudImage Class="mx-auto my-auto" Src="images/T3.png" Elevation="0" Style="height:100%;width:100%" />
+                </div>
+            </MudCarouselItem>
+            <MudCarouselItem Transition="transition">
+                <div class="d-flex" style="height:100%">
+                    <MudImage Class="mx-auto my-auto" Src="images/T4.png" Elevation="0" Style="height:100%;width:100%" />
+                </div>
+            </MudCarouselItem>
+        </MudCarousel>
+
+    </div>
+
+    <div class="row">
+        <div class="col ml-3 ">
+            <MudCardActions Class="text">
+                <MudText Style="font-weight:bold" Typo="Typo.h6">Services</MudText>
+                <MudButton Variant="Variant.Text"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
+            </MudCardActions>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ml-3 services">
+            <div style="text-align:center">
+                <MudImage Src="images/cleaning.png" Elevation="0" Height="80" Width="70" />
+                <h5 class="mt-3">Cleaning</h5>
+            </div>
+            <div style="text-align:center">
+                <MudImage Src="images/repairing.png" Elevation="0" Height="80" Width="70" />
+                <h5 class="mt-3">Repairing</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/painting.png" Elevation="0" Height="80" Width="70" />
+                <h5 class="mt-3">Painting</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/laundry.png" Elevation="0" Height="80" Width="70" />
+                <h5 class="mt-3">Laundry</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col ml-3 services">
+            <div style="text-align:center">
+                <MudImage Src="images/appliances.png" Elevation="0" Height="80" Width="70" />
+                <h5 class="mt-3">Appliances</h5>
+            </div>
+            <div style="text-align:center">
+                <MudImage Src="images/plumbing.png" Elevation="0" Height="80" Width="70" />
+                <h5 class="mt-3">Plumbing</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/shifting.png" Elevation="0" Height="80" Width="70" />
+                <h5 class="mt-3">Shifting</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/more.png" Elevation="0" Height="80" Width="70" />
+                <h5 class="mt-3">More</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col ml-3 linetop ">
+
+            <MudCardActions Class="text">
+                <MudText Style="font-weight:bold" Typo="Typo.h6">Most Popular Services</MudText>
+                <MudButton Variant="Variant.Text" OnClick="NavigateToBookmark"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
+            </MudCardActions>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <div class="scroll">
+                <MudChipSet Filter="false" Mandatory="true" SelectedChipChanged="OnSelectChip">
+                    <MudChip Text="All" Variant="Variant.Text" Color="Color.Primary">All</MudChip>
+                    <MudChip Text="Cleaning" Variant="Variant.Text" Color="Color.Primary">Cleaning</MudChip>
+                    <MudChip Text="repairing" Variant="Variant.Text" Color="Color.Primary">Repairing</MudChip>
+                    <MudChip Text="painting" Variant="Variant.Text" Color="Color.Primary">Painting</MudChip>
+                    <MudChip Text="laundry" Variant="Variant.Text" Color="Color.Primary">Laundry</MudChip>
+                    <MudChip Text="appliances" Variant="Variant.Text" Color="Color.Primary">Appliances</MudChip>
+                    <MudChip Text="plumbing" Variant="Variant.Text" Color="Color.Primary">Plumbing</MudChip>
+                    <MudChip Text="shifting" Variant="Variant.Text" Color="Color.Primary">Shifting</MudChip>
+                </MudChipSet>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col ml-2 mt-5 mb-5 ">
+            <MudCard Elevation="5" Class="ServiceCard">
+                <MudCardHeader>
+                    <CardHeaderContent  >
+                        <div class="headerContent">
+                            <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
+                            <div style="margin-left:26px;">
+                                <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
+                                <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
+                                <MudText Class="price font-weight-bold" Color="Color.Primary" Typo="Typo.h6">$25</MudText>
+                                <MudText Class="reviews" Typo="Typo.subtitle1"><MudIcon Class="reviews" Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />     <span>4.9 | 6.182 reviews</span></MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudIconButton Icon="@Icons.Material.Filled.Bookmark" Color="Color.Primary" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudCard>
+
+            <MudCard Elevation="5" Class="ServiceCard">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <div class="headerContent">
+                            <MudImage Src="images/s2.png" Elevation="0" Style="height:120px;" />
+                            <div style="margin-left:26px;">
+                                <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
+                                <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
+                                <MudText Class="price font-weight-bold" Color="Color.Primary" Typo="Typo.h6">$25</MudText>
+                                <MudText Class="reviews" Typo="Typo.subtitle1"><MudIcon Class="reviews" Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />     <span>4.9 | 6.182 reviews</span></MudText>
+                            </div>
+                           
+                        </div>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudIconButton Icon="@Icons.Material.Filled.BookmarkBorder" Color="Color.Default" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudCard>
+                   <MudCard Elevation="5" Class="ServiceCard">
+                <MudCardHeader>
+                    <CardHeaderContent  >
+                        <div class="headerContent">
+                            <MudImage Src="images/s3.png" Elevation="0" Style="height:120px;" />
+                            <div style="margin-left:26px;">
+                                <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
+                                <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
+                                <MudText Class="price font-weight-bold" Color="Color.Primary" Typo="Typo.h6">$25</MudText>
+                                <MudText Class="reviews" Typo="Typo.subtitle1"><MudIcon Class="reviews" Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />     <span>4.9 | 6.182 reviews</span></MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudIconButton Icon="@Icons.Material.Filled.Bookmark" Color="Color.Primary" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudCard>
+            <MudCard Elevation="5" Class="ServiceCard">
+                <MudCardHeader>
+                    <CardHeaderContent >
+                        <div class="headerContent">
+                            <MudImage Src="images/s4.png" Elevation="0" Style="height:120px;" />
+                            <div style="margin-left:26px;">
+                                <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
+                                <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
+                                <MudText Class="price font-weight-bold" Color="Color.Primary" Typo="Typo.h6">$25</MudText>
+                                <MudText Class="reviews" Typo="Typo.subtitle1"><MudIcon Class="reviews" Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />     <span>4.9 | 6.182 reviews</span></MudText>
+                            </div>
+                        </div>
+                       
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudIconButton Icon="@Icons.Material.Filled.BookmarkBorder" Color="Color.Default" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+@code {
+    public string Search { get; set; }
+    private Transition transition = Transition.Slide;
+    @inject NavigationManager Navigation;
+ 
+
+
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("ForgetPasswordOne");
+    }
+
+
+
+    private void VerifyClick()
+    {
+        Navigation.NavigateTo("CreateNewPassword");
+    }
+
+    private void NavigateToBookmark()
+    {
+        Navigation.NavigateTo("MyBookmark");
+    }
+    private void NavigateToSpecialOffers()
+    {
+        Navigation.NavigateTo("SpecialOffers");
+    }
+    private void NavigateToNotification()
+    {
+        Navigation.NavigateTo("Notification");
+    }
+    
+
+    private void OnSelectChip(MudChip mud)
+    {
+
+    }
+
+ 
+}
+

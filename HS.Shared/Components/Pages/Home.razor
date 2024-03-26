@@ -1,0 +1,103 @@
+﻿@using MudBlazor
+@page "/Home"
+
+<style>
+  
+
+    .mud-tabs-toolbar {
+        position: fixed !important;
+        bottom: -28px !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index:500;
+    }
+
+ 
+   /* For screens smaller than 768px (e.g., smartphones) */
+@@media (max-width: 767px) {
+        .Mydiv {
+    width: 100%;
+
+  }
+
+        .mud-tabs-toolbar{
+           width :375px;
+        }
+}
+
+/* For screens between 768px and 992px (e.g., tablets) */
+@@media (min-width: 768px)  {
+        .Mydiv {
+    width: 80%;
+  }
+}
+
+/* For screens between 993px and 1200px (e.g., small laptops) */
+@@media (min-width: 992px)  {
+        .Mydiv {
+    width: 60%;
+  }
+}
+
+/* For screens larger than 1200px (e.g., desktops) */
+    @@media (min-width: 1200px) {
+        .Mydiv {
+    width: 50%;
+  }
+}
+
+    .mud-tabs-toolbar{
+        width:100%
+    }
+
+    .mud-tooltip-root{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+   
+    .mud-tab-slider{
+        background: #00000000;
+    }
+
+
+</style>
+
+
+
+<MudCard>
+    <MudTabs Elevation="0" Rounded="true"  Position="Position.Bottom" ApplyEffectsToContainer="true"  MinimumTabWidth="10px" Centered="true">
+        <MudTabPanel Icon="@Icons.Material.Filled.Home">
+            <div class="Mydiv">
+                <HS.Shared.Components.Pages.Menu.ActionMenu></HS.Shared.Components.Pages.Menu.ActionMenu>
+            </div>
+
+        </MudTabPanel>
+        <MudTabPanel Icon="@Icons.Material.Filled.Article">
+            <MudText>Content two</MudText>
+        </MudTabPanel>
+        <MudTabPanel Icon="@Icons.Material.Filled.CalendarMonth">
+            <div class="Mydiv">
+                <HS.Shared.Components.Pages.Calendar.MyCalendar></HS.Shared.Components.Pages.Calendar.MyCalendar>
+            </div>
+        </MudTabPanel>
+        <MudTabPanel Icon="@Icons.Material.Filled.Sms">
+            <MudText>Content 4</MudText>
+        </MudTabPanel>
+        <MudTabPanel Icon="@Icons.Material.Filled.Person">
+            <MudText>Content 5</MudText>
+        </MudTabPanel>
+      
+    </MudTabs>
+</MudCard>
+
+
+
+@code {
+    @inject NavigationManager Navigation;
+
+    private void BtnNextClick()
+    {
+        Navigation.NavigateTo("SignUp");
+    }
+
+}
