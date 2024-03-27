@@ -1,0 +1,153 @@
+﻿@page "/AllServices"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+    .services {
+        display: flex;
+        justify-content: space-between;
+        width: 90%
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">All Services</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col ml-3 mt-5 services">
+            <div style="text-align:center">
+                <MudButton>
+
+                    <MudImage Src="images/cleaning.png" Elevation="0" Height="70" Width="70" />
+                </MudButton>
+                <h5 class="mt-3">Cleaning</h5>
+            </div>
+            <div style="text-align:center">
+                <MudImage Src="images/repairing.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Repairing</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/painting.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Painting</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/laundry.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Laundry</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col ml-3 services">
+            <div style="text-align:center">
+                <MudImage Src="images/appliances.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Appliances</h5>
+            </div>
+            <div style="text-align:center">
+                <MudImage Src="images/plumbing.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Plumbing</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/shifting.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Shifting</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/beauty.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Beauty</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col ml-3 services">
+            <div style="text-align:center">
+
+                <MudImage Src="images/AcRepair.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">AC Repa..</h5>
+            </div>
+            <div style="text-align:center">
+                <MudImage Src="images/vehicle.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Vehicle</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/electronic.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Electronics</h5>
+            </div>
+
+            <div style="text-align:center">
+                <MudImage Src="images/massage.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Massage</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col ml-3 services">
+            <div style="text-align:center">
+                <MudImage Src="images/menSaloon.png" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3">Men's Sal..</h5>
+            </div>
+           
+        </div>
+    </div>
+
+
+</div>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

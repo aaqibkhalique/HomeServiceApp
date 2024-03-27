@@ -1,0 +1,24 @@
+﻿
+
+<MudDialog>
+    <DialogContent>
+        <MudImage Src="images/dialog.png" Elevation="0"  />
+
+        <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Booking Successful</MudText>
+
+
+        <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">View E-Receipt</MudButton>
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+}

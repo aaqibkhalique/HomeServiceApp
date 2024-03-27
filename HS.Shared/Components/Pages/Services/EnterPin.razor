@@ -1,0 +1,125 @@
+﻿
+@page "/EnterPin"
+@using HS.Shared.Components.Layout
+@using HS.Shared.Components.Pages.Dialogs
+@layout EmptyLayout
+
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .Text {
+        font-weight: 500;
+        width: 333px;
+        margin-top: 25px;
+    }
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+        margin-top: 50px;
+    }
+
+    .mud-input-numeric-spin {
+        display: none !important;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Enter Your Pin</span>
+        </div>
+    </div>
+    <div class="row  DivCenter">
+        <div class="col DivCenter">
+            <MudText Typo="Typo.subtitle2" Style="margin-top:60px">Enter your pin to confirm payment</MudText>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col DivCenter">
+            <MudGrid Class="justify-space-between" Style="max-width: 300px;margin-top:45px;">
+                <MudItem xs="3">
+                    <MudTextField InputType="InputType.Number" Mask="@(new PatternMask("0"))"
+                                  @bind-Value="cvc1" Variant="@Variant.Outlined" Min="0" Max="9" />
+                </MudItem>
+                <MudItem xs="3">
+                    <MudTextField InputType="InputType.Number" Mask="@(new PatternMask("0"))"
+                                  @bind-Value="cvc2" Variant="@Variant.Outlined" Min="0" Max="9" />
+                </MudItem>
+                <MudItem xs="3">
+                    <MudTextField InputType="InputType.Number" Mask="@(new PatternMask("0"))"
+                                  @bind-Value="cvc3" Variant="@Variant.Outlined" Min="0" Max="9" />
+                </MudItem>
+                <MudItem xs="3">
+                    <MudTextField InputType="InputType.Number" Mask="@(new PatternMask("0"))"
+                                  @bind-Value="cvc4" Variant="@Variant.Outlined" Min="0" Max="9" />
+                </MudItem>
+            </MudGrid>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col mt-5 DivCenter">
+            <MudButton Class="ContinueBtn" OnClick="@((e) => OpenDialog(disableBackdropClick))" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+    private string cvc1;
+    private string cvc2;
+    private string cvc3;
+    private string cvc4;
+
+    @inject NavigationManager Navigation;
+    @inject IDialogService Dialog
+
+    DialogOptions disableBackdropClick = new DialogOptions() { DisableBackdropClick = true };
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("ForgetPasswordOne");
+    }
+
+    string stylingCard1 = "";
+    string stylingCard2 = "";
+
+
+
+
+    private void OpenDialog(DialogOptions options)
+    {
+        Dialog.Show<FirstDialog>("teste", options);
+    }
+
+}
+

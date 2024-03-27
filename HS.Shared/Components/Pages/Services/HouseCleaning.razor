@@ -1,0 +1,292 @@
+﻿
+@page "/HouseCleaning"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+        height: 647px;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: 500;
+        width: 333px;
+        margin-top: 10px;
+    }
+
+   
+
+    .Sticky {
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+    }
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+        width: 135px;
+        margin-left: 41px;
+        margin-top: 5px;
+    }
+    
+    .mudCard {
+        border-radius: 23px;
+        width: 80%;
+    }
+ 
+    .numberText {
+         margin-top: 8px;
+    }
+    .iconButton{
+        background-color: #F4ECFF !important;
+    }
+
+
+    .cardHeader .mud-card-header-content {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">House Cleaning</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+    <div class="row  DivCenter  ">
+        <div class="col DivCenter">
+            <MudText Typo="Typo.subtitle1" Class="Text">Enter the number of items to be cleaned</MudText>
+        </div>
+    </div>
+
+    <div class="row  mt-5">
+        <div class="col DivCenter mb-5">
+            <MudCard Class="mudCard">
+                <MudCardHeader Class="cardHeader">
+                    <CardHeaderAvatar>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Living Room</MudText>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
+                            </div>
+                            <div>
+                                <MudText Class="numberText" Typo="Typo.h6">0</MudText>
+                            </div>
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col DivCenter mb-5">
+            <MudCard Class="mudCard">
+                <MudCardHeader Class="cardHeader">
+                    <CardHeaderAvatar>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Terrace</MudText>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
+                            </div>
+                            <div>
+                                <MudText Class="numberText" Typo="Typo.h6">0</MudText>
+                            </div>
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter mb-5">
+            <MudCard Class="mudCard">
+                <MudCardHeader Class="cardHeader">
+                    <CardHeaderAvatar>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Bedroom</MudText>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
+                            </div>
+                            <div>
+                                <MudText Class="numberText" Typo="Typo.h6">0</MudText>
+                            </div>
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter mb-5">
+            <MudCard Class="mudCard">
+                <MudCardHeader Class="cardHeader">
+                    <CardHeaderAvatar>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Bathroom</MudText>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
+                            </div>
+                            <div>
+                                <MudText Class="numberText" Typo="Typo.h6">0</MudText>
+                            </div>
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+        <div class="row">
+        <div class="col DivCenter mb-5">
+            <MudCard Class="mudCard">
+                <MudCardHeader Class="cardHeader">
+                    <CardHeaderAvatar>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Kitchen</MudText>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
+                            </div>
+                            <div>
+                                <MudText Class="numberText" Typo="Typo.h6">0</MudText>
+                            </div>
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+       <div class="row">
+        <div class="col DivCenter mb-5">
+            <MudCard Class="mudCard">
+                <MudCardHeader Class="cardHeader">
+                    <CardHeaderAvatar>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Dining Room</MudText>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
+                            </div>
+                            <div>
+                                <MudText Class="numberText" Typo="Typo.h6">0</MudText>
+                            </div>
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter mb-5">
+            <MudCard Class="mudCard">
+                <MudCardHeader Class="cardHeader">
+                    <CardHeaderAvatar>
+                        <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Garage</MudText>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
+                            </div>
+                            <div>
+                                <MudText Class="numberText" Typo="Typo.h6">0</MudText>
+                            </div>
+                            <div>
+                                <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+</div>
+
+<MudCard Class="Sticky DivCenter">
+    <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Continue - $0</MudButton>
+</MudCard>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+
