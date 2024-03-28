@@ -1,0 +1,234 @@
+﻿@page "/Receipt"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+  
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+    }
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    ..mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mudCard {
+        border-radius: 10px;
+        margin-top: 25px;
+        width: 326px;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">E-Receipt </span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col DivCenter ">
+
+            <MudImage Class="img-fluid" Src="images/barcode.png" Elevation="0" Width="400" Height="150" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Services</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">House Cleaning</MudText>
+                            </div>
+                        </div>
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Category</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Cleaning</MudText>
+                            </div>
+                        </div>
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Workers</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Jenny Wilson</MudText>
+                            </div>
+                        </div>
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Date & Time</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Dec 23, 2024 | 10:00 AM   </MudText>
+                            </div>
+                        </div>
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Working Hours</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight: bold;">2 hours</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">House Cleaning Details</MudText>
+                            </div>
+                            <div>
+                                <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown"></MudIcon>
+                            </div>
+                        </div>
+
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col DivCenter mb-3">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Amount</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">$125.00</MudText>
+                            </div>
+                        </div>
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Color="Color.Primary" Typo="Typo.subtitle1">Promo </MudText>
+                            </div>
+                            <div>
+                                <MudText Color="Color.Primary" Typo="Typo.subtitle1" Style="font-weight:bold">-$37.50</MudText>
+                            </div>
+                        </div>
+                        
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Total</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Credit Card</MudText>
+                            </div>
+                        </div>
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Date & Time</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Dec 23, 2024 | 10:00 AM   </MudText>
+                            </div>
+                        </div>
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Transaction ID</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">SK7263727399   </MudText>
+                            </div>
+                        </div>
+                        <div class="cardContent mt-5">
+                            <div>
+                                <MudText Typo="Typo.subtitle1">Status</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Paid   </MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+   
+</div>
+
+
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+    public bool CheckBox1 { get; set; } = false;
+    public bool CheckBox2 { get; set; } = false;
+    public bool CheckBox3 { get; set; } = false;
+    public bool CheckBox4 { get; set; } = true;
+    public bool CheckBox5 { get; set; } = false;
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

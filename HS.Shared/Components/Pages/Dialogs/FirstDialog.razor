@@ -1,19 +1,40 @@
-﻿
+﻿<style>
+    .mud-dialog {
+  
+        width: 350px;
+        border-radius: 44px;
+    }
+
+
+    .ReceiptBtn {
+        border-radius: 30px;
+        width: 250px;
+        height: 50px;
+        margin-top: 30px;
+    }
+
+    .MessageBtn {
+        border-radius: 30px;
+        width: 250px;
+        height: 50px;
+        margin-top: 30px;
+        color: var(--mud-palette-primary);
+        background-color: #F4ECFF;
+    }
+
+</style>
 
 <MudDialog>
     <DialogContent>
-        <MudImage Src="images/dialog.png" Elevation="0"  />
-
-        <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Booking Successful</MudText>
-
-
-        <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">View E-Receipt</MudButton>
-
+        <div class="text-center" style="text-align:center;">
+            <MudImage Src="images/dialog.png" Elevation="0" Style="width:200px;" />
+            <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Booking Successful</MudText>
+            <MudText Typo="Typo.subtitle1" Style="margin-top:12px;">You have successfully made payment and book the services</MudText>
+            <MudButton Class="ReceiptBtn" Variant="Variant.Filled" OnClick="Submit" Color="Color.Primary">View E-Receipt</MudButton>
+            <MudButton Class="MessageBtn" Variant="Variant.Filled" OnClick="Cancel">Message Workers</MudButton>
+            <br>
+        </div>
     </DialogContent>
-    <DialogActions>
-        <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
-    </DialogActions>
 </MudDialog>
 
 @code {
