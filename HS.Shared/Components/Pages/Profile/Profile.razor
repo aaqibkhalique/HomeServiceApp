@@ -1,0 +1,136 @@
+﻿@page "/Profile"
+
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+        height: 900px;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+
+
+    .mud-avatar.mud-avatar-large {
+        width: 100px;
+        height: 100px;
+      
+    }
+ 
+    .mud-badge {
+        margin-top: 77px;
+        border-radius: 7px;
+        position: static;
+    }
+   
+   .listIcon{
+        float: right;
+    }
+
+    .Logout{
+        color: red;
+    }
+
+    .mud-list-item-text .mud-typography {
+        font-weight: bolder;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 9px;margin-left: 5px;">
+        <div class="col ml-3 mt-1">
+            <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
+            <span class="IconText">Profile</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col ">
+            <MudCard Elevation="0">
+                <MudCardContent Style="text-align: center;">
+                    <MudBadge Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Overlap="true" Bordered="true">
+                        <MudAvatar Size="Size.Large" Image="images/DP.png" />
+                    </MudBadge>
+                    <MudText Typo="Typo.h6" Style="font-weight:bolder;">Andrew Ainsley</MudText>
+                    <MudText Typo="Typo.body2" Style="font-weight:bolder;">andrew_ainsley@yourdomain.com</MudText>
+                </MudCardContent>
+            </MudCard>
+        </div>
+    </div>
+ 
+    <MudDivider DividerType="DividerType.Middle"></MudDivider>
+
+    <MudPaper Elevation="0">
+        <MudList Clickable="true">
+
+            <MudListItem Icon="@Icons.Material.Filled.Person"  @onclick=@(() => NavigateTo("EditProfile"))>
+                Edit Profile   <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
+            </MudListItem>
+            <MudListItem Icon="@Icons.Material.Filled.Notifications" @onclick=@(() => NavigateTo("ProfileNotification"))>
+                Notification  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
+            </MudListItem>
+            <MudListItem Icon="@Icons.Material.Filled.Payment" @onclick=@(() => NavigateTo("ProfilePayment"))>
+                Payment  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
+            </MudListItem>
+            <MudListItem Icon="@Icons.Material.Filled.SystemSecurityUpdateGood" @onclick=@(() => NavigateTo("ProfileSecurity"))>
+                Security  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
+            </MudListItem>
+            <MudListItem Icon="@Icons.Material.Rounded.Casino" @onclick=@(() => NavigateTo("ProfileLanguage"))>
+                Language   <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon> <p class="listIcon mr-5">English(US)</p>
+            </MudListItem>
+            <MudListItem Icon="@Icons.Material.Rounded.RemoveRedEye" >
+                Dark Mode  <MudSwitch Style="float: right;height: 24px;" @bind-Value="@DarkModeSwitch" />
+            </MudListItem>
+            <MudListItem Icon="@Icons.Material.Rounded.Lock" @onclick=@(() => NavigateTo("PrivacyPolicy"))>
+                Privacy Policy  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
+            </MudListItem>
+            <MudListItem Icon="@Icons.Material.Filled.Info" @onclick=@(() => NavigateTo("HelpCenter"))>
+                Help Center  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
+            </MudListItem>
+            <MudListItem Icon="@Icons.Material.Filled.People" @onclick=@(() => NavigateTo("InviteFriends"))>
+                Invite Friends   <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
+            </MudListItem>
+            <MudListItem Class="Logout" AdornmentColor="Color.Error" IconColor="Color.Error" Icon="@Icons.Material.Filled.Logout">
+                Logout  
+            </MudListItem>
+        </MudList>
+    </MudPaper>
+        
+</div>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+    public bool DarkModeSwitch { get; set; } = false;
+    private void NavigateTo(string page)
+    {
+        Navigation.NavigateTo(page);
+    }
+}
+

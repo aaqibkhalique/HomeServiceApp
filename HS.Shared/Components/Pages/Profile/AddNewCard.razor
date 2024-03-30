@@ -1,0 +1,140 @@
+﻿@page "/AddNewCard"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+    .Sticky {
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+    }
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mudCard {
+        border-radius: 10px;
+        margin-top: 25px;
+        width: 326px;
+    }
+
+    .mud-input-control{
+        margin-right: 25px;
+        margin-left: 10px;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3  mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Add New Card</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;margin-right: 16px;">
+        <div class="col ml-3">
+            <MudImage Fluid="true" Src="images/creditcard.png"></MudImage>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+           <MudText Typo="Typo.h6" Style="font-weight:bolder">Card Name</MudText>
+            <MudTextField @bind-Value="CardName" Variant="Variant.Filled"></MudTextField>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudText Typo="Typo.h6" Style="font-weight:bolder">Card Number</MudText>
+            <MudTextField @bind-Value="CardNumber" Variant="Variant.Filled"></MudTextField>
+        </div>
+    </div>
+
+
+
+    <div class="row" style="margin-top: 20px;display: flex;">
+        <div class="col ml-3">
+            <MudText Typo="Typo.h6" Style="font-weight:bolder">Expiry</MudText>
+            <MudDatePicker @bind-Date="date" />
+        </div>
+        <div class="col ml-3">
+            <MudText Typo="Typo.h6" Style="font-weight:bolder">CVV</MudText>
+            <MudTextField @bind-Value="CVV" Variant="Variant.Filled"></MudTextField>
+        </div>
+    </div>
+
+
+</div>
+
+<MudCard Class="Sticky DivCenter">
+    <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Add New Card</MudButton>
+</MudCard>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    public string CardName { get; set; } = "Andrew Ainsley";
+    public string CardNumber { get; set; } = "2672 4738 7837 7285";
+    public string CVV { get; set; } = "699";
+    DateTime? date = DateTime.Today;
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

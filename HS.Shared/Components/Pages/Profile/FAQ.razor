@@ -1,0 +1,225 @@
+﻿@page "/FAQ"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+    .scroll {
+        margin: 4px, 4px;
+        padding: 4px;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+
+    .mud-paper {
+        border-radius: 27px;
+        margin: 20px;
+    }
+
+    .mud-button-label {
+        justify-content: space-between;
+        font-weight: bolder;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col">
+            <div class="scroll">
+                <MudChipSet Filter="false" Mandatory="true" SelectedChipChanged="OnSelectChip">
+                    <MudChip Text="General" Variant="Variant.Text" Color="Color.Primary">General</MudChip>
+                    <MudChip Text="Account" Variant="Variant.Text" Color="Color.Primary">Account</MudChip>
+                    <MudChip Text="Service" Variant="Variant.Text" Color="Color.Primary">Service</MudChip>
+                    <MudChip Text="Payment" Variant="Variant.Text" Color="Color.Primary">Payment</MudChip>
+                </MudChipSet>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <MudTextField @bind-Value="Search" Label="Search" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.FilterList" AdornmentColor="Color.Primary" />
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <MudCard>
+                <MudCardContent>
+                    <MudStack Spacing="2">
+                        <MudButton @onclick=@(() => OnExpandCollapseClick(1))>
+                            What is Hamo?
+                            <MudIcon Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowDropDown"></MudIcon>
+                        </MudButton>
+                        <MudDivider />
+                        <MudCollapse Expanded="_expanded1">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </MudCollapse>
+                    </MudStack>
+                </MudCardContent>
+                <MudCardActions>
+                </MudCardActions>
+            </MudCard>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <MudCard>
+                <MudCardContent>
+                    <MudStack Spacing="2">
+                        <MudButton @onclick=@(() => OnExpandCollapseClick(2))>
+                            How to use Hamo?
+                            <MudIcon Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowDropDown"></MudIcon>
+                        </MudButton>
+                        <MudDivider />
+                        <MudCollapse Expanded="_expanded2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </MudCollapse>
+                    </MudStack>
+                </MudCardContent>
+                <MudCardActions>
+                </MudCardActions>
+            </MudCard>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <MudCard>
+                <MudCardContent>
+                    <MudStack Spacing="2">
+                        <MudButton @onclick=@(() => OnExpandCollapseClick(3))>
+                            How do I cancel a booking?
+                            <MudIcon Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowDropDown"></MudIcon>
+                        </MudButton>
+                        <MudDivider />
+                        <MudCollapse Expanded="_expanded3">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </MudCollapse>
+                    </MudStack>
+                </MudCardContent>
+                <MudCardActions>
+                </MudCardActions>
+            </MudCard>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <MudCard>
+                <MudCardContent>
+                    <MudStack Spacing="2">
+                        <MudButton @onclick=@(() => OnExpandCollapseClick(4))>
+                            Is Hamo free to use?
+                            <MudIcon Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowDropDown"></MudIcon>
+                        </MudButton>
+                        <MudDivider />
+                        <MudCollapse Expanded="_expanded4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </MudCollapse>
+                    </MudStack>
+                </MudCardContent>
+                <MudCardActions>
+                </MudCardActions>
+            </MudCard>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <MudCard>
+                <MudCardContent>
+                    <MudStack Spacing="2">
+                        <MudButton @onclick=@(() => OnExpandCollapseClick(5))>
+                            How to make offer on Hamo?
+                            <MudIcon Color="Color.Primary" Icon="@Icons.Material.Filled.ArrowDropDown"></MudIcon>
+                        </MudButton>
+                        <MudDivider />
+                        <MudCollapse Expanded="_expanded5">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </MudCollapse>
+                    </MudStack>
+                </MudCardContent>
+                <MudCardActions>
+                </MudCardActions>
+            </MudCard>
+        </div>
+    </div>
+
+</div>
+
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    public string Search { get; set; }
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+    private void OnSelectChip(MudChip mud)
+    {
+
+    }
+
+
+    bool _expanded1 = true;
+    bool _expanded2 = false;
+    bool _expanded3 = false;
+    bool _expanded4 = false;
+    bool _expanded5 = false;
+
+    private void OnExpandCollapseClick(int num)
+    {
+        if (num == 1)
+        {
+            _expanded1 = !_expanded1;
+        }
+        else if (num == 2)
+        {
+            _expanded2 = !_expanded2;
+        }
+        else if (num == 3)
+        {
+            _expanded3 = !_expanded3;
+        }
+        else if (num == 4)
+        {
+            _expanded4 = !_expanded4;
+        } 
+        else if (num == 5)
+        {
+            _expanded5 = !_expanded5;
+        }
+    }
+}
+

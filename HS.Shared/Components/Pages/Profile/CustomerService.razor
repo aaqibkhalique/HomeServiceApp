@@ -1,0 +1,234 @@
+﻿@page "/CustomerService"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+
+
+    .container {
+        overflow-y: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+    }
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    ..mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mudCard {
+        border-radius: 10px;
+        margin-top: 25px;
+        width: 326px;
+        overflow-x: auto;
+        height: 536px;
+    }
+
+
+    /* Chat container */
+    .chat {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    /* Style for messages from the other user */
+    .OtherUserSays {
+        align-self: flex-start;
+        background-color: #f1f0f0;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 10px;
+        max-width: 64%;
+        margin-top: 6px;
+        width: 300px;
+    }
+
+    /* Style for messages from the current user */
+    .userSays {
+        align-self: flex-end;
+        background-color: var(--mud-palette-primary);
+        color: white;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 10px;
+        max-width: 64%;
+        margin-top: 3px;
+        width: 300px;
+    }
+
+    .userImages {
+        align-self: flex-end;
+        width: 245px;
+    }
+
+
+    /* Text styling */
+    .text {
+        margin: 0;
+    }
+
+    /* Example styling for paragraph elements inside chat messages */
+    p {
+        margin: 5px 0;
+    }
+
+    .CenterSays {
+        align-self: center;
+        background-color: #f1f0f0;
+        border-radius: 10px;
+        padding: 5px;
+        max-width: 100%;
+    }
+
+    .Sticky {
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Jenny Wilson </span>
+            <MudIconButton Icon="@Icons.Material.Filled.Call" Style="float: right;"></MudIconButton>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+
+            <div class="chat">
+
+
+                <div class="CenterSays">
+                    <div class="text">
+                        <p>Today</p>
+                    </div>
+                </div>
+
+                <div class="OtherUserSays">
+                    <div class="text">
+                        <p>Hello, good morning.  <span style="float:right">09:41</span></p>
+
+                    </div>
+                </div>
+
+                <div class="OtherUserSays">
+                    <div class="text">
+                        <p>I am a Customer Service, is there anything I can help you with? 😄 <span style="float:right">09:41</span></p>
+
+                    </div>
+                </div>
+
+                <div class="userSays">
+                    <div class="text">
+                        <p>Hi, I'm having problems with my services payment.  <span style="float:right">09:41</span></p>
+
+                    </div>
+                </div>
+
+                <div class="userSays">
+                    <div class="text">
+                        <p> Can you help me?  <span style="float:right">09:41</span></p>
+                    </div>
+                </div>
+
+                <div class="OtherUserSays">
+                    <div class="text">
+                        <p>Of course... <span style="float:right">09:41</span></p>
+
+                    </div>
+                </div>
+                <div class="OtherUserSays">
+                    <div class="text">
+                        <p>Can you tell me the problem you are having? so I can help solve it 😁 <span style="float:right">10:00</span></p>
+
+                    </div>
+                </div>
+          
+
+            
+            </div>
+
+        </div>
+    </div>
+  
+
+    <div class=" Sticky row DivCenter">
+        <div class="col " style="width: 74%;">
+            <MudTextField FullWidth="true" @bind-Value="Message" Label="Message" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Image" AdornmentColor="Color.Default" />
+        </div>
+        <div class="col" style="margin-right: 15px; margin-top: 5px;">
+            <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Mic" />
+        </div>
+    </div>
+
+</div>
+
+
+
+
+@code {
+
+    public string Message { get; set; }
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

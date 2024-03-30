@@ -1,0 +1,206 @@
+﻿@page "/ContactUs"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+    .Sticky {
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+    }
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mudCard {
+        border-radius: 10px;
+        margin-top: 25px;
+        width: 326px;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+ 
+
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                     
+                        <MudIcon Size="Size.Large" Icon="@Icons.Material.Filled.HeadsetMic" Color="Color.Primary">  </MudIcon>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;">Customer Service</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+
+                        <MudIcon Size="Size.Large" Icon="@Icons.Custom.Brands.WhatsApp" Color="Color.Primary">  </MudIcon>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;">WhatsAap</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+
+                        <MudIcon Size="Size.Large" Icon="@Icons.Custom.Brands.Chrome" Color="Color.Primary">  </MudIcon>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;">Website</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+
+                        <MudIcon Size="Size.Large" Icon="@Icons.Custom.Brands.Facebook" Color="Color.Primary">  </MudIcon>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;">Facebook</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+
+                        <MudIcon Size="Size.Large" Icon="@Icons.Custom.Brands.Twitter" Color="Color.Primary">  </MudIcon>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;">Twitter</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+
+                        <MudIcon Size="Size.Large" Icon="@Icons.Custom.Brands.Instagram" Color="Color.Primary">  </MudIcon>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;">Instagram</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <br />
+</div>
+
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

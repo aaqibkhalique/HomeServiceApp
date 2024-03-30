@@ -1,0 +1,185 @@
+﻿@page "/ProfilePayment"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+    .Sticky {
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+    }
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mudCard {
+        border-radius: 10px;
+        margin-top: 25px;
+        width: 326px;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Payment Methods</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+ 
+
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/paypal.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">Paypal</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Connected</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/google.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">Google Pay</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Connected</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/apple.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">Apple Pay</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Connected</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col DivCenter">
+            <MudCard Class="mudCard">
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="img-fluid" Src="images/mastercard.png" Elevation="0" Height="50" Width="50" />
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <div class="cardContent">
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">•••• •••• •••• •••• 4679</MudText>
+                            </div>
+                            <div>
+                                <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Connected</MudText>
+                            </div>
+                        </div>
+                    </CardHeaderContent>
+                </MudCardHeader>
+            </MudCard>
+        </div>
+    </div>
+  
+
+</div>
+
+<MudCard Class="Sticky DivCenter">
+    <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Add New Card</MudButton>
+</MudCard>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+  
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

@@ -1,0 +1,265 @@
+﻿@page "/InviteFriends"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .mud-card-header .mud-card-header-actions {
+        margin-top: 10px;
+    }
+
+    .image {
+        height: 65px;
+    }
+
+    .mud-list-item {
+        padding: 0px;
+    }
+
+    .mud-card-header {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Invite Friends</span>
+        </div>
+    </div>
+
+
+    <MudPaper Elevation="0">
+
+        <MudList>
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv1.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Tynisha Obey</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-300-555-0135
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv2.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Florencio Dorrance</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-202-555-0136
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv3.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Chantal Shelburne</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-300-555-0119
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv4.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Maryland Winkles</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-300-555-0161
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv5.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Rodolfo Goode</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-300-555-0136
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv6.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Benny Spanbauer</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-202-555-0167
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv7.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Tyra Dhillon</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-202-555-0119
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv8.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Jamel Eusebio</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-300-555-0171
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv9.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Pedro Huard</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-300-555-0135
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+
+            <MudListItem>
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Class="image" Src="images/inv1.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Clinton Mcclure</MudText>
+                        <MudText Typo="Typo.body2">
+                            +1-300-555-0135
+                        </MudText>
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    </CardHeaderActions>
+                </MudCardHeader>
+            </MudListItem>
+
+
+
+        </MudList>
+
+    </MudPaper>
+
+
+
+
+</div>
+
+
+
+@code {
+
+
+    public string SelectedOption1 { get; set; }
+    public string SelectedOption2 { get; set; }
+    public string SelectedOption3 { get; set; }
+    public string SelectedOption4 { get; set; }
+    public string SelectedOption5 { get; set; }
+    public string SelectedOption6 { get; set; }
+    public string SelectedOption7 { get; set; }
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

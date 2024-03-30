@@ -1,0 +1,119 @@
+﻿@page "/ProfileNotification"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+  
+
+
+    .mud-list-item-text .mud-typography {
+        font-weight: bolder;
+    }
+
+    .mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mud-list-item-gutters {
+        padding-right: 0px;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Notifications</span>
+        </div>
+    </div>
+
+
+    <MudPaper Elevation="0">
+        <MudList>
+            <MudListItem>
+                General Notification  <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch1" />
+            </MudListItem>
+            <MudListItem>
+                Sound <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch2" />
+            </MudListItem>
+            <MudListItem>
+                Vibrate  <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch3" />
+            </MudListItem>
+            <MudListItem>
+                Special Offers  <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch4" />
+            </MudListItem>
+            <MudListItem>
+                Promo & Discount  <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch5" />
+            </MudListItem>
+            <MudListItem>
+                Payments <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch6" />
+            </MudListItem>
+            <MudListItem>
+                Cashback  <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch7" />
+            </MudListItem>
+            <MudListItem>
+                App Updates <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch8" />
+            </MudListItem>
+            <MudListItem>
+                New Service Available <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch9" />
+            </MudListItem>
+            <MudListItem>
+                New Tips Available <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch10" />
+            </MudListItem>
+
+        </MudList>
+
+
+
+    </MudPaper>
+
+
+</div>
+
+
+
+@code {
+
+
+    public bool Switch1 { get; set; } = true;
+    public bool Switch2 { get; set; } = true;
+    public bool Switch3 { get; set; } = false;
+    public bool Switch4 { get; set; } = true;
+    public bool Switch5 { get; set; } = false;
+    public bool Switch6 { get; set; } = true;
+    public bool Switch7 { get; set; } = false;
+    public bool Switch8 { get; set; } = true;
+    public bool Switch9 { get; set; } = false;
+    public bool Switch10 { get; set; } = false;
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

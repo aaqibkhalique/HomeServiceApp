@@ -68,28 +68,29 @@
 
 
 <MudCard>
-    <MudTabs Elevation="0" Rounded="true"  Position="Position.Bottom" ApplyEffectsToContainer="true"  MinimumTabWidth="10px" Centered="true">
-        <MudTabPanel Icon="@Icons.Material.Filled.Home">
+    <MudTabs @ref="tabs" Elevation="0" Rounded="true" Position="Position.Bottom" ApplyEffectsToContainer="true" MinimumTabWidth="10px" Centered="true">
+        <MudTabPanel Icon="@Icons.Material.Filled.Home" ID="@("pn_Menu")">
             <div class="Mydiv">
                 <HS.Shared.Components.Pages.Menu.ActionMenu></HS.Shared.Components.Pages.Menu.ActionMenu>
             </div>
-
         </MudTabPanel>
-        <MudTabPanel Icon="@Icons.Material.Filled.Article">
+        <MudTabPanel Icon="@Icons.Material.Filled.Article" ID="@("pn_one")">
             <MudText>Content two</MudText>
         </MudTabPanel>
-        <MudTabPanel Icon="@Icons.Material.Filled.CalendarMonth">
+        <MudTabPanel Icon="@Icons.Material.Filled.CalendarMonth" ID="@("pn_Calendar")">
             <div class="Mydiv ">
                 <HS.Shared.Components.Pages.Calendar.MyCalendar></HS.Shared.Components.Pages.Calendar.MyCalendar>
             </div>
         </MudTabPanel>
-        <MudTabPanel Icon="@Icons.Material.Filled.Sms">
+        <MudTabPanel Icon="@Icons.Material.Filled.Sms" ID="@("pn_Inbox")">
             <div class="InboxDiv Mydiv">
                 <HS.Shared.Components.Pages.Inbox.Inbox></HS.Shared.Components.Pages.Inbox.Inbox>
             </div>
         </MudTabPanel>
-        <MudTabPanel Icon="@Icons.Material.Filled.Person">
-            <MudText>Content 5</MudText>
+        <MudTabPanel Icon="@Icons.Material.Filled.Person" ID="@("pn_Profile")">
+            <div class=" Mydiv">
+                <HS.Shared.Components.Pages.Profile.Profile></HS.Shared.Components.Pages.Profile.Profile>
+            </div>
         </MudTabPanel>
       
     </MudTabs>
@@ -99,10 +100,14 @@
 
 @code {
     @inject NavigationManager Navigation;
-
+    MudTabs tabs;
     private void BtnNextClick()
     {
         Navigation.NavigateTo("SignUp");
     }
 
+    void Activate(object id)
+    {
+        tabs.ActivatePanel(id);
+    }
 }

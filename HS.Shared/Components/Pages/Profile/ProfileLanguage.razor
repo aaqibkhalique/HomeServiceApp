@@ -1,0 +1,175 @@
+﻿@page "/ProfileLanguage"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+
+
+
+    .mud-list-item-text .mud-typography {
+        font-weight: bolder;
+    }
+
+    .mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mud-list-item-gutters {
+        padding-right: 0px;
+    }
+
+    .Btn {
+        border-radius: 30px;
+        width: 303px;
+        height: 50px;
+        margin-top: 30px;
+        color: var(--mud-palette-primary);
+        background-color: #F4ECFF;
+        font-weight: bolder;
+        margin-bottom: 5px;
+    }
+
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Language</span>
+        </div>
+    </div>
+
+
+    <MudPaper Elevation="0">
+
+        <MudList>
+            <MudRadioGroup @bind-Value="@SelectedOption1">
+                <MudListSubheader>
+                    <MudText Typo="Typo.h6" Color="Color.Dark" Style="font-weight:bolder">Suggested</MudText>
+                </MudListSubheader>
+                <MudListItem>
+                    English (US)
+                    <MudRadio Value="@("English (US)")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    English (UK)
+                    <MudRadio Value="@(" English (UK)")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudDivider DividerType="DividerType.Middle"></MudDivider>
+
+                <MudListSubheader>
+                    <MudText Typo="Typo.h6" Color="Color.Dark" Style="font-weight:bolder">Language</MudText>
+                </MudListSubheader>
+
+                <MudListItem>
+                    Mandarin
+                    <MudRadio Value="@("Mandarin")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Hindi
+                    <MudRadio Value="@("   Hindi")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    French
+                    <MudRadio Value="@("French")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Spanish
+                    <MudRadio Value="@("Spanish")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    German
+                    <MudRadio Value="@("German")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Italian
+                    <MudRadio Value="@("Italian")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Japanese
+                    <MudRadio Value="@("Japanese")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Korean
+                    <MudRadio Value="@("Korean")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Russian
+                    <MudRadio Value="@("Russian")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Arabic
+                    <MudRadio Value="@("Arabic")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Portuguese
+                    <MudRadio Value="@("Portuguese")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Turkish
+                    <MudRadio Value="@("Turkish")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Dutch
+                    <MudRadio Value="@("Dutch")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+                <MudListItem>
+                    Swedish
+                    <MudRadio Value="@("Swedish")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
+                </MudListItem>
+
+            </MudRadioGroup>
+        </MudList>
+
+    </MudPaper>
+
+
+
+
+</div>
+
+
+
+@code {
+
+
+    public string SelectedOption1 { get; set; }
+    public string SelectedOption2 { get; set; }
+    public string SelectedOption3 { get; set; }
+    public string SelectedOption4 { get; set; }
+    public string SelectedOption5 { get; set; }
+    public string SelectedOption6 { get; set; }
+    public string SelectedOption7 { get; set; }
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

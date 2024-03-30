@@ -1,0 +1,116 @@
+﻿
+@page "/ProfileSecurity"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+
+
+
+    .mud-list-item-text .mud-typography {
+        font-weight: bolder;
+    }
+
+    .mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mud-list-item-gutters {
+        padding-right: 0px;
+    }
+
+    .Btn {
+        border-radius: 30px;
+        width: 303px;
+        height: 50px;
+        margin-top: 30px;
+        color: var(--mud-palette-primary);
+        background-color: #F4ECFF;
+        font-weight:bolder;
+        margin-bottom:5px;
+    }
+
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Notifications</span>
+        </div>
+    </div>
+
+
+    <MudPaper Elevation="0">
+        <MudList>
+            <MudListItem>
+               Remember me <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch1" />
+            </MudListItem>
+            <MudListItem>
+                Face ID <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch2" />
+            </MudListItem>
+            <MudListItem>
+                Biometric ID  <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch3" />
+            </MudListItem>
+            <MudListItem>
+                Google Authenticator    <MudIcon Style="float:right;margin-right: 30px;" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
+            </MudListItem>
+        </MudList>
+
+
+
+    </MudPaper>
+
+    <div class="row DivCenter">
+        <div class="col">
+            <MudButton Class="Btn" FullWidth="true" Variant="Variant.Filled" >Change Pin</MudButton>
+        </div>
+    </div>
+    <div class="row DivCenter">
+        <div class="col">
+            <MudButton Class="Btn" FullWidth="true" Variant="Variant.Filled">Change Password</MudButton>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+
+
+    public bool Switch1 { get; set; } = true;
+    public bool Switch2 { get; set; } = false;
+    public bool Switch3 { get; set; } = true;
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+

@@ -1,0 +1,118 @@
+﻿
+@page "/HelpCenter"
+
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+
+
+
+
+
+    .chatimage {
+        margin-top: 44px;
+        margin-right: 10px;
+    }
+
+
+    .chatbtn {
+        border-bottom: solid 6px var(--mud-palette-primary);
+        color: var(--mud-palette-primary);
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack"  Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Help Center </span>
+        
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+
+    <div class="row sticky-top">
+        <div class="col d-flex justify-content-center" style="width: 100%;">
+            <MudButton Class="@_chatClass" FullWidth="true" OnClick="OnChatClick">FAQ</MudButton>
+            <MudDivider Vertical="true" FlexItem="true" />
+            <MudButton Class="@_callClass" FullWidth="true" OnClick="OnCallClick">Contact Us</MudButton>
+        </div>
+    </div>
+
+    <div class="row" >
+        <div class="col">
+            <MudStack Spacing="2">
+                <MudCollapse Expanded="_chat">
+                    <HS.Shared.Components.Pages.Profile.FAQ></HS.Shared.Components.Pages.Profile.FAQ>
+                </MudCollapse>
+                <MudCollapse Expanded="_call">
+                    <HS.Shared.Components.Pages.Profile.ContactUs></HS.Shared.Components.Pages.Profile.ContactUs>
+                </MudCollapse>
+            </MudStack>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+@code {
+
+    string _chatClass = "chatbtn";
+    string _callClass = "";
+
+    bool _chat = true;
+    bool _call = false;
+    private void OnChatClick()
+    {
+        _chat = true;
+        _call = false;
+        _callClass = "";
+        _chatClass = "chatbtn";
+    }
+    private void OnCallClick()
+    {
+        _chat = false;
+        _call = true;
+        _chatClass = "";
+        _callClass = "chatbtn";
+    }
+}
+

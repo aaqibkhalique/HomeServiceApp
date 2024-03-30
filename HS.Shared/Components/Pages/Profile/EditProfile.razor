@@ -1,0 +1,162 @@
+﻿@page "/EditProfile"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+    .Sticky {
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+    }
+
+    .cardContent {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
+    }
+
+    .mudCard {
+        border-radius: 10px;
+        margin-top: 25px;
+        width: 326px;
+    }
+
+    .mud-input-control {
+        margin-right: 25px;
+        margin-left: 10px;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3  mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Edit Profile</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudTextField @bind-Value="CardName" Variant="Variant.Filled"></MudTextField>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudTextField @bind-Value="UserName" Variant="Variant.Filled"></MudTextField>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudDatePicker @bind-Date="date" Variant="Variant.Filled" />
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudTextField @bind-Value="email" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Email"></MudTextField>
+        </div>
+    </div> 
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudSelect @bind-Value="country"  Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+                <MudSelectItem Value="@("United States")" />
+                <MudSelectItem Value="@("Australia")" />
+                <MudSelectItem Value="@("India")" />
+                <MudSelectItem Value="@("Brazil")" />
+            </MudSelect>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudTextField @bind-Value="number" Variant="Variant.Filled"></MudTextField>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudSelect @bind-Value="Gender"  Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+                <MudSelectItem Value="@("Male")" />
+                <MudSelectItem Value="@("Female")" />
+            </MudSelect>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3">
+            <MudTextField @bind-Value="Address" Variant="Variant.Filled"></MudTextField>
+        </div>
+    </div>
+</div>
+
+<MudCard Class="Sticky DivCenter">
+    <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Update</MudButton>
+</MudCard>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    public string CardName { get; set; } = "Andrew Ainsley";
+    public string UserName { get; set; } = "Andrew";
+    public string email { get; set; } = "andrew_ainsley@yourdomain.com";
+    public string country { get; set; } = "United States";
+    public string Gender { get; set; } = "Male";
+    public string number { get; set; } = "+1 111 467 378 399";
+    public string Address { get; set; } = "267 New Avenue Park, New York";
+
+    DateTime? date = DateTime.Today;
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("Home");
+    }
+
+
+
+}
+
