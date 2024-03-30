@@ -1,0 +1,284 @@
+﻿@page "/Chat"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 90%;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .mud-image {
+        height: 50px;
+    }
+
+    .IncomingIcon {
+        border-radius: 6px;
+        background: #246BFD;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .OutGoingIcon {
+        border-radius: 6px;
+        background: #4ADE80;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .MissedIcon {
+        border-radius: 6px;
+        background: #F75555;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .mud-card-header {
+        padding: 10px !important;
+    }
+
+    .addBtn {
+        position: fixed;
+        bottom: 53px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .mud-fab-label {
+        font-size: smaller;
+    }
+
+    .mud-card-header-actions {
+        text-align:end!important;
+    }
+
+   .mud-collapse-container .mud-collapse-entered {
+        transition: none;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row">
+   
+        <div class="col ml-2 mt-1" @onclick="ClickCall">
+       
+                <MudCardHeader>
+                    <CardHeaderAvatar>
+                        <MudImage Src="images/chat1.png"></MudImage>
+                    </CardHeaderAvatar>
+                    <CardHeaderContent>
+                       
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Jenny Wilson</MudText>
+                        <MudText Typo="Typo.body2">
+                            I have booked your house ...
+                        </MudText>
+                  
+                    </CardHeaderContent>
+                    <CardHeaderActions>
+                        <MudFab Label="2" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                        <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 5px;">
+                            13.29
+                        </MudText>
+                    </CardHeaderActions>
+                </MudCardHeader>
+        
+             
+        </div>
+    
+    </div>
+
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/chat2.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Alfonzo Schuessler</MudText>
+                    <MudText Typo="Typo.body2">
+                        I just finished it 😂😂
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudFab Label="3" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 5px;">
+                        10:48
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/chat3.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Benny Spanbauer</MudText>
+                    <MudText Typo="Typo.body2">
+                        omg, this is amazing 🔥🔥🔥
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                 
+                    <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 40px;">
+                        09.25
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/chat4.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Marci Senter</MudText>
+                    <MudText Typo="Typo.body2">
+                        Wow, this is really epic 😎
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudFab Label="2" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 5px;">
+                        Yesterday
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/chat5.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Kylee Danford</MudText>
+                    <MudText Typo="Typo.body2">
+                        just ideas for next time 😆
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 40px;">
+                        Dec 20, 2024
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/chat6.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Merrill Kervin</MudText>
+                    <MudText Typo="Typo.body2">
+                        How are you? 😄😄
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 40px;">
+                        Dec 20, 2024
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/chat7.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Pedro Huard</MudText>
+                    <MudText Typo="Typo.body2">
+                        perfect! 💯💯💯
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                
+                    <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 40px;">
+                        Dec 18, 2024
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/chat8.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Edgar Torrey</MudText>
+                    <MudText Typo="Typo.body2">
+                        Message
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 40px;">
+                        20.00
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="icon-bar">
+        <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Class="addBtn" />
+    </div>
+</div>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+    private void ClickCall()
+    {
+        Navigation.NavigateTo("OpenChat");
+    }
+
+}
+
+

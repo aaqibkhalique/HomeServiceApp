@@ -1,0 +1,235 @@
+﻿@page "/Call"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 90%;
+     
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .mud-image {
+        height: 50px;
+    }
+
+    .IncomingIcon{
+        border-radius: 6px;
+        background: #246BFD;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .OutGoingIcon {
+        border-radius: 6px;
+        background: #4ADE80;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .MissedIcon {
+        border-radius: 6px;
+        background: #F75555;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .mud-card-header {
+        padding: 10px!important;
+    }
+
+    .addBtn {
+        position: fixed;
+        bottom: 53px;
+        right: 20px;
+        z-index: 1000;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/call1.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Lauralee Quintero</MudText>
+                    <MudText Typo="Typo.body2">
+                        <MudIcon Size="Size.Small" Class="IncomingIcon" Icon="@Icons.Material.Filled.ArrowDownward"></MudIcon>
+                            Incoming | Dec 19,2024
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.Call" Color="Color.Primary" OnClick="ClickCall" />
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/call2.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Tanner Stafford</MudText>
+                    <MudText Typo="Typo.body2">
+                        <MudIcon Size="Size.Small" Class="MissedIcon" Icon="@Icons.Material.Filled.Close"></MudIcon>
+                        Outgoing | Dec 17, 2024
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.Call" Color="Color.Primary" />
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/call3.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Augustina Midgett</MudText>
+                    <MudText Typo="Typo.body2">
+                        <MudIcon Size="Size.Small" Class="OutGoingIcon" Icon="@Icons.Material.Filled.ArrowUpward"></MudIcon>
+                        Missed | Nov 28, 2024
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.Call" Color="Color.Primary" />
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/call4.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Geoffrey Mott</MudText>
+                    <MudText Typo="Typo.body2">
+                        <MudIcon Size="Size.Small" Class="OutGoingIcon" Icon="@Icons.Material.Filled.ArrowUpward"></MudIcon>
+                        OutGoing | Nov 24, 2024
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.Call" Color="Color.Primary" />
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/call5.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Roselle Ehrman</MudText>
+                    <MudText Typo="Typo.body2">
+                        <MudIcon Size="Size.Small" Class="IncomingIcon" Icon="@Icons.Material.Filled.ArrowDownward"></MudIcon>
+                        Incoming | Nov 14, 2024
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.Call" Color="Color.Primary" />
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/call6.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Thad Eddings</MudText>
+                    <MudText Typo="Typo.body2">
+                        <MudIcon Size="Size.Small" Class="OutGoingIcon" Icon="@Icons.Material.Filled.ArrowUpward"></MudIcon>
+                        Missed | Oct 30, 2024
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.Call" Color="Color.Primary" />
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/call7.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Daryl Nehls</MudText>
+                    <MudText Typo="Typo.body2">
+                        <MudIcon Size="Size.Small" Class="IncomingIcon" Icon="@Icons.Material.Filled.ArrowDownward"></MudIcon>
+                        Incoming | Oct 29, 2024
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.Call" Color="Color.Primary" />
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ml-2 mt-1">
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/call8.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">TFrancene Vandyne</MudText>
+                    <MudText Typo="Typo.body2">
+                        <MudIcon Size="Size.Small" Class="MissedIcon" Icon="@Icons.Material.Filled.Close"></MudIcon>
+                        Missed | Oct 25, 2024
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.Call" Color="Color.Primary" />
+                </CardHeaderActions>
+            </MudCardHeader>
+        </div>
+    </div>
+    <div class="icon-bar">
+        <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Class="addBtn" />
+    </div>
+</div>
+
+
+@code {
+   
+    @inject NavigationManager Navigation;
+    private void ClickCall()
+    {
+        Navigation.NavigateTo("OpenCall");
+    }
+
+}
+
+

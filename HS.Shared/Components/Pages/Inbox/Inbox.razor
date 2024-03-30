@@ -8,7 +8,7 @@
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
-        height: 900px;
+       
     }
 
     .DivCenter {
@@ -35,96 +35,22 @@
         font-size: smaller;
     }
 
-    .mud-picker-datepicker-toolbar {
-        display: none !important;
-    }
+ 
 
-    .mud-picker-calendar-container {
-        background-color: #F4ECFF;
-        border-radius: 13px;
-    }
-
-    .mud-picker-nav-button-prev {
-        background-color: #F4ECFF !important;
-    }
-
-    .mud-picker-nav-button-next {
-        background-color: #F4ECFF !important;
-    }
-
-
-    .ServiceCard {
-        height: 144px;
-        margin-right: 5px;
-        border-radius: 38px;
-        margin-top: 20px;
-    }
-
-    .headerContent {
-        display: flex;
-    }
-
-    .serviceName {
-        margin-top: 7px;
-    }
-
-    .price {
-        margin-top: 3px;
-    }
-
-    .reviews {
-        margin-top: 7px;
-    }
-
-    @@media (max-width: 410px) {
-        .ServiceCard {
-            width: 355px;
-            height: 161px;
-        }
-
-        .serviceName {
-            margin-top: 2px;
-            font-size: larger;
-        }
-
-        .reviews {
-            font-size: 14px;
-            margin-top: 8px;
-        }
-    }
-
-    @@media (max-width: 375px) {
-        .ServiceCard {
-            width: 345px;
-        }
-
-        .serviceName {
-            margin-top: 2px;
-            font-size: larger;
-        }
-
-        .reviews {
-            margin-top: 2px;
-            font-size: small;
-        }
-    }
+ 
+    
 
     .chatimage {
         margin-top: 44px;
         margin-right: 10px;
     }
 
-    .Bookingtext {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
 
     .chatbtn{
         border-bottom: solid 6px var(--mud-palette-primary);
         color: var(--mud-palette-primary);
     }
-
+  
 </style>
 
 
@@ -133,15 +59,16 @@
 
 <div class="container">
 
-    <div class="row" style="margin-top: 9px;margin-left: 5px;">
+    <div class="row sticky-top" style="margin-top: 9px;margin-left: 5px;">
         <div class="col ml-3 mt-1">
             <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
             <span class="IconText">Inbox</span>
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+            <MudIconButton  Icon="@Icons.Material.Outlined.Search" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
-    <div class="row ">
+    <div class="row sticky-top">
         <div class="col d-flex justify-content-center" style="width: 100%;">
             <MudButton Class="@_chatClass" FullWidth="true" OnClick="OnChatClick">Chats</MudButton>
             <MudDivider Vertical="true" FlexItem="true" />
@@ -152,12 +79,11 @@
     <div class="row">
         <div class="col">
             <MudStack Spacing="2">
-                <MudDivider />
                 <MudCollapse Expanded="_chat">
-                    This content is Chat
+                    <HS.Shared.Components.Pages.Inbox.Chat></HS.Shared.Components.Pages.Inbox.Chat>
                 </MudCollapse>
                 <MudCollapse Expanded="_call">
-                    This content is Call
+                     <HS.Shared.Components.Pages.Inbox.Call></HS.Shared.Components.Pages.Inbox.Call>
                 </MudCollapse>
             </MudStack>
         </div>

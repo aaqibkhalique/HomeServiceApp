@@ -12,6 +12,9 @@
         z-index:500;
     }
 
+    .InboxDiv {
+        position: fixed !important;
+    }
  
    /* For screens smaller than 768px (e.g., smartphones) */
 @@media (max-width: 767px) {
@@ -76,12 +79,14 @@
             <MudText>Content two</MudText>
         </MudTabPanel>
         <MudTabPanel Icon="@Icons.Material.Filled.CalendarMonth">
-            <div class="Mydiv">
+            <div class="Mydiv ">
                 <HS.Shared.Components.Pages.Calendar.MyCalendar></HS.Shared.Components.Pages.Calendar.MyCalendar>
             </div>
         </MudTabPanel>
         <MudTabPanel Icon="@Icons.Material.Filled.Sms">
-            <MudText>Content 4</MudText>
+            <div class="InboxDiv Mydiv">
+                <HS.Shared.Components.Pages.Inbox.Inbox></HS.Shared.Components.Pages.Inbox.Inbox>
+            </div>
         </MudTabPanel>
         <MudTabPanel Icon="@Icons.Material.Filled.Person">
             <MudText>Content 5</MudText>
