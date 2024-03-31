@@ -1,0 +1,144 @@
+﻿
+@page "/MyBookings"
+
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .rightIcon .mud-icon-root {
+        border: solid;
+        border-radius: 12px;
+    }
+
+    .Text {
+        font-weight: bold;
+    }
+
+    .smalltext {
+        font-size: smaller;
+    }
+
+
+
+
+
+
+    .chatimage {
+        margin-top: 44px;
+        margin-right: 10px;
+    }
+
+
+    .chatbtn {
+        border-bottom: solid 6px var(--mud-palette-primary);
+        color: var(--mud-palette-primary);
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row sticky-top" style="margin-top: 9px;margin-left: 5px;">
+        <div class="col ml-3 mt-1">
+            <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
+            <span class="IconText">My Bookings</span>
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+            <MudIconButton Icon="@Icons.Material.Outlined.Search" Style="float: right;"></MudIconButton>
+        </div>
+    </div>
+
+    <div class="row sticky-top">
+        <div class="col d-flex justify-content-center" style="width: 100%;border-bottom: solid #c4c4c4 1px;">
+            <MudButton Class="@_UpcomingClass" FullWidth="true" OnClick="OnUpcomingClick">Upcoming</MudButton>
+            <MudDivider Vertical="true" FlexItem="true" />
+            <MudButton Class="@_CompletedClass" FullWidth="true" OnClick="OnCompletedClick">Completed</MudButton>
+            <MudDivider Vertical="true" FlexItem="true" />
+            <MudButton Class="@_CanceledClass" FullWidth="true" OnClick="OnCanceledClick">Canceled</MudButton>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <MudStack Spacing="2">
+                <MudCollapse Expanded="_Upcoming">
+                    <HS.Shared.Components.Pages.MyBookings.Upcoming></HS.Shared.Components.Pages.MyBookings.Upcoming>
+                </MudCollapse>
+                <MudCollapse Expanded="_Completed">
+                    <HS.Shared.Components.Pages.MyBookings.Completed></HS.Shared.Components.Pages.MyBookings.Completed>
+                </MudCollapse>
+                <MudCollapse Expanded="_Canceled">
+                    <HS.Shared.Components.Pages.MyBookings.Cancelled></HS.Shared.Components.Pages.MyBookings.Cancelled>
+                </MudCollapse>
+            </MudStack>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+@code {
+
+    string _UpcomingClass = "chatbtn";
+    string _CompletedClass = "";
+    string _CanceledClass = "";  
+    
+    bool _Upcoming = true;
+    bool _Completed = false;
+    bool _Canceled = false;
+
+    private void OnUpcomingClick()
+    {
+         _Upcoming = true;
+         _Completed = false;
+         _Canceled = false;
+
+         _UpcomingClass = "chatbtn";
+         _CompletedClass = "";
+         _CanceledClass = "";
+
+    }
+    private void OnCompletedClick()
+    {
+        _Upcoming = false;
+        _Completed = true;
+        _Canceled = false;
+
+        _UpcomingClass = "";
+        _CompletedClass = "chatbtn";
+        _CanceledClass = "";
+    } 
+    
+    private void OnCanceledClick()
+    {
+        _Upcoming = false;
+        _Completed = false;
+        _Canceled = true;
+
+        _UpcomingClass = "";
+        _CompletedClass = "";
+        _CanceledClass = "chatbtn";
+    }
+}
+
