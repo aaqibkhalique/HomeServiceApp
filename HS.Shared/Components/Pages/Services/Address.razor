@@ -104,7 +104,7 @@
         <br />
         <MudTextField @bind-Value="Abbddress" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.LocationOn" Class="mx-3" />
         <br />
-        <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
+        <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
 
     </div>
 </MudCard>
@@ -128,7 +128,10 @@
        
     }
 
-
+    private void Continue()
+    {
+        Navigation.NavigateTo("ServicesPayment");
+    }
 
 }
 

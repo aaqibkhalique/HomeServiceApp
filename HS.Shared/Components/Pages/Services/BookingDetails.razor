@@ -197,7 +197,7 @@
 </div>
 
 <MudCard Class="Sticky DivCenter">
-    <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Continue - $87.5</MudButton>
+    <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue - $87.5</MudButton>
 </MudCard>
 
 
@@ -214,7 +214,10 @@
     {
 
     }
-
+    private void Continue()
+    {
+        Navigation.NavigateTo("Address");
+    }
 
 }
 

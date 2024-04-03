@@ -1,4 +1,4 @@
-﻿@page "/EditProfile"
+﻿@page "/FillProfile"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
@@ -66,6 +66,12 @@
         margin-right: 25px;
         margin-left: 10px;
     }
+
+    .mud-badge {
+        margin-top: 45px;
+        border-radius: 7px;
+        position: static;
+    }
 </style>
 
 
@@ -77,11 +83,22 @@
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3  mt-1">
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
-            <span class="IconText">Edit Profile</span>
-            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+            <span class="IconText">Fill Your Profile</span>
+         
         </div>
     </div>
 
+    <div class="row">
+        <div class="col ">
+            <MudCard Elevation="0">
+                <MudCardContent Style="text-align: center;">
+                    <MudBadge  Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Overlap="true" Bordered="true">
+                        <MudAvatar Style="height:100px; width:100px; font-size:2rem;"  Image="images/DP.png" />
+                    </MudBadge>
+                </MudCardContent>
+            </MudCard>
+        </div>
+    </div>
 
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
@@ -103,17 +120,8 @@
         <div class="col ml-3">
             <MudTextField @bind-Value="email" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Email"></MudTextField>
         </div>
-    </div> 
-    <div class="row" style="margin-top: 20px;">
-        <div class="col ml-3">
-            <MudSelect @bind-Value="country"  Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
-                <MudSelectItem Value="@("United States")" />
-                <MudSelectItem Value="@("Australia")" />
-                <MudSelectItem Value="@("India")" />
-                <MudSelectItem Value="@("Brazil")" />
-            </MudSelect>
-        </div>
     </div>
+
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
             <MudTextField @bind-Value="number" Variant="Variant.Filled"></MudTextField>
@@ -121,22 +129,13 @@
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
-            <MudSelect @bind-Value="Gender"  Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
-                <MudSelectItem Value="@("Male")" />
-                <MudSelectItem Value="@("Female")" />
-            </MudSelect>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col ml-3">
-            <MudTextField @bind-Value="Address" Variant="Variant.Filled"></MudTextField>
+            <MudTextField @bind-Value="Address" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.LocationOn"></MudTextField>
         </div>
     </div>
 </div>
 
 <MudCard Class="Sticky DivCenter">
-    <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Update</MudButton>
+    <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
 </MudCard>
 
 
@@ -147,8 +146,7 @@
     public string CardName { get; set; } = "Andrew Ainsley";
     public string UserName { get; set; } = "Andrew";
     public string email { get; set; } = "andrew_ainsley@yourdomain.com";
-    public string country { get; set; } = "United States";
-    public string Gender { get; set; } = "Male";
+
     public string number { get; set; } = "+1 111 467 378 399";
     public string Address { get; set; } = "267 New Avenue Park, New York";
 
@@ -158,7 +156,10 @@
         Navigation.NavigateTo("Home");
     }
 
-
+    private void Continue()
+    {
+        Navigation.NavigateTo("CreateNewPin");
+    }
 
 }
 

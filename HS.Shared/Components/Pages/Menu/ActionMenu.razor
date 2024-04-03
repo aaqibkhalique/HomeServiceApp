@@ -211,7 +211,7 @@
                 <h5 class="mt-3">Shifting</h5>
             </div>
 
-            <div style="text-align:center">
+            <div style="text-align:center" @onclick=@(() => NavigateToAllServices())>
                 <MudImage Src="images/more.png" Elevation="0" Height="70" Width="70" />
                 <h5 class="mt-3">More</h5>
             </div>
@@ -364,6 +364,11 @@
     private void NavigateToNotification()
     {
         Navigation.NavigateTo("Notification");
+    }
+    
+    private void NavigateToAllServices()
+    {
+        Navigation.NavigateTo("AllServices");
     }
     
 

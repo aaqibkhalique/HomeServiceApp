@@ -39,7 +39,13 @@
 
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-
-    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    @inject NavigationManager Navigation;
     void Cancel() => MudDialog.Cancel();
+    void Submit()
+    {
+        MudDialog.Close(DialogResult.Ok(true));
+        Navigation.NavigateTo("Receipt");
+    }
+
+
 }

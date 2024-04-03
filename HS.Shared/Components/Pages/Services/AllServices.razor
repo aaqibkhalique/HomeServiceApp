@@ -57,7 +57,7 @@
     <div class="row">
         <div class="col ml-3 mt-5 services">
             <div style="text-align:center">
-                <MudButton>
+                <MudButton @onclick=@(() => ClickToNext("HouseCleaning"))>
 
                     <MudImage Src="images/cleaning.png" Elevation="0" Height="70" Width="70" />
                 </MudButton>
@@ -145,6 +145,10 @@
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
+    }
+      private void ClickToNext(string path)
+    {
+        Navigation.NavigateTo(path);
     }
 
 

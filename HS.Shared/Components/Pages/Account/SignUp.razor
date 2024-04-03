@@ -121,7 +121,7 @@
 
     <div class="row ">
         <div class="col mt-5 DivCenter">
-            <MudButton Class="SignUpBtn" Variant="Variant.Filled" Color="Color.Primary">Sign Up</MudButton>
+            <MudButton Class="SignUpBtn" OnClick="Click" Variant="Variant.Filled" Color="Color.Primary">Sign Up</MudButton>
         </div>
     </div>
 
@@ -187,5 +187,8 @@
             PasswordInput = InputType.Text;
         }
     }
-
+    private void Click()
+    {
+        Navigation.NavigateTo("FillProfile");
+    }
 }

@@ -1,3 +1,4 @@
+using HS.Shared;
 using HS.Web.Components;
 using MudBlazor.Services;
 
@@ -11,6 +12,9 @@ builder.Services.AddRazorComponents()
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddMudServices();
+
+builder.Services.AddScoped<ThemeService>();
+
 
 var app = builder.Build();
 

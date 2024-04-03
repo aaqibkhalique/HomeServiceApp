@@ -1,0 +1,101 @@
+﻿
+@page "/SetFinger"
+@using HS.Shared.Components.Layout
+@layout EmptyLayout
+
+
+<style>
+
+    .container {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .DivCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .IconText {
+        font-size: xx-large;
+        font-weight: bold;
+        margin-left: 8px;
+    }
+
+    .Text {
+        font-weight: 500;
+        width: 333px;
+        margin-top: 25px;
+    }
+
+    .ContinueBtn {
+        border-radius: 30px;
+        width: 330px;
+        height: 50px;
+        margin-top: 50px;
+    }
+
+    .mud-input-numeric-spin {
+        display: none !important;
+    }
+</style>
+
+
+
+
+
+<div class="container">
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col ml-3 mt-1">
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <span class="IconText">Forgot Password</span>
+        </div>
+    </div>
+    <div class="row  DivCenter">
+        <div class="col DivCenter">
+            <MudText Typo="Typo.subtitle2" Style="margin-top:60px">Add a finger print to make your account more secure</MudText>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col DivCenter">
+            <MudIcon Icon="@Icons.Material.Filled.Fingerprint" Style="font-size: 10rem;" Color="Color.Primary" />
+        </div>
+
+    </div>
+    <div class="row  DivCenter  ">
+        <div class="col DivCenter">
+            <MudText Typo="Typo.subtitle1" Style="margin-top:60px">Please put your finger on the fingerprint scanner to get started.</MudText>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mt-5 DivCenter">
+            <MudButton Class="ContinueBtn" @onclick="VerifyClick" Variant="Variant.Filled" Color="Color.Primary">Verify</MudButton>
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+
+    @inject NavigationManager Navigation;
+
+    private void ClickBack()
+    {
+        Navigation.NavigateTo("CreateNewPin");
+    }
+
+
+
+    private void VerifyClick()
+    {
+        Navigation.NavigateTo("CreateNewPassword");
+    }
+
+}
+

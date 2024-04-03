@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HS.Shared;
+using Microsoft.Extensions.Logging;
 using MudBlazor.Services;
 
 namespace HS.Mobile
@@ -16,7 +17,8 @@ namespace HS.Mobile
                 });
 
             builder.Services.AddMauiBlazorWebView();
-           
+            builder.Services.AddScoped<ThemeService>();
+
 
             builder.Services.AddMudServices();
 

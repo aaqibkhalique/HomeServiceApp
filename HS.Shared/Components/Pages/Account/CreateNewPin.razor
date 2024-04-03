@@ -1,7 +1,5 @@
-﻿
-@page "/EnterPin"
+﻿@page "/CreateNewPin"
 @using HS.Shared.Components.Layout
-@using HS.Shared.Components.Pages.Dialogs
 @layout EmptyLayout
 
 
@@ -50,12 +48,12 @@
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
-            <span class="IconText">Enter Your Pin</span>
+            <span class="IconText">Create New Pin</span>
         </div>
     </div>
     <div class="row  DivCenter">
         <div class="col DivCenter">
-            <MudText Typo="Typo.subtitle2" Style="margin-top:60px">Enter your pin to confirm payment</MudText>
+            <MudText Typo="Typo.subtitle2" Style="margin-top:60px">Add a PIN number to make your account more secure.</MudText>
         </div>
     </div>
 
@@ -84,10 +82,11 @@
         </div>
 
     </div>
+ 
 
     <div class="row">
         <div class="col mt-5 DivCenter">
-            <MudButton Class="ContinueBtn" OnClick="@((e) => OpenDialog(disableBackdropClick))" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
+            <MudButton Class="ContinueBtn" @onclick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
         </div>
     </div>
 
@@ -101,9 +100,6 @@
     private string cvc4;
 
     @inject NavigationManager Navigation;
-    @inject IDialogService Dialog
-
-    DialogOptions disableBackdropClick = new DialogOptions() { DisableBackdropClick = true };
 
     private void ClickBack()
     {
@@ -113,12 +109,23 @@
     string stylingCard1 = "";
     string stylingCard2 = "";
 
-
-   
-
-    private void OpenDialog(DialogOptions options)
+    private void OnCardClick(int param)
     {
-        Dialog.Show<FirstDialog>("",options);
+        if (param == 1)
+        {
+            stylingCard2 = "";
+            stylingCard1 = "stylingCard";
+        }
+        else
+        {
+            stylingCard1 = "";
+            stylingCard2 = "stylingCard";
+        }
+    }
+
+    private void Continue()
+    {
+        Navigation.NavigateTo("SetFinger");
     }
 
 }
