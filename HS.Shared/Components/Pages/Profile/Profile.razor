@@ -83,13 +83,13 @@
 
     <MudPaper Elevation="0">
         <MudList Clickable="true">
-            <MudListItem>
+           @*  <MudListItem>
                 <MudSelect HelperText="Change Theme" OnClose="SelectTheme" Style="height: 38px;" @bind-Value="Theme" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
                     <MudSelectItem Value="@("Purple")" />
                     <MudSelectItem Value="@("Blue")" />
                     <MudSelectItem Value="@("Green")" />
                 </MudSelect>
-            </MudListItem>
+            </MudListItem> *@
             <MudListItem Icon="@Icons.Material.Filled.Person" @onclick=@(() => NavigateTo("EditProfile"))>
                 Edit Profile   <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
@@ -143,11 +143,6 @@
     private void SelectTheme()
     {
 
-        MainLayout obj = new MainLayout();
-        obj.TriggerLayoutMethod();
-
-        EmptyLayout obj2 = new EmptyLayout();
-        obj2.TriggerLayoutMethod();
 
         if (Theme == "Purple")
         {

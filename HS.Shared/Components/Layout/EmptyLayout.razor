@@ -5,24 +5,98 @@
 <MudDialogProvider />
 <MudSnackbarProvider />
 
+<style>
+    .mud-popover {
+        left: 50px!important;
+        top: 50px!important;
+        width: 80%;
+    }
+
+    .purpleColor .mud-avatar-filled {
+        color: #7210FF;
+        background-color: #7210FF;
+    }
+
+    .blueColor .mud-avatar-filled {
+        color: #246BFD;
+        background-color: #246BFD;
+    }
+
+    .greenColor .mud-avatar-filled {
+        color: #4ADE80;
+        background-color: #4ADE80;
+    }
+</style>
+
 <div style="background-color:#ffff;margin:0px;padding:0px;">
 
-    @Body
+    <MudPopover Open="@_isOpen" Fixed="true" Class="px-4 pt-4">
+        <div class="d-flex flex-column">
+            <MudList Class="mylist">
+                <MudText>Please select a color to change the theme.</MudText>
+                <MudListItem @onclick=@(() => SelectTheme("Purple")) Class="purpleColor" Avatar="@Icons.Material.Filled.Circle">
+                    Purple
+                </MudListItem>
+                <MudListItem @onclick=@(() => SelectTheme("Blue")) Class="blueColor" Avatar="@Icons.Material.Filled.Circle">
+                    Blue
+                </MudListItem>
+                <MudListItem @onclick=@(() => SelectTheme("Green")) Class="greenColor" Avatar="@Icons.Material.Filled.Circle">
+                    Green
+                </MudListItem>
+            </MudList>
+            <MudButton OnClick="@ToggleClose" Class="ml-auto mr-n3 mb-1" Color="Color.Error">Close</MudButton>
+        </div>
+    </MudPopover>
+
+    <MudSwipeArea OnSwipeEnd="HandleSwipeEnd" Style="width: 100%; height: 300px">
+        @Body
+    </MudSwipeArea>
 
 </div>
 
 
 @code {
+    @inject ISnackbar Snackbar
     private MudTheme _currentTheme { get; set; }
 
-    MudTheme Purple = new() { Palette = new PaletteLight { Primary = "#7210FF", } };
-    MudTheme Blue = new() { Palette = new PaletteLight { Primary = "#246BFD", } };
-    MudTheme Green = new() { Palette = new PaletteLight { Primary = "#4ADE80", } };
+    public string Theme { get; set; }
+    public bool _isOpen { get; set; } = false;
 
-
-    public void TriggerLayoutMethod()
+    private void SelectTheme(string theme)
     {
-        _currentTheme = Green;
+
+        if (theme == "Purple")
+        {
+            _currentTheme = new() { Palette = new PaletteLight { Primary = "#7210FF", } };
+
+        }
+        else if (theme == "Blue")
+        {
+            _currentTheme = new() { Palette = new PaletteLight { Primary = "#246BFD", } };
+
+        }
+        else if (theme == "Green")
+        {
+            _currentTheme = new() { Palette = new PaletteLight { Primary = "#4ADE80", } };
+        }
+        StateHasChanged();
+        _isOpen = false;
+
+        Snackbar.Clear();
+        Snackbar.Configuration.PositionClass = Defaults.Classes.Position.BottomCenter;
+        Snackbar.Add("The Theme is Changed Successfully", Severity.Success);
     }
 
+    private void HandleSwipeEnd(SwipeEventArgs args)
+    {
+        if (args.SwipeDirection == SwipeDirection.RightToLeft)
+        {
+            _isOpen = true;
+        }
+    }
+
+    public void ToggleClose()
+    {
+        _isOpen = false;
+    }
 }
