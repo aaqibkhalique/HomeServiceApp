@@ -1,39 +1,49 @@
-﻿@page "/FillProfile"
+﻿<!-- This page is for filling out user profile information -->
+@page "/FillProfile"
+
+<!-- Importing necessary components and layouts -->
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
+<!-- Styling for the page -->
 <style>
-
+    /* Styling for container */
     .container {
         overflow-y: auto;
         overflow-x: hidden;
         height: 80vh;
     }
 
+    /* Styling for centering divs */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for small text */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Styling for sticky section */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -41,32 +51,38 @@
         width: 100%;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
+    /* Styling for boolean input control */
     .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styling for mud card */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
         width: 326px;
     }
 
+    /* Styling for input control */
     .mud-input-control {
         margin-right: 25px;
         margin-left: 10px;
     }
 
+    /* Styling for mud badge */
     .mud-badge {
         margin-top: 45px;
         border-radius: 7px;
@@ -74,92 +90,103 @@
     }
 </style>
 
-
-
-
-
+<!-- Main container for the page -->
 <div class="container">
 
+    <!-- Header section -->
     <div class="row" style="margin-top: 20px;">
-        <div class="col ml-3  mt-1">
+        <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Page title -->
             <span class="IconText">Fill Your Profile</span>
-         
         </div>
     </div>
 
+    <!-- User profile card section -->
     <div class="row">
-        <div class="col ">
+        <div class="col">
+            <!-- MudCard for user profile -->
             <MudCard Elevation="0">
                 <MudCardContent Style="text-align: center;">
-                    <MudBadge  Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Overlap="true" Bordered="true">
-                        <MudAvatar Style="height:100px; width:100px; font-size:2rem;"  Image="images/DP.png" />
+                    <!-- Badge for profile picture -->
+                    <MudBadge Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Overlap="true" Bordered="true">
+                        <!-- Avatar for profile picture -->
+                        <MudAvatar Style="height:100px; width:100px; font-size:2rem;" Image="images/DP.png" />
                     </MudBadge>
                 </MudCardContent>
             </MudCard>
         </div>
     </div>
 
+    <!-- Input fields for profile information -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Text field for card name -->
             <MudTextField @bind-Value="CardName" Variant="Variant.Filled"></MudTextField>
         </div>
     </div>
-
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Text field for username -->
             <MudTextField @bind-Value="UserName" Variant="Variant.Filled"></MudTextField>
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Date picker for date of birth -->
             <MudDatePicker @bind-Date="date" Variant="Variant.Filled" />
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Text field for email -->
             <MudTextField @bind-Value="email" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Email"></MudTextField>
         </div>
     </div>
-
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Text field for phone number -->
             <MudTextField @bind-Value="number" Variant="Variant.Filled"></MudTextField>
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Text field for address -->
             <MudTextField @bind-Value="Address" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.LocationOn"></MudTextField>
         </div>
     </div>
 </div>
 
+<!-- Sticky section with continue button -->
 <MudCard Class="Sticky DivCenter">
     <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
 </MudCard>
 
-
+<!-- Code section -->
 @code {
-
-    @inject NavigationManager Navigation;
-
+    // Variables for user profile information
     public string CardName { get; set; } = "Andrew Ainsley";
     public string UserName { get; set; } = "Andrew";
     public string email { get; set; } = "andrew_ainsley@yourdomain.com";
-
     public string number { get; set; } = "+1 111 467 378 399";
     public string Address { get; set; } = "267 New Avenue Park, New York";
 
+    // Variable for date of birth
     DateTime? date = DateTime.Today;
+
+    // Injecting NavigationManager for navigation functionality
+    @inject NavigationManager Navigation;
+
+    // Method for back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
 
+    // Method for continue button click
     private void Continue()
     {
         Navigation.NavigateTo("CreateNewPin");
     }
-
 }
-

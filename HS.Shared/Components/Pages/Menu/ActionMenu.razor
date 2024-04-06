@@ -1,48 +1,53 @@
-﻿@page "/ActionMenu"
+﻿<!-- Page route and imports -->
+@page "/ActionMenu"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
-
-
-
+<!-- CSS styles -->
 <style>
-
+    /* Container styling */
     .container {
         overflow-y: auto;
         overflow-x: hidden;
-        margin-bottom:5px;
+        margin-bottom: 5px;
     }
 
+    /* Center alignment for div elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
-
+    /* MudImage height */
     .mud-image {
         height: 50px;
     }
 
+    /* Flex layout for text class */
     .text {
         display: flex;
         justify-content: space-between;
         width: 100%;
     }
 
+    /* Flex layout for services class */
     .services {
         display: flex;
         justify-content: space-between;
-        width: 90%
+        width: 90%;
     }
 
+    /* Top border for linetop class */
     .linetop {
         border-top: solid 1px #e8e8e8;
     }
 
+    /* Styling for MudChip */
     .mud-chip {
         border: solid !important;
     }
 
+    /* Scrollable container */
     .scroll {
         margin: 4px, 4px;
         padding: 4px;
@@ -52,45 +57,53 @@
         white-space: nowrap;
     }
 
+    /* ServiceCard styling */
     .ServiceCard {
         height: 156px;
-    margin-right:5px;
+        margin-right: 5px;
         border-radius: 38px;
-        margin-top:20px;
+        margin-top: 20px;
     }
 
+    /* Header content layout */
     .headerContent {
-        display:flex;
+        display: flex;
     }
 
-    .serviceName{
-        margin-top:7px;
+    /* Service name styling */
+    .serviceName {
+        margin-top: 7px;
     }
-    .price{
+
+    /* Price styling */
+    .price {
         margin-top: 3px;
     }
 
-    .reviews{
+    /* Reviews styling */
+    .reviews {
         margin-top: 2px;
     }
 
+    /* Media query for smaller screens */
     @@media (max-width: 410px) {
         .ServiceCard {
             width: 355px;
             height: 161px;
-        
         }
 
         .serviceName {
             margin-top: 2px;
             font-size: larger;
         }
-        .reviews{
+
+        .reviews {
             font-size: 14px;
             margin-top: 8px;
         }
     }
 
+    /* Media query for even smaller screens */
     @@media (max-width: 375px) {
         .ServiceCard {
             width: 345px;
@@ -108,30 +121,35 @@
     }
 </style>
 
-
-
-
-
+<!-- HTML content -->
 <div class="container">
 
-    <div class="row" >
+    <!-- Row for card header and content -->
+    <div class="row">
         <div class="col ml-3 mt-1">
+            <!-- Card header with avatar, content, and actions -->
             <MudCardHeader>
                 <CardHeaderAvatar>
+                    <!-- MudImage for avatar -->
                     <MudImage Src="images/DP.png"></MudImage>
                 </CardHeaderAvatar>
                 <CardHeaderContent>
+                    <!-- Greeting text -->
                     <MudText Typo="Typo.body2">Good Morning 👋</MudText>
+                    <!-- User's name -->
                     <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Andrew Ainsley</MudText>
                 </CardHeaderContent>
                 <CardHeaderActions>
+                    <!-- Notification and bookmark icons -->
                     <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.NotificationsNone" Color="Color.Default" OnClick="NavigateToNotification" />
                     <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.BookmarkBorder" Color="Color.Default" OnClick="NavigateToBookmark" />
                 </CardHeaderActions>
             </MudCardHeader>
+            <!-- MudTextField for search -->
             <MudCardContent>
                 <MudTextField @bind-Value="Search" Label="Search" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.FilterList" AdornmentColor="Color.Primary" />
             </MudCardContent>
+            <!-- MudCardActions for special offers -->
             <MudCardActions Class="text">
                 <MudText Style="font-weight:bold" Typo="Typo.h6">Special Offers</MudText>
                 <MudButton Variant="Variant.Text" OnClick="NavigateToSpecialOffers"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
@@ -139,8 +157,10 @@
         </div>
     </div>
 
+    <!-- Row for MudCarousel -->
     <div class="row">
         <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="false" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="true" TData="object">
+            <!-- Carousel items with MudImage -->
             <MudCarouselItem Transition="transition">
                 <div class="d-flex" style="height:100%">
                     <MudImage Class="mx-auto my-auto" Src="images/T1.png" Elevation="0" Style="height:100%;width:100%" />
@@ -162,11 +182,12 @@
                 </div>
             </MudCarouselItem>
         </MudCarousel>
-
     </div>
 
+    <!-- Row for services section -->
     <div class="row">
         <div class="col ml-3 ">
+            <!-- MudCardActions for services heading -->
             <MudCardActions Class="text">
                 <MudText Style="font-weight:bold" Typo="Typo.h6">Services</MudText>
                 <MudButton Variant="Variant.Text"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
@@ -229,11 +250,13 @@
         </div>
     </div>
 
-
+    <!-- Row for MudChipSet filter -->
     <div class="row">
         <div class="col">
+            <!-- Scrollable container for MudChipSet -->
             <div class="scroll">
                 <MudChipSet Filter="false" Mandatory="true" SelectedChipChanged="OnSelectChip">
+                    <!-- MudChips for filtering services -->
                     <MudChip Text="All" Variant="Variant.Text" Color="Color.Primary">All</MudChip>
                     <MudChip Text="Cleaning" Variant="Variant.Text" Color="Color.Primary">Cleaning</MudChip>
                     <MudChip Text="repairing" Variant="Variant.Text" Color="Color.Primary">Repairing</MudChip>
@@ -244,7 +267,6 @@
                     <MudChip Text="shifting" Variant="Variant.Text" Color="Color.Primary">Shifting</MudChip>
                 </MudChipSet>
             </div>
-
         </div>
     </div>
 
@@ -332,35 +354,40 @@
 
 </div>
 
-
+<!-- Code section -->
 @code {
+    // Property for search input
     public string Search { get; set; }
+
+    // Transition type for MudCarousel
     private Transition transition = Transition.Slide;
+
+    // Navigation manager injection
     @inject NavigationManager Navigation;
- 
 
-
-
+    // Method for navigating back
     private void ClickBack()
     {
         Navigation.NavigateTo("ForgetPasswordOne");
     }
 
-
-
+    // Method for verifying click
     private void VerifyClick()
     {
         Navigation.NavigateTo("CreateNewPassword");
     }
 
+    // Navigation methods for different pages
     private void NavigateToBookmark()
     {
         Navigation.NavigateTo("MyBookmark");
     }
+
     private void NavigateToSpecialOffers()
     {
         Navigation.NavigateTo("SpecialOffers");
     }
+
     private void NavigateToNotification()
     {
         Navigation.NavigateTo("Notification");
@@ -370,13 +397,10 @@
     {
         Navigation.NavigateTo("AllServices");
     }
-    
 
+    // Method for handling MudChip selection
     private void OnSelectChip(MudChip mud)
     {
-
+        // Add logic for handling selected chip
     }
-
- 
 }
-

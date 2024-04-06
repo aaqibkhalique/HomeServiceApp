@@ -1,25 +1,32 @@
-﻿@page "/MyBookmark"
+﻿<!-- This page is the MyBookmark page -->
+@page "/MyBookmark"
+
+<!-- Importing the necessary components -->
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
+<!-- Styling for the page -->
 <style>
-
+    /* Styling for the container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
     }
 
+    /* Centering the DivCenter */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for IconText */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for scroll */
     .scroll {
         margin: 4px, 4px;
         padding: 4px;
@@ -29,6 +36,7 @@
         white-space: nowrap;
     }
 
+    /* Styling for ServiceCard */
     .ServiceCard {
         height: 186px;
         margin-right: 5px;
@@ -36,22 +44,27 @@
         margin-top: 20px;
     }
 
+    /* Styling for headerContent */
     .headerContent {
         display: flex;
     }
 
+    /* Styling for serviceName */
     .serviceName {
         margin-top: 7px;
     }
 
+    /* Styling for price */
     .price {
         margin-top: 3px;
     }
 
+    /* Styling for reviews */
     .reviews {
         margin-top: 7px;
     }
 
+    /* Media query for smaller screens */
     @@media (max-width: 410px) {
         .ServiceCard {
             width: 355px;
@@ -69,6 +82,7 @@
         }
     }
 
+    /* Media query for even smaller screens */
     @@media (max-width: 375px) {
         .ServiceCard {
             width: 345px;
@@ -85,32 +99,33 @@
         }
     }
 
-
-    .rightIcon .mud-icon-root{
+    /* Styling for rightIcon */
+    .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 </style>
 
-
-
-
-
+<!-- HTML content -->
 <div class="container">
-
+    <!-- Row for navigation -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Button for navigating back -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
             <span class="IconText">My Bookmark</span>
+            <!-- Button for more options -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
-
+    <!-- Row for filter chips -->
     <div class="row">
         <div class="col">
             <div class="scroll">
+                <!-- MudChipSet for filtering -->
                 <MudChipSet Filter="false" Mandatory="true" SelectedChipChanged="OnSelectChip">
+                    <!-- Filter chips -->
                     <MudChip Text="All" Variant="Variant.Text" Color="Color.Primary">All</MudChip>
                     <MudChip Text="Cleaning" Variant="Variant.Text" Color="Color.Primary">Cleaning</MudChip>
                     <MudChip Text="repairing" Variant="Variant.Text" Color="Color.Primary">Repairing</MudChip>
@@ -121,26 +136,31 @@
                     <MudChip Text="shifting" Variant="Variant.Text" Color="Color.Primary">Shifting</MudChip>
                 </MudChipSet>
             </div>
-
         </div>
     </div>
 
+    <!-- Row for displaying service cards -->
     <div class="row">
         <div class="col ml-2 mt-5 mb-5 ">
+            <!-- Service card 1 -->
             <MudCard Elevation="5" Class="ServiceCard">
                 <MudCardHeader>
                     <CardHeaderContent>
+                        <!-- Header content -->
                         <div class="headerContent">
+                            <!-- Service image -->
                             <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
                             <div style="margin-left:26px;">
+                                <!-- Service details -->
                                 <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
                                 <MudText Class="price font-weight-bold" Color="Color.Primary" Typo="Typo.h6">$25</MudText>
-                                <MudText Class="reviews" Typo="Typo.subtitle1"><MudIcon Class="reviews" Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />     <span>4.9 | 6.182 reviews</span></MudText>
+                                <MudText Class="reviews" Typo="Typo.subtitle1"><MudIcon Class="reviews" Icon="@Icons.Material.Filled.Star" Color="Color.Warning" /> <span>4.9 | 6.182 reviews</span></MudText>
                             </div>
                         </div>
                     </CardHeaderContent>
                     <CardHeaderActions>
+                        <!-- Bookmark button -->
                         <MudIconButton Icon="@Icons.Material.Filled.Bookmark" Color="Color.Primary" />
                     </CardHeaderActions>
                 </MudCardHeader>
@@ -203,24 +223,22 @@
                 </MudCardHeader>
             </MudCard>
         </div>
-
     </div>
-
 </div>
 
-
+<!-- C# code -->
 @code {
-
     @inject NavigationManager Navigation;
 
+    // Method to navigate back
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
- 
+
+    // Method to handle chip selection
     private void OnSelectChip(MudChip mud)
     {
 
     }
-
 }

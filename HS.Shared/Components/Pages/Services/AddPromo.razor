@@ -4,96 +4,106 @@
 
 <style>
 
+    /* Styling for the container */
     .container {
         overflow-y: hidden;
-      
-  
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for main icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text elements */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for smaller text */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Styling for sticky button */
     .Sticky {
-    padding:20px;
+        padding: 20px;
         position: fixed;
         bottom: 0;
         width: 100%;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
-      
     }
 
-    .cardContent{
+    /* Styling for card content */
+    .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
-    .mud-input-control.mud-input-control-boolean-input{
-        margin-top:6px;
+    /* Styling for boolean input controls */
+    .mud-input-control.mud-input-control-boolean-input {
+        margin-top: 6px;
     }
 
-    .mudCard{
+    /* Styling for cards */
+    .mudCard {
         border-radius: 10px;
         margin-top: 15px;
         width: 326px;
     }
 </style>
 
-
-
-
-
 <div class="container">
 
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Title for the page -->
             <span class="IconText">Add Promo</span>
+            <!-- Right icon button -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
-  
+
+    <!-- Cards for promo options -->
     <div class="row">
         <div class="col DivCenter">
-            <MudCard Class="mudCard" >
+            <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderAvatar>
+                        <!-- Image for promo -->
                         <MudImage Class="img-fluid" Src="images/p1.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
                     <CardHeaderContent>
                         <div class="cardContent">
                             <div>
+                                <!-- Promo title and description -->
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Special 25% Off</MudText>
                                 <MudText Class="smalltext" Typo="Typo.body2">Special promo only today!</MudText>
                             </div>
                             <div>
+                                <!-- Checkbox for promo option -->
                                 <MudCheckBox @bind-Value="@CheckBox1" Color="Color.Primary" CheckedIcon="@Icons.Material.Filled.Circle" UncheckedIcon="@Icons.Material.Outlined.Circle"></MudCheckBox>
-
                             </div>
                         </div>
                     </CardHeaderContent>
@@ -101,24 +111,28 @@
             </MudCard>
         </div>
     </div>
+
+    <!-- Additional promo cards -->
+    <!-- Repeat this structure for each promo card -->
 
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderAvatar>
+                        <!-- Image for promo -->
                         <MudImage Class="img-fluid" Src="images/p2.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
                     <CardHeaderContent>
-
                         <div class="cardContent">
                             <div>
+                                <!-- Promo title and description -->
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Discount 30% Off</MudText>
                                 <MudText Class="smalltext" Typo="Typo.body2">New user special promo</MudText>
                             </div>
                             <div>
+                                <!-- Checkbox for promo option -->
                                 <MudCheckBox @bind-Value="@CheckBox3" Color="Color.Primary" CheckedIcon="@Icons.Material.Filled.Circle" UncheckedIcon="@Icons.Material.Outlined.Circle"></MudCheckBox>
-
                             </div>
                         </div>
                     </CardHeaderContent>
@@ -126,6 +140,8 @@
             </MudCard>
         </div>
     </div>
+    <!-- Repeat similar structure for other promo cards -->
+    <!-- Sticky button for applying promo -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
@@ -208,21 +224,26 @@
 
 @code {
 
+    // Inject NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
+
+    // Checkbox properties for promo options
     public bool CheckBox1 { get; set; } = false;
     public bool CheckBox2 { get; set; } = true;
     public bool CheckBox3 { get; set; } = false;
     public bool CheckBox4 { get; set; } = false;
     public bool CheckBox5 { get; set; } = false;
+
+    // Method for handling back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
 
+    // Method for continuing to booking details after applying promo
     private void Continue()
     {
         Navigation.NavigateTo("BookingDetails");
     }
 
 }
-

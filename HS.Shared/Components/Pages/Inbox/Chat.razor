@@ -1,105 +1,109 @@
-﻿@page "/Chat"
+﻿<!-- Page route for the Chat page -->
+@page "/Chat"
+
+<!-- Importing required components and layouts -->
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
+<!-- Styling for the Chat page -->
 <style>
-
+    /* Container styling for the chat messages */
     .Chatcontainer {
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: 80vh;
+        overflow-y: auto; /* Enable vertical scrolling */
+        overflow-x: hidden; /* Hide horizontal overflow */
+        height: 80vh; /* Set container height */
     }
+
+    /* Center alignment for elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
-
+    /* Styling for chat icons */
     .mud-image {
         height: 50px;
     }
 
+    /* Styling for incoming chat icon */
     .IncomingIcon {
         border-radius: 6px;
-        background: #246BFD;
-        color: white;
-        margin-right: 5px;
+        background: #246BFD; /* Blue background */
+        color: white; /* White text color */
+        margin-right: 5px; /* Right margin */
     }
 
+    /* Styling for outgoing chat icon */
     .OutGoingIcon {
         border-radius: 6px;
-        background: #4ADE80;
-        color: white;
-        margin-right: 5px;
+        background: #4ADE80; /* Green background */
+        color: white; /* White text color */
+        margin-right: 5px; /* Right margin */
     }
 
+    /* Styling for missed chat icon */
     .MissedIcon {
         border-radius: 6px;
-        background: #F75555;
-        color: white;
-        margin-right: 5px;
+        background: #F75555; /* Red background */
+        color: white; /* White text color */
+        margin-right: 5px; /* Right margin */
     }
 
+    /* Styling for MudCardHeader */
     .mud-card-header {
-        padding: 10px !important;
+        padding: 10px !important; /* Set padding for header */
     }
 
+    /* Styling for the floating add button */
     .addBtn {
-        position: fixed;
-        bottom: 53px;
-        right: 20px;
-        z-index: 1000;
+        position: fixed; /* Fixed position */
+        bottom: 53px; /* Distance from the bottom */
+        right: 20px; /* Distance from the right */
+        z-index: 1000; /* Set z-index */
     }
 
+    /* Styling for the fab label */
     .mud-fab-label {
-        font-size: smaller;
+        font-size: smaller; /* Smaller font size for the fab label */
     }
 
+    /* Styling for card header actions */
     .mud-card-header-actions {
-        text-align:end!important;
+        text-align: end !important; /* Align actions to the end */
     }
 
-   .mud-collapse-container .mud-collapse-entered {
-        transition: none;
+    /* Styling for mud collapse container */
+    .mud-collapse-container .mud-collapse-entered {
+        transition: none; /* Disable transition for collapse container */
     }
 </style>
 
-
-
-
-
+<!-- Chat container to display chat messages -->
 <div class="Chatcontainer">
-
+    <!-- Chat message entries -->
     <div class="row">
-   
+        <!-- Chat message entry 1 -->
         <div class="col ml-2 mt-1" @onclick="ClickCall">
-       
-                <MudCardHeader>
-                    <CardHeaderAvatar>
-                        <MudImage Src="images/chat1.png"></MudImage>
-                    </CardHeaderAvatar>
-                    <CardHeaderContent>
-                       
-                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Jenny Wilson</MudText>
-                        <MudText Typo="Typo.body2">
-                            I have booked your house ...
-                        </MudText>
-                  
-                    </CardHeaderContent>
-                    <CardHeaderActions>
-                        <MudFab Label="2" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
-                        <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 5px;">
-                            13.29
-                        </MudText>
-                    </CardHeaderActions>
-                </MudCardHeader>
-        
-             
+            <MudCardHeader>
+                <CardHeaderAvatar>
+                    <MudImage Src="images/chat1.png"></MudImage>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Jenny Wilson</MudText>
+                    <MudText Typo="Typo.body2">
+                        I have booked your house ...
+                    </MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudFab Label="2" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                    <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 5px;">
+                        13.29
+                    </MudText>
+                </CardHeaderActions>
+            </MudCardHeader>
         </div>
-    
     </div>
-
-
+    <!-- Chat message entry 2 -->
     <div class="row">
         <div class="col ml-2 mt-1">
             <MudCardHeader>
@@ -121,7 +125,7 @@
             </MudCardHeader>
         </div>
     </div>
-
+    <!-- Chat message entry 3 -->
     <div class="row">
         <div class="col ml-2 mt-1">
             <MudCardHeader>
@@ -135,7 +139,6 @@
                     </MudText>
                 </CardHeaderContent>
                 <CardHeaderActions>
-                 
                     <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 40px;">
                         09.25
                     </MudText>
@@ -143,8 +146,7 @@
             </MudCardHeader>
         </div>
     </div>
-
-
+    <!-- Additional chat message entries... -->
     <div class="row">
         <div class="col ml-2 mt-1">
             <MudCardHeader>
@@ -227,7 +229,7 @@
                     </MudText>
                 </CardHeaderContent>
                 <CardHeaderActions>
-                
+
                     <MudText Typo="Typo.body2" Class="mr-2" Style="margin-top: 40px;">
                         Dec 18, 2024
                     </MudText>
@@ -261,23 +263,20 @@
 
 
 
-
-
-
+    <!-- Floating add button -->
     <div class="icon-bar">
         <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Class="addBtn" />
     </div>
 </div>
 
-
+<!-- Code block for page functionality -->
 @code {
-
+    // Inject NavigationManager for navigation operations
     @inject NavigationManager Navigation;
+
+    // Method to navigate to the OpenChat page
     private void ClickCall()
     {
         Navigation.NavigateTo("OpenChat");
     }
-
 }
-
-

@@ -1,33 +1,39 @@
-﻿
+﻿<!-- This page is for setting up fingerprint authentication -->
 @page "/SetFinger"
+
+<!-- Importing necessary components and layouts -->
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
-
+<!-- Styling for the page -->
 <style>
-
+    /* Styling for container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
     }
 
+    /* Styling for centering divs */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for text */
     .Text {
         font-weight: 500;
         width: 333px;
         margin-top: 25px;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
@@ -35,67 +41,73 @@
         margin-top: 50px;
     }
 
+    /* Styling for hiding numeric spin */
     .mud-input-numeric-spin {
         display: none !important;
     }
 </style>
 
-
-
-
-
+<!-- Main container for the page -->
 <div class="container">
 
+    <!-- Header section -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Page title -->
             <span class="IconText">Forgot Password</span>
         </div>
     </div>
+    <!-- Instructions section -->
     <div class="row  DivCenter">
         <div class="col DivCenter">
-            <MudText Typo="Typo.subtitle2" Style="margin-top:60px">Add a finger print to make your account more secure</MudText>
+            <!-- Text informing user about fingerprint setup -->
+            <MudText Typo="Typo.subtitle2" Style="margin-top:60px">Add a fingerprint to make your account more secure</MudText>
         </div>
     </div>
 
-
+    <!-- Fingerprint icon section -->
     <div class="row">
-
         <div class="col DivCenter">
+            <!-- Fingerprint icon -->
             <MudIcon Icon="@Icons.Material.Filled.Fingerprint" Style="font-size: 10rem;" Color="Color.Primary" />
         </div>
-
     </div>
+
+    <!-- Instruction text section -->
     <div class="row  DivCenter  ">
         <div class="col DivCenter">
+            <!-- Text guiding user to place finger on scanner -->
             <MudText Typo="Typo.subtitle1" Style="margin-top:60px">Please put your finger on the fingerprint scanner to get started.</MudText>
         </div>
     </div>
 
+    <!-- Verify button section -->
     <div class="row">
         <div class="col mt-5 DivCenter">
+            <!-- Verify button -->
             <MudButton Class="ContinueBtn" @onclick="VerifyClick" Variant="Variant.Filled" Color="Color.Primary">Verify</MudButton>
         </div>
     </div>
 
 </div>
 
-
+<!-- Code section -->
 @code {
-
+    // Injecting NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
 
+    // Method for back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("CreateNewPin");
     }
 
-
-
+    // Method to verify fingerprint and navigate to next step
     private void VerifyClick()
     {
         Navigation.NavigateTo("CreateNewPassword");
     }
 
 }
-

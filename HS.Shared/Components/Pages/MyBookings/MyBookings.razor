@@ -1,91 +1,99 @@
-﻿
-@page "/MyBookings"
-
+﻿@page "/MyBookings"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
 <style>
-
+    /* Styling for container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 20px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for small text */
     .smalltext {
         font-size: smaller;
     }
 
-
-
-
-
-
+    /* Styling for chat image */
     .chatimage {
         margin-top: 44px;
         margin-right: 10px;
     }
 
-
+    /* Styling for chat button */
     .chatbtn {
         border-bottom: solid 6px var(--mud-palette-primary);
         color: var(--mud-palette-primary);
     }
 </style>
 
-
-
-
-
+<!-- Main container -->
 <div class="container">
 
+    <!-- Row for header -->
     <div class="row sticky-top" style="margin-top: 9px;margin-left: 5px;">
         <div class="col ml-3 mt-1">
+            <!-- Logo and title -->
             <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
             <span class="IconText">My Bookings</span>
+            <!-- More options icon -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+            <!-- Search icon -->
             <MudIconButton Icon="@Icons.Material.Outlined.Search" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
+    <!-- Row for tabs -->
     <div class="row sticky-top">
         <div class="col d-flex justify-content-center" style="width: 100%;border-bottom: solid #c4c4c4 1px;">
+            <!-- Upcoming tab -->
             <MudButton Class="@_UpcomingClass" FullWidth="true" OnClick="OnUpcomingClick">Upcoming</MudButton>
             <MudDivider Vertical="true" FlexItem="true" />
+            <!-- Completed tab -->
             <MudButton Class="@_CompletedClass" FullWidth="true" OnClick="OnCompletedClick">Completed</MudButton>
             <MudDivider Vertical="true" FlexItem="true" />
+            <!-- Canceled tab -->
             <MudButton Class="@_CanceledClass" FullWidth="true" OnClick="OnCanceledClick">Canceled</MudButton>
         </div>
     </div>
 
+    <!-- Row for content -->
     <div class="row">
         <div class="col">
             <MudStack Spacing="2">
+                <!-- Upcoming content -->
                 <MudCollapse Expanded="_Upcoming">
                     <HS.Shared.Components.Pages.MyBookings.Upcoming></HS.Shared.Components.Pages.MyBookings.Upcoming>
                 </MudCollapse>
+                <!-- Completed content -->
                 <MudCollapse Expanded="_Completed">
                     <HS.Shared.Components.Pages.MyBookings.Completed></HS.Shared.Components.Pages.MyBookings.Completed>
                 </MudCollapse>
+                <!-- Canceled content -->
                 <MudCollapse Expanded="_Canceled">
                     <HS.Shared.Components.Pages.MyBookings.Cancelled></HS.Shared.Components.Pages.MyBookings.Cancelled>
                 </MudCollapse>
@@ -93,32 +101,32 @@
         </div>
     </div>
 
-
-
 </div>
 
-
 @code {
-
+    // Variables for tab classes
     string _UpcomingClass = "chatbtn";
     string _CompletedClass = "";
-    string _CanceledClass = "";  
-    
+    string _CanceledClass = "";
+
+    // Booleans for tab states
     bool _Upcoming = true;
     bool _Completed = false;
     bool _Canceled = false;
 
+    // Function to handle Upcoming tab click
     private void OnUpcomingClick()
     {
-         _Upcoming = true;
-         _Completed = false;
-         _Canceled = false;
+        _Upcoming = true;
+        _Completed = false;
+        _Canceled = false;
 
-         _UpcomingClass = "chatbtn";
-         _CompletedClass = "";
-         _CanceledClass = "";
-
+        _UpcomingClass = "chatbtn";
+        _CompletedClass = "";
+        _CanceledClass = "";
     }
+
+    // Function to handle Completed tab click
     private void OnCompletedClick()
     {
         _Upcoming = false;
@@ -128,8 +136,9 @@
         _UpcomingClass = "";
         _CompletedClass = "chatbtn";
         _CanceledClass = "";
-    } 
-    
+    }
+
+    // Function to handle Canceled tab click
     private void OnCanceledClick()
     {
         _Upcoming = false;
@@ -141,4 +150,3 @@
         _CanceledClass = "chatbtn";
     }
 }
-

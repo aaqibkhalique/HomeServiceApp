@@ -4,34 +4,41 @@
 
 <style>
 
+    /* Styling for the container */
     .container {
         overflow-y: auto;
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for main icon text */
     .IconText {
         font-size: x-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text elements */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for smaller text */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Styling for sticky button */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -41,97 +48,98 @@
         border-top-right-radius: 55px;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
-    ..mud-input-control.mud-input-control-boolean-input {
+    /* Styling for boolean input controls */
+    .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styling for cards */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
         width: 326px;
     }
 
+    /* Styling for divider */
     .mud-divider-middle {
         margin-left: 140px;
         margin-right: 140px;
     }
 </style>
 
-
-
-
-
 <div class="container">
 
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Title for the page -->
             <span class="IconText">Your Address/Location</span>
+            <!-- Right icon button -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
-
+    <!-- Image for address/location -->
     <div class="row">
-        <div class="col ">
-
-            <MudImage  Src="images/address.png" Elevation="0" Fluid="true" />
-          
+        <div class="col">
+            <MudImage Src="images/address.png" Elevation="0" Fluid="true" />
         </div>
     </div>
 
-    
 </div>
 
+<!-- Sticky card for location details -->
 <MudCard Class="Sticky DivCenter">
-  
     <div>
-        <MudDivider DividerType="DividerType.Middle" >  </MudDivider>
+        <!-- Divider for section -->
+        <MudDivider DividerType="DividerType.Middle"></MudDivider>
+        <!-- Title for location details -->
         <span class="IconText DivCenter mt-2">Location Details</span>
-        <MudDivider Class="mt-5"> </MudDivider>
+        <!-- Divider for section -->
+        <MudDivider Class="mt-5"></MudDivider>
+        <!-- Text for address -->
         <span class="IconText">Address</span>
         <br />
+        <!-- Input field for address -->
         <MudTextField @bind-Value="Abbddress" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.LocationOn" Class="mx-3" />
         <br />
+        <!-- Continue button -->
         <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
-
     </div>
 </MudCard>
 
-
 @code {
 
+    // Inject NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
-    public bool CheckBox1 { get; set; } = false;
-    public bool CheckBox2 { get; set; } = false;
-    public bool CheckBox3 { get; set; } = false;
-    public bool CheckBox4 { get; set; } = true;
-    public bool CheckBox5 { get; set; } = false;
 
+    // Property for address input
     public string Abbddress { get; set; } = "267 New Avenue Park, New York";
 
+    // Method for handling back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
-
-       
     }
 
+    // Method for continuing to services payment after entering address
     private void Continue()
     {
         Navigation.NavigateTo("ServicesPayment");
     }
 
 }
-

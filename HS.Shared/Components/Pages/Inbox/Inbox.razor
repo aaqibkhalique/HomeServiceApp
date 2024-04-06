@@ -5,10 +5,10 @@
 
 <style>
 
+    /* Styling for the container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
-       
     }
 
     .DivCenter {
@@ -16,12 +16,14 @@
         justify-content: center;
     }
 
+    /* Styling for the icon and text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 20px;
     }
 
+    /* Styling for the right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
@@ -35,72 +37,75 @@
         font-size: smaller;
     }
 
- 
-
- 
-    
-
+    /* Styling for chat image */
     .chatimage {
         margin-top: 44px;
         margin-right: 10px;
     }
 
-
-    .chatbtn{
+    /* Styling for chat button */
+    .chatbtn {
         border-bottom: solid 6px var(--mud-palette-primary);
         color: var(--mud-palette-primary);
     }
-  
 </style>
-
-
-
-
 
 <div class="container">
 
+    <!-- Header section -->
     <div class="row sticky-top" style="margin-top: 9px;margin-left: 5px;">
         <div class="col ml-3 mt-1">
+            <!-- Logo image -->
             <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
+            <!-- Text -->
             <span class="IconText">Inbox</span>
+            <!-- Right icon button -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
-            <MudIconButton  Icon="@Icons.Material.Outlined.Search" Style="float: right;"></MudIconButton>
+            <!-- Search icon button -->
+            <MudIconButton Icon="@Icons.Material.Outlined.Search" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
+    <!-- Navigation buttons section -->
     <div class="row sticky-top">
         <div class="col d-flex justify-content-center" style="width: 100%;border-bottom: solid #c4c4c4 1px;">
+            <!-- Chat button -->
             <MudButton Class="@_chatClass" FullWidth="true" OnClick="OnChatClick">Chats</MudButton>
+            <!-- Divider -->
             <MudDivider Vertical="true" FlexItem="true" />
+            <!-- Calls button -->
             <MudButton Class="@_callClass" FullWidth="true" OnClick="OnCallClick">Calls</MudButton>
         </div>
     </div>
 
+    <!-- Chat and call content section -->
     <div class="row">
         <div class="col">
             <MudStack Spacing="2">
+                <!-- Chat content -->
                 <MudCollapse Expanded="_chat">
                     <HS.Shared.Components.Pages.Inbox.Chat></HS.Shared.Components.Pages.Inbox.Chat>
                 </MudCollapse>
+                <!-- Calls content -->
                 <MudCollapse Expanded="_call">
-                     <HS.Shared.Components.Pages.Inbox.Call></HS.Shared.Components.Pages.Inbox.Call>
+                    <HS.Shared.Components.Pages.Inbox.Call></HS.Shared.Components.Pages.Inbox.Call>
                 </MudCollapse>
             </MudStack>
         </div>
     </div>
 
-
-
 </div>
-
 
 @code {
 
+    // Variables for button classes and content states
     string _chatClass = "chatbtn";
     string _callClass = "";
 
     bool _chat = true;
     bool _call = false;
+
+    // Method for handling chat button click
     private void OnChatClick()
     {
         _chat = true;
@@ -108,6 +113,8 @@
         _callClass = "";
         _chatClass = "chatbtn";
     }
+
+    // Method for handling calls button click
     private void OnCallClick()
     {
         _chat = false;
@@ -116,4 +123,3 @@
         _callClass = "chatbtn";
     }
 }
-

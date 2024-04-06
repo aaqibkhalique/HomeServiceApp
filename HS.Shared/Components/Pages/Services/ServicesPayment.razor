@@ -4,95 +4,116 @@
 
 <style>
 
+    /* Container styles */
     .container {
-        overflow-y: auto;
+        overflow-y: auto; /* Enables vertical scrolling within the container */
     }
 
+    /* Centering elements horizontally */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for large icons with bold text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
-        margin-left: 8px;
+        margin-left: 8px; /* Adds left margin to the icon text */
     }
 
+    /* Styling for icons on the right side with rounded borders */
     .rightIcon .mud-icon-root {
         border: solid;
-        border-radius: 12px;
+        border-radius: 12px; /* Rounds the corners of the icon */
     }
 
+    /* Bold text styling */
     .Text {
         font-weight: bold;
     }
 
+    /* Smaller text size */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Sticky footer styles */
     .Sticky {
         padding: 20px;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
+        position: fixed; /* Fixes the element at the bottom of the viewport */
+        bottom: 0; /* Positions the element at the bottom */
+        width: 100%; /* Full width */
     }
 
+    /* Button styles */
     .ContinueBtn {
-        border-radius: 30px;
-        width: 330px;
-        height: 50px;
+        border-radius: 30px; /* Rounded corners for the button */
+        width: 330px; /* Button width */
+        height: 50px; /* Button height */
     }
 
+    /* Flexbox styling for content alignment */
     .cardContent {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; /* Space between items in the flex container */
     }
 
+    /* Styling for boolean input controls */
     .mud-input-control.mud-input-control-boolean-input {
-        margin-top: 6px;
+        margin-top: 6px; /* Adds top margin to boolean input controls */
     }
 
+    /* Card styling */
     .mudCard {
-        border-radius: 10px;
-        margin-top: 25px;
-        width: 326px;
+        border-radius: 10px; /* Rounded corners for the card */
+        margin-top: 25px; /* Top margin for spacing */
+        width: 326px; /* Card width */
     }
 </style>
 
 
 
 
-
 <div class="container">
 
+    <!-- Row for the back button and page title -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Page title -->
             <span class="IconText">Payment Methods</span>
+            <!-- More options button -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
+
+    <!-- Row for the message -->
     <div class="row  DivCenter  mt-10">
         <div class="col DivCenter">
+            <!-- Message about selecting payment method -->
             <MudText Typo="Typo.body1">Select the payment method you want to use</MudText>
         </div>
     </div>
 
+    <!-- PayPal payment method card -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderAvatar>
+                        <!-- PayPal logo -->
                         <MudImage Class="img-fluid" Src="images/paypal.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
                     <CardHeaderContent>
                         <div class="cardContent">
                             <div>
+                                <!-- Payment method title -->
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">Paypal</MudText>
                             </div>
                             <div>
+                                <!-- Checkbox for PayPal -->
                                 <MudCheckBox @bind-Value="@CheckBox1" Color="Color.Primary" CheckedIcon="@Icons.Material.Filled.Circle" UncheckedIcon="@Icons.Material.Outlined.Circle"></MudCheckBox>
                             </div>
                         </div>
@@ -138,6 +159,7 @@
                             <div>
                                 <MudCheckBox @bind-Value="@CheckBox3" Color="Color.Primary" CheckedIcon="@Icons.Material.Filled.Circle" UncheckedIcon="@Icons.Material.Outlined.Circle"></MudCheckBox>
                             </div>
+
                         </div>
                     </CardHeaderContent>
                 </MudCardHeader>
@@ -188,27 +210,39 @@
     </div>
 </div>
 
+
+
+<!-- Sticky footer for continuing -->
 <MudCard Class="Sticky DivCenter">
+    <!-- Button for applying promo -->
     <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Apply Promo</MudButton>
 </MudCard>
 
 
 @code {
-
+    // Inject NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
+
+    // Boolean properties for checkboxes, initialized with default values
     public bool CheckBox1 { get; set; } = false;
     public bool CheckBox2 { get; set; } = false;
     public bool CheckBox3 { get; set; } = false;
-    public bool CheckBox4 { get; set; } = true;
+    public bool CheckBox4 { get; set; } = true; // Default checked value for CheckBox4
     public bool CheckBox5 { get; set; } = false;
+
+    // Method for handling back button click event
     private void ClickBack()
     {
+        // Navigate back to the "Home" page
         Navigation.NavigateTo("Home");
     }
+
+    // Method for handling continue button click event
     private void Continue()
     {
+        // Navigate to the "ReviewSummary" page
         Navigation.NavigateTo("ReviewSummary");
     }
-
 }
+
 

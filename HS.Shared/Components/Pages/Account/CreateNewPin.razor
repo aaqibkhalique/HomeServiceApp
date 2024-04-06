@@ -1,32 +1,39 @@
-﻿@page "/CreateNewPin"
+﻿<!-- This page is for creating a new PIN -->
+@page "/CreateNewPin"
+
+<!-- Importing necessary components and layouts -->
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
-
+<!-- Styling for the page -->
 <style>
-
+    /* Styling for container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
     }
 
+    /* Styling for centering divs */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for text */
     .Text {
         font-weight: 500;
         width: 333px;
         margin-top: 25px;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
@@ -34,34 +41,37 @@
         margin-top: 50px;
     }
 
+    /* Styling to hide numeric spin controls */
     .mud-input-numeric-spin {
         display: none !important;
     }
 </style>
 
-
-
-
-
+<!-- Main container for the page -->
 <div class="container">
 
+    <!-- Header section -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Page title -->
             <span class="IconText">Create New Pin</span>
         </div>
     </div>
+    <!-- Text section -->
     <div class="row  DivCenter">
         <div class="col DivCenter">
+            <!-- Instruction text -->
             <MudText Typo="Typo.subtitle2" Style="margin-top:60px">Add a PIN number to make your account more secure.</MudText>
         </div>
     </div>
 
-
+    <!-- PIN input section -->
     <div class="row">
-
         <div class="col DivCenter">
             <MudGrid Class="justify-space-between" Style="max-width: 300px;margin-top:45px;">
+                <!-- Four separate input fields for PIN -->
                 <MudItem xs="3">
                     <MudTextField InputType="InputType.Number" Mask="@(new PatternMask("0"))"
                                   @bind-Value="cvc1" Variant="@Variant.Outlined" Min="0" Max="9" />
@@ -80,10 +90,9 @@
                 </MudItem>
             </MudGrid>
         </div>
-
     </div>
- 
 
+    <!-- Continue button -->
     <div class="row">
         <div class="col mt-5 DivCenter">
             <MudButton Class="ContinueBtn" @onclick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
@@ -92,41 +101,28 @@
 
 </div>
 
-
+<!-- Code section -->
 @code {
+    // Variables to store PIN input values
     private string cvc1;
     private string cvc2;
     private string cvc3;
     private string cvc4;
 
+
+    // Injecting NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
 
+    // Method for back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("ForgetPasswordOne");
     }
 
-    string stylingCard1 = "";
-    string stylingCard2 = "";
 
-    private void OnCardClick(int param)
-    {
-        if (param == 1)
-        {
-            stylingCard2 = "";
-            stylingCard1 = "stylingCard";
-        }
-        else
-        {
-            stylingCard1 = "";
-            stylingCard2 = "stylingCard";
-        }
-    }
-
+    // Method for continue button click
     private void Continue()
     {
         Navigation.NavigateTo("SetFinger");
     }
-
 }
-

@@ -1,38 +1,43 @@
-﻿
-@page "/ReviewSummary"
+﻿@page "/ReviewSummary"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
 <style>
-
+    /* Styles for the container */
     .container {
         overflow-y: auto;
     }
 
+    /* Styles for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styles for the icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styles for the right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styles for text */
     .Text {
         font-weight: bold;
     }
 
+    /* Styles for small text */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Sticky footer styles */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -40,21 +45,25 @@
         width: 100%;
     }
 
+    /* Styles for the continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styles for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
+    /* Additional styles for mud input control */
     ..mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styles for mud card */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
@@ -62,26 +71,25 @@
     }
 </style>
 
-
-
-
-
 <div class="container">
-
+    <!-- Header section -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button and icon text -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
-            <span class="IconText">Review Summary </span>
+            <span class="IconText">Review Summary</span>
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
-
+    <!-- First card section -->
     <div class="row">
         <div class="col DivCenter">
+            <!-- First MudCard displaying service details -->
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderContent>
+                        <!-- Service details -->
                         <div class="cardContent">
                             <div>
                                 <MudText Typo="Typo.subtitle1">Services</MudText>
@@ -90,14 +98,16 @@
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold">House Cleaning</MudText>
                             </div>
                         </div>
+                        <!-- Category details -->
                         <div class="cardContent mt-5">
                             <div>
                                 <MudText Typo="Typo.subtitle1">Category</MudText>
                             </div>
                             <div>
-                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Cleaning</MudText>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Cleaning</MudText>
                             </div>
                         </div>
+                        <!-- Worker details -->
                         <div class="cardContent mt-5">
                             <div>
                                 <MudText Typo="Typo.subtitle1">Workers</MudText>
@@ -106,14 +116,16 @@
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Jenny Wilson</MudText>
                             </div>
                         </div>
+                        <!-- Date & Time details -->
                         <div class="cardContent mt-5">
                             <div>
                                 <MudText Typo="Typo.subtitle1">Date & Time</MudText>
                             </div>
                             <div>
-                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Dec 23, 2024 | 10:00 AM   </MudText>
+                                <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Dec 23, 2024 | 10:00 AM</MudText>
                             </div>
                         </div>
+                        <!-- Working Hours details -->
                         <div class="cardContent mt-5">
                             <div>
                                 <MudText Typo="Typo.subtitle1">Working Hours</MudText>
@@ -128,33 +140,37 @@
         </div>
     </div>
 
-
+    <!-- Second card section -->
     <div class="row">
         <div class="col DivCenter">
+            <!-- Second MudCard for house cleaning details -->
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="cardContent">
+                            <!-- Title for expandable section -->
                             <div>
                                 <MudText Typo="Typo.subtitle1">House Cleaning Details</MudText>
                             </div>
+                            <!-- Icon for expanding/collapsing section -->
                             <div>
                                 <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown"></MudIcon>
                             </div>
                         </div>
-                  
                     </CardHeaderContent>
                 </MudCardHeader>
             </MudCard>
         </div>
     </div>
 
-
+    <!-- Third card section -->
     <div class="row">
         <div class="col DivCenter">
+            <!-- Third MudCard for payment details -->
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderContent>
+                        <!-- Amount details -->
                         <div class="cardContent">
                             <div>
                                 <MudText Typo="Typo.subtitle1">House Cleaning</MudText>
@@ -163,15 +179,18 @@
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold">$125.00</MudText>
                             </div>
                         </div>
+                        <!-- Promo details -->
                         <div class="cardContent mt-5">
                             <div>
-                                <MudText Color="Color.Primary" Typo="Typo.subtitle1">Promo </MudText>
+                                <MudText Color="Color.Primary" Typo="Typo.subtitle1">Promo</MudText>
                             </div>
                             <div>
                                 <MudText Color="Color.Primary" Typo="Typo.subtitle1" Style="font-weight:bold">-$37.50</MudText>
                             </div>
                         </div>
+                        <!-- Divider -->
                         <MudDivider></MudDivider>
+                        <!-- Total details -->
                         <div class="cardContent mt-5">
                             <div>
                                 <MudText Typo="Typo.subtitle1">Total</MudText>
@@ -180,27 +199,30 @@
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold">$87.50</MudText>
                             </div>
                         </div>
-                       
                     </CardHeaderContent>
                 </MudCardHeader>
             </MudCard>
         </div>
     </div>
-   
+
+    <!-- Fourth card section -->
     <div class="row">
         <div class="col DivCenter">
+            <!-- Fourth MudCard for payment method details -->
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderAvatar>
+                        <!-- Payment method icon -->
                         <MudImage Class="img-fluid" Src="images/mastercard.png" Elevation="0" Height="40" Width="40" />
                     </CardHeaderAvatar>
                     <CardHeaderContent>
+                        <!-- Card details -->
                         <div class="cardContent">
                             <div>
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">•••• •••• •••• •••• 4679</MudText>
                             </div>
+                            <!-- Change button -->
                             <div>
-                          
                                 <MudText Color="Color.Primary" Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:10px;">Change</MudText>
                             </div>
                         </div>
@@ -209,31 +231,25 @@
             </MudCard>
         </div>
     </div>
-   
 </div>
 
+<!-- Sticky footer with continue button -->
 <MudCard Class="Sticky DivCenter">
     <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Confirm Payment</MudButton>
 </MudCard>
 
-
 @code {
-
     @inject NavigationManager Navigation;
-    public bool CheckBox1 { get; set; } = false;
-    public bool CheckBox2 { get; set; } = false;
-    public bool CheckBox3 { get; set; } = false;
-    public bool CheckBox4 { get; set; } = true;
-    public bool CheckBox5 { get; set; } = false;
+
+    // Method for navigating back to the home page
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
 
+    // Method for continuing to the EnterPin page
     private void Continue()
     {
         Navigation.NavigateTo("EnterPin");
     }
-
 }
-

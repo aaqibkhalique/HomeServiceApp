@@ -3,70 +3,88 @@
 @layout EmptyLayout
 
 <style>
-
+    /* Styling for the container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
         height: 900px;
     }
 
+    /* Centering elements horizontally */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for the right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
-    .Text{
+    /* Bold text styling */
+    .Text {
         font-weight: bold;
     }
-    .smalltext{
+
+    /* Small text styling */
+    .smalltext {
         font-size: smaller;
     }
 </style>
 
-
-
-
-
+<!-- Container div for the notification content -->
 <div class="container">
 
+    <!-- Row for the notification header -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button icon -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Notification title -->
             <span class="IconText">Notification</span>
+            <!-- More options icon -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
+
+    <!-- Today's notifications section -->
     <div class="row ml-5">
         <div class="col ">
+            <!-- Today's date heading -->
             <MudText Typo="Typo.subtitle1" Class="Text">Today</MudText>
         </div>
     </div>
+
+    <!-- Notification card 1 -->
     <div class="row">
         <div class="col DivCenter">
-            <MudCard  Style="border-radius:10px;margin-top:10px;width:326px;">
+            <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
                 <MudCardHeader>
+                    <!-- Avatar for notification card -->
                     <CardHeaderAvatar>
                         <MudImage Class="img-fluid" Src="images/n1.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
+                    <!-- Notification content -->
                     <CardHeaderContent>
+                        <!-- Notification title -->
                         <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Payment Successful!</MudText>
+                        <!-- Notification details -->
                         <MudText Class="smalltext" Typo="Typo.body2">You have made a services payment</MudText>
                     </CardHeaderContent>
                 </MudCardHeader>
             </MudCard>
-        </div>  
+        </div>
     </div>
+
+    <!-- Notification card 2 -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
@@ -82,11 +100,16 @@
             </MudCard>
         </div>
     </div>
+
+    <!-- Yesterday's notifications section -->
     <div class="row ml-5">
         <div class="col ">
+            <!-- Yesterday's date heading -->
             <MudText Typo="Typo.subtitle1" Class="Text">Yesterday</MudText>
         </div>
     </div>
+
+    <!-- Notification card 3 -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
@@ -103,11 +126,15 @@
         </div>
     </div>
 
+    <!-- Date-specific notification section -->
     <div class="row ml-5">
         <div class="col ">
+            <!-- Date heading -->
             <MudText Typo="Typo.subtitle1" Class="Text">December 22, 2024</MudText>
         </div>
     </div>
+
+    <!-- Notification card 4 -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
@@ -123,6 +150,8 @@
             </MudCard>
         </div>
     </div>
+
+    <!-- Notification card 5 -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Style="border-radius:10px;margin-top:10px;width:326px;">
@@ -132,7 +161,7 @@
                     </CardHeaderAvatar>
                     <CardHeaderContent>
                         <MudText Typo="Typo.subtitle1" Style="font-weight:bold">New Category Services!</MudText>
-                        <MudText Class="smalltext"  Typo="Typo.body2">Now the plumbing services is available</MudText>
+                        <MudText Class="smalltext" Typo="Typo.body2">Now the plumbing services is available</MudText>
                     </CardHeaderContent>
                 </MudCardHeader>
             </MudCard>
@@ -140,17 +169,13 @@
     </div>
 </div>
 
-
 @code {
-
+    // Injecting NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
 
+    // Method to handle back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
-
-  
-
 }
-

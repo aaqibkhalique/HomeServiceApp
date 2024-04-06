@@ -3,35 +3,41 @@
 @layout EmptyLayout
 
 <style>
-
+    /* Styling for container */
     .container {
         overflow-y: auto;
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icon and text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for small text */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Styling for sticky footer */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -39,102 +45,118 @@
         width: 100%;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
+    /* Styling for input control */
     .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styling for card */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
         width: 326px;
     }
 
-    .mud-input-control{
+    /* Styling for input control margins */
+    .mud-input-control {
         margin-right: 25px;
         margin-left: 10px;
     }
 </style>
 
-
-
-
-
+<!-- Main container -->
 <div class="container">
-
+    <!-- Back button row -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3  mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Icon text -->
             <span class="IconText">Add New Card</span>
+            <!-- Right icon button -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
+    <!-- Card image row -->
     <div class="row" style="margin-top: 20px;margin-right: 16px;">
         <div class="col ml-3">
+            <!-- Card image -->
             <MudImage Fluid="true" Src="images/creditcard.png"></MudImage>
         </div>
     </div>
 
+    <!-- Card name row -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
-           <MudText Typo="Typo.h6" Style="font-weight:bolder">Card Name</MudText>
+            <!-- Card name label and input -->
+            <MudText Typo="Typo.h6" Style="font-weight:bolder">Card Name</MudText>
             <MudTextField @bind-Value="CardName" Variant="Variant.Filled"></MudTextField>
         </div>
     </div>
 
+    <!-- Card number row -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Card number label and input -->
             <MudText Typo="Typo.h6" Style="font-weight:bolder">Card Number</MudText>
             <MudTextField @bind-Value="CardNumber" Variant="Variant.Filled"></MudTextField>
         </div>
     </div>
 
-
-
+    <!-- Expiry and CVV row -->
     <div class="row" style="margin-top: 20px;display: flex;">
         <div class="col ml-3">
+            <!-- Expiry label and date picker -->
             <MudText Typo="Typo.h6" Style="font-weight:bolder">Expiry</MudText>
             <MudDatePicker @bind-Date="date" />
         </div>
         <div class="col ml-3">
+            <!-- CVV label and input -->
             <MudText Typo="Typo.h6" Style="font-weight:bolder">CVV</MudText>
             <MudTextField @bind-Value="CVV" Variant="Variant.Filled"></MudTextField>
         </div>
     </div>
-
-
 </div>
 
+<!-- Sticky footer card -->
 <MudCard Class="Sticky DivCenter">
+    <!-- Continue button -->
     <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Add New Card</MudButton>
 </MudCard>
 
-
 @code {
-
+    // Inject NavigationManager for navigation
     @inject NavigationManager Navigation;
 
+    // CardName property for binding
     public string CardName { get; set; } = "Andrew Ainsley";
+
+    // CardNumber property for binding
     public string CardNumber { get; set; } = "2672 4738 7837 7285";
+
+    // CVV property for binding
     public string CVV { get; set; } = "699";
+
+    // Date property for binding
     DateTime? date = DateTime.Today;
+
+    // Function to handle back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
-
-
-
 }
-

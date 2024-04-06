@@ -4,34 +4,41 @@
 
 <style>
 
+    /* Styling for the container */
     .container {
         overflow-y: auto;
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for main icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text elements */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for smaller text */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Styling for sticky section at the bottom */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -39,21 +46,25 @@
         width: 100%;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styling for card content layout */
     .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
+    /* Styling for boolean input controls */
     .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styling for MudCard components */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
@@ -61,34 +72,38 @@
     }
 </style>
 
-
-
-
-
 <div class="container">
 
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Title for the page -->
             <span class="IconText">Payment Methods</span>
+            <!-- More options icon -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
- 
 
+
+    <!-- Paypal payment method card -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
+                    <!-- Paypal logo -->
                     <CardHeaderAvatar>
                         <MudImage Class="img-fluid" Src="images/paypal.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
+                    <!-- Paypal card content -->
                     <CardHeaderContent>
                         <div class="cardContent">
                             <div>
+                                <!-- Paypal text -->
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">Paypal</MudText>
                             </div>
                             <div>
+                                <!-- Connected status -->
                                 <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Connected</MudText>
                             </div>
                         </div>
@@ -98,19 +113,24 @@
         </div>
     </div>
 
+    <!-- Google Pay payment method card -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
+                    <!-- Google Pay logo -->
                     <CardHeaderAvatar>
                         <MudImage Class="img-fluid" Src="images/google.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
+                    <!-- Google Pay card content -->
                     <CardHeaderContent>
                         <div class="cardContent">
                             <div>
+                                <!-- Google Pay text -->
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">Google Pay</MudText>
                             </div>
                             <div>
+                                <!-- Connected status -->
                                 <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Connected</MudText>
                             </div>
                         </div>
@@ -119,19 +139,24 @@
             </MudCard>
         </div>
     </div>
+    <!-- Apple Pay payment method card -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
+                    <!-- Apple Pay logo -->
                     <CardHeaderAvatar>
                         <MudImage Class="img-fluid" Src="images/apple.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
+                    <!-- Apple Pay card content -->
                     <CardHeaderContent>
                         <div class="cardContent">
                             <div>
+                                <!-- Apple Pay text -->
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">Apple Pay</MudText>
                             </div>
                             <div>
+                                <!-- Connected status -->
                                 <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Connected</MudText>
                             </div>
                         </div>
@@ -140,19 +165,24 @@
             </MudCard>
         </div>
     </div>
+    <!-- Mastercard payment method card -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
+                    <!-- Mastercard logo -->
                     <CardHeaderAvatar>
                         <MudImage Class="img-fluid" Src="images/mastercard.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
+                    <!-- Mastercard card content -->
                     <CardHeaderContent>
                         <div class="cardContent">
                             <div>
+                                <!-- Mastercard masked number -->
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">•••• •••• •••• •••• 4679</MudText>
                             </div>
                             <div>
+                                <!-- Connected status -->
                                 <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Connected</MudText>
                             </div>
                         </div>
@@ -161,10 +191,9 @@
             </MudCard>
         </div>
     </div>
-  
-
 </div>
 
+<!-- Sticky section at the bottom for adding new card -->
 <MudCard Class="Sticky DivCenter">
     <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Add New Card</MudButton>
 </MudCard>
@@ -172,14 +201,13 @@
 
 @code {
 
+    // Inject NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
-  
+
+    // Method for handling back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
 
-
-
 }
-

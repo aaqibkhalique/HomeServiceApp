@@ -3,54 +3,59 @@
 @layout EmptyLayout
 
 <style>
-
-
-
+    /* Container styles */
     .container {
         overflow-y: hidden;
     }
 
+    /* Center alignment for flex items */
     .DivCenter {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-around; /* Centers items evenly along the main axis */
     }
 
+    /* Large and bold text for icons and headings */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styles for right-aligned icons */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Bold text */
     .Text {
         font-weight: bold;
     }
 
+    /* Smaller text size */
     .smalltext {
         font-size: smaller;
     }
 
-
-
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Flex container for card content */
     .cardContent {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; /* Centers items evenly along the main axis */
     }
 
-    ..mud-input-control.mud-input-control-boolean-input {
+    /* Styling for input control */
+    .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Card styles */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
@@ -59,8 +64,7 @@
         height: 536px;
     }
 
-
-    /* Chat container */
+    /* Chat container styles */
     .chat {
         display: flex;
         flex-direction: column;
@@ -68,7 +72,7 @@
         padding: 10px;
     }
 
-    /* Style for messages from the other user */
+    /* Styles for messages from the other user */
     .OtherUserSays {
         align-self: flex-start;
         background-color: #f1f0f0;
@@ -81,7 +85,7 @@
         width: 300px;
     }
 
-    /* Style for messages from the current user */
+    /* Styles for messages from the current user */
     .userSays {
         align-self: flex-end;
         background-color: var(--mud-palette-primary);
@@ -95,13 +99,13 @@
         width: 300px;
     }
 
+    /* Styles for user images */
     .userImages {
         align-self: flex-end;
         width: 245px;
     }
 
-
-    /* Text styling */
+    /* Text styles */
     .text {
         margin: 0;
     }
@@ -111,6 +115,7 @@
         margin: 5px 0;
     }
 
+    /* Center alignment for specific elements */
     .CenterSays {
         align-self: center;
         background-color: #f1f0f0;
@@ -119,6 +124,7 @@
         max-width: 100%;
     }
 
+    /* Sticky footer */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -127,98 +133,79 @@
     }
 </style>
 
-
-
-
-
 <div class="container">
 
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Title -->
             <span class="IconText">Jenny Wilson </span>
+            <!-- Call and more icons -->
             <MudIconButton Icon="@Icons.Material.Filled.Call" Style="float: right;"></MudIconButton>
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
-
     <div class="row">
         <div class="col">
-
             <div class="chat">
-
-
+                <!-- Date separator -->
                 <div class="CenterSays">
                     <div class="text">
                         <p>Today</p>
                     </div>
                 </div>
 
+                <!-- Messages -->
                 <div class="OtherUserSays">
                     <div class="text">
-                        <p>Hello, good morning.  <span style="float:right">09:41</span></p>
-
+                        <p>Hello, good morning. <span style="float:right">09:41</span></p>
                     </div>
                 </div>
-
                 <div class="OtherUserSays">
                     <div class="text">
                         <p>I am a Customer Service, is there anything I can help you with? 😄 <span style="float:right">09:41</span></p>
-
                     </div>
                 </div>
-
                 <div class="userSays">
                     <div class="text">
-                        <p>Hi, I'm having problems with my services payment.  <span style="float:right">09:41</span></p>
-
+                        <p>Hi, I'm having problems with my services payment. <span style="float:right">09:41</span></p>
                     </div>
                 </div>
-
                 <div class="userSays">
                     <div class="text">
-                        <p> Can you help me?  <span style="float:right">09:41</span></p>
+                        <p> Can you help me? <span style="float:right">09:41</span></p>
                     </div>
                 </div>
-
                 <div class="OtherUserSays">
                     <div class="text">
                         <p>Of course... <span style="float:right">09:41</span></p>
-
                     </div>
                 </div>
                 <div class="OtherUserSays">
                     <div class="text">
                         <p>Can you tell me the problem you are having? so I can help solve it 😁 <span style="float:right">10:00</span></p>
-
                     </div>
                 </div>
-          
-
-            
             </div>
-
         </div>
     </div>
-  
 
-    <div class=" Sticky row DivCenter">
-        <div class="col " style="width: 74%;">
+    <!-- Sticky input and button -->
+    <div class="Sticky row DivCenter">
+        <div class="col" style="width: 74%;">
+            <!-- Message input field -->
             <MudTextField FullWidth="true" @bind-Value="Message" Label="Message" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Image" AdornmentColor="Color.Default" />
         </div>
         <div class="col" style="margin-right: 15px; margin-top: 5px;">
+            <!-- Microphone button -->
             <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Mic" />
         </div>
     </div>
-
 </div>
 
-
-
-
 @code {
-
     public string Message { get; set; }
 
     @inject NavigationManager Navigation;
@@ -227,8 +214,4 @@
     {
         Navigation.NavigateTo("Home");
     }
-
-
-
 }
-

@@ -1,67 +1,73 @@
-﻿@page "/Call"
+﻿<!-- Page route for the Call page -->
+@page "/Call"
+
+<!-- Importing required components and layouts -->
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
+<!-- Styling for the Call page -->
 <style>
-
-   
+    /* Container styling for the call list */
     .Callcontainer {
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: 80vh;
+        overflow-y: auto; /* Enable vertical scrolling */
+        overflow-x: hidden; /* Hide horizontal overflow */
+        height: 80vh; /* Set container height */
     }
 
-
+    /* Center alignment for elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
-
+    /* Styling for call icons */
     .mud-image {
         height: 50px;
     }
 
-    .IncomingIcon{
+    /* Styling for incoming call icon */
+    .IncomingIcon {
         border-radius: 6px;
-        background: #246BFD;
-        color: white;
-        margin-right: 5px;
+        background: #246BFD; /* Blue background */
+        color: white; /* White text color */
+        margin-right: 5px; /* Right margin */
     }
 
+    /* Styling for outgoing call icon */
     .OutGoingIcon {
         border-radius: 6px;
-        background: #4ADE80;
-        color: white;
-        margin-right: 5px;
+        background: #4ADE80; /* Green background */
+        color: white; /* White text color */
+        margin-right: 5px; /* Right margin */
     }
 
+    /* Styling for missed call icon */
     .MissedIcon {
         border-radius: 6px;
-        background: #F75555;
-        color: white;
-        margin-right: 5px;
+        background: #F75555; /* Red background */
+        color: white; /* White text color */
+        margin-right: 5px; /* Right margin */
     }
 
+    /* Styling for MudCardHeader */
     .mud-card-header {
-        padding: 10px!important;
+        padding: 10px !important; /* Set padding for header */
     }
 
+    /* Styling for the floating add button */
     .addBtn {
-        position: fixed;
-        bottom: 53px;
-        right: 20px;
-        z-index: 1000;
+        position: fixed; /* Fixed position */
+        bottom: 53px; /* Distance from the bottom */
+        right: 20px; /* Distance from the right */
+        z-index: 1000; /* Set z-index */
     }
 </style>
 
-
-
-
-
+<!-- Call container to display call entries -->
 <div class="Callcontainer">
-
+    <!-- Call entries -->
     <div class="row">
+        <!-- Call entry 1 -->
         <div class="col ml-2 mt-1">
             <MudCardHeader>
                 <CardHeaderAvatar>
@@ -71,7 +77,7 @@
                     <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Lauralee Quintero</MudText>
                     <MudText Typo="Typo.body2">
                         <MudIcon Size="Size.Small" Class="IncomingIcon" Icon="@Icons.Material.Filled.ArrowDownward"></MudIcon>
-                            Incoming | Dec 19,2024
+                        Incoming | Dec 19, 2024
                     </MudText>
                 </CardHeaderContent>
                 <CardHeaderActions>
@@ -80,6 +86,7 @@
             </MudCardHeader>
         </div>
     </div>
+    <!-- Additional call entries... -->
     <div class="row">
         <div class="col ml-2 mt-1">
             <MudCardHeader>
@@ -217,20 +224,20 @@
             </MudCardHeader>
         </div>
     </div>
+
+    <!-- Floating add button -->
     <div class="icon-bar">
         <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Class="addBtn" />
     </div>
 </div>
 
-
 @code {
-   
+    // Inject NavigationManager for navigation operations
     @inject NavigationManager Navigation;
+
+    // Method to navigate to the OpenCall page
     private void ClickCall()
     {
         Navigation.NavigateTo("OpenCall");
     }
-
 }
-
-

@@ -4,61 +4,74 @@
 
 <style>
 
+    /* Styling for the container */
     .container {
         overflow-y: auto;
-     
     }
+
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for main icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
+
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
+
+    /* Styling for text elements */
     .Text {
         font-weight: 500;
         width: 333px;
         margin-top: 10px;
     }
 
+    /* Styling for sticky footer */
     .Sticky {
         padding: 20px;
         position: fixed;
         bottom: 0;
         width: 100%;
     }
+
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
-
+    /* Styling for date picker toolbar */
     .mud-picker-datepicker-toolbar {
         display: none !important;
     }
 
+    /* Styling for calendar container */
     .mud-picker-calendar-container {
         background-color: #F4ECFF;
         border-radius: 13px;
     }
 
+    /* Styling for previous navigation button */
     .mud-picker-nav-button-prev {
         background-color: #F4ECFF !important;
     }
 
+    /* Styling for next navigation button */
     .mud-picker-nav-button-next {
         background-color: #F4ECFF !important;
     }
 
-
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
@@ -66,25 +79,29 @@
         margin-top: 5px;
     }
 
+    /* Styling for cards */
     .mudCard {
         border-radius: 23px;
         width: 90%;
     }
 
+    /* Styling for number text */
     .numberText {
         margin-top: 8px;
     }
 
+    /* Styling for icon button */
     .iconButton {
         background-color: #F4ECFF !important;
     }
 
-
+    /* Styling for card header content alignment */
     .cardHeader .mud-card-header-content {
         display: flex;
         justify-content: flex-end;
     }
 
+    /* Styling for horizontal scroll */
     .scroll {
         margin: 4px, 4px;
         padding: 4px;
@@ -94,54 +111,62 @@
         white-space: nowrap;
     }
 
+    /* Styling for chips */
     .mud-chip {
         border: solid !important;
     }
 
 </style>
 
-
-
-
-
 <div class="container">
 
+    <!-- Header section -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Title for the page -->
             <span class="IconText">Booking Details</span>
+            <!-- Right icon button -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
-    <div class="row  DivCenter  ">
+    <!-- Date selection section -->
+    <div class="row  DivCenter">
         <div class="col DivCenter">
             <MudText Typo="Typo.subtitle1" Class="Text">Select Date</MudText>
         </div>
     </div>
 
-    <div class="row DivCenter ">
-        <div class="col DivCenter ">
+    <div class="row DivCenter">
+        <div class="col DivCenter">
+            <!-- MudDatePicker for date selection -->
             <MudDatePicker PickerVariant="PickerVariant.Static" Color="Color.Primary" Rounded="true" Date="@(DateTime.Today)" />
         </div>
     </div>
 
-    <div class="row  mt-5">
+    <!-- Working hours card -->
+    <div class="row mt-5">
         <div class="col DivCenter mb-5">
             <MudCard Class="mudCard">
                 <MudCardHeader Class="cardHeader">
                     <CardHeaderAvatar>
                         <MudText Typo="Typo.subtitle1" Style="font-weight:bold">Working Hours</MudText>
-                        <MudText Typo="Typo.body1" Style="font-size:11px" >Cost increase after 2 hrs of work</MudText>
+                        <MudText Typo="Typo.body1" Style="font-size:11px">Cost increase after 2 hrs of work</MudText>
                     </CardHeaderAvatar>
                     <CardHeaderContent>
+                        <!-- Controls for working hours -->
                         <div class="cardContent">
                             <div>
+                                <!-- Decrease button -->
                                 <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
                             </div>
                             <div>
+                                <!-- Display hours -->
                                 <MudText Class="numberText" Typo="Typo.h6">0</MudText>
                             </div>
                             <div>
+                                <!-- Increase button -->
                                 <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
                             </div>
                         </div>
@@ -151,19 +176,20 @@
         </div>
     </div>
 
-
+    <!-- Start time selection section -->
     <div class="row mt-2">
-
-        <div class="col ml-3  ">
+        <div class="col ml-3">
             <MudCardActions Class="text">
+                <!-- Choose Start Time title -->
                 <MudText Style="font-weight:bold" Typo="Typo.h6">Choose Start Time</MudText>
             </MudCardActions>
         </div>
     </div>
 
     <div class="row">
-        <div class="col ml-3 ">
+        <div class="col ml-3">
             <div class="scroll">
+                <!-- Chips for start time selection -->
                 <MudChipSet Filter="false" Mandatory="true" SelectedChipChanged="OnSelectChip">
                     <MudChip Text="09:00 AM" Variant="Variant.Text" Color="Color.Primary">09:00 AM</MudChip>
                     <MudChip Text="10:00 AM" Variant="Variant.Text" Color="Color.Primary">10:00 AM</MudChip>
@@ -172,13 +198,14 @@
                     <MudChip Text="13:00 AM" Variant="Variant.Text" Color="Color.Primary">13:00 AM</MudChip>
                 </MudChipSet>
             </div>
-
         </div>
     </div>
-    <div class="row mt-2">
 
-        <div class="col ml-3  ">
+    <!-- Promo code section -->
+    <div class="row mt-2">
+        <div class="col ml-3">
             <MudCardActions Class="text">
+                <!-- Promo Code title -->
                 <MudText Style="font-weight:bold" Typo="Typo.h6">Promo Code</MudText>
             </MudCardActions>
         </div>
@@ -186,16 +213,18 @@
 
     <div class="row mt-5">
         <div class="col ml-3">
-            <MudCardActions >
+            <MudCardActions>
+                <!-- Promo code chip -->
                 <MudChip Text="Discount 30%" Variant="Variant.Text" Color="Color.Primary">Discount 30% Off</MudChip>
+                <!-- Add promo code button -->
                 <MudIconButton Class="iconButton ml-3" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
             </MudCardActions>
         </div>
     </div>
 
-
 </div>
 
+<!-- Continue button at the bottom -->
 <MudCard Class="Sticky DivCenter">
     <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue - $87.5</MudButton>
 </MudCard>
@@ -214,10 +243,10 @@
     {
 
     }
+
     private void Continue()
     {
         Navigation.NavigateTo("Address");
     }
 
 }
-

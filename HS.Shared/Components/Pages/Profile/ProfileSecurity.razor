@@ -1,40 +1,43 @@
-﻿
-@page "/ProfileSecurity"
+﻿@page "/ProfileSecurity"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
 <style>
 
+    /* Styling for the container */
     .container {
         overflow-y: auto;
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for main icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
-
-
-
+    /* Styling for text elements in list items */
     .mud-list-item-text .mud-typography {
         font-weight: bolder;
     }
 
+    /* Styling for boolean input controls */
     .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styling for gutters in list items */
     .mud-list-item-gutters {
         padding-right: 0px;
     }
 
+    /* Styling for custom buttons */
     .Btn {
         border-radius: 30px;
         width: 303px;
@@ -42,51 +45,54 @@
         margin-top: 30px;
         color: var(--mud-palette-primary);
         background-color: #F4ECFF;
-        font-weight:bolder;
-        margin-bottom:5px;
+        font-weight: bolder;
+        margin-bottom: 5px;
     }
 
 </style>
-
-
-
-
 
 <div class="container">
 
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Title for the page -->
             <span class="IconText">Notifications</span>
         </div>
     </div>
 
 
+    <!-- Paper component for content -->
     <MudPaper Elevation="0">
+        <!-- List of security options -->
         <MudList>
             <MudListItem>
-               Remember me <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch1" />
+                <!-- Remember me switch -->
+                Remember me <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch1" />
             </MudListItem>
             <MudListItem>
+                <!-- Face ID switch -->
                 Face ID <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch2" />
             </MudListItem>
             <MudListItem>
+                <!-- Biometric ID switch -->
                 Biometric ID  <MudSwitch Color="Color.Primary" Style="float: right;height: 24px;" @bind-Value="@Switch3" />
             </MudListItem>
             <MudListItem>
+                <!-- Google Authenticator option -->
                 Google Authenticator    <MudIcon Style="float:right;margin-right: 30px;" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
         </MudList>
-
-
-
     </MudPaper>
 
+    <!-- Change Pin button -->
     <div class="row DivCenter">
         <div class="col">
-            <MudButton Class="Btn" FullWidth="true" Variant="Variant.Filled" >Change Pin</MudButton>
+            <MudButton Class="Btn" FullWidth="true" Variant="Variant.Filled">Change Pin</MudButton>
         </div>
     </div>
+    <!-- Change Password button -->
     <div class="row DivCenter">
         <div class="col">
             <MudButton Class="Btn" FullWidth="true" Variant="Variant.Filled">Change Password</MudButton>
@@ -94,23 +100,20 @@
     </div>
 </div>
 
-
-
 @code {
 
-
+    // Switch properties for remembering settings
     public bool Switch1 { get; set; } = true;
     public bool Switch2 { get; set; } = false;
     public bool Switch3 { get; set; } = true;
 
+    // Inject NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
 
+    // Method for handling back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
 
-
-
 }
-

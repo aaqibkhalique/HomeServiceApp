@@ -4,6 +4,7 @@
 
 <style>
 
+    /* Styling for the container */
     .container {
         overflow-y: hidden;
     }
@@ -13,48 +14,51 @@
         justify-content: center;
     }
 
-
 </style>
-
-
-
 
 <div class="container">
 
+    <!-- Back button section -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
-          
         </div>
     </div>
 
-
-        <div class="row mt-5">
+    <!-- Call details section -->
+    <div class="row mt-5">
         <div class="col DivCenter">
+            <!-- Call image -->
             <MudImage Src="images/opencall1.png" Elevation="0" Style="padding: 10px;height: 345px;" />
-            </div>
         </div>
+    </div>
 
     <div class="row mt-5">
         <div class="col DivCenter">
+            <!-- Caller's name -->
             <MudText Style="font-weight:bolder" Typo="Typo.h6">Jenny Wilson</MudText>
         </div>
     </div>
 
     <div class="row mt-5">
         <div class="col DivCenter">
+            <!-- Call duration -->
             <MudText Typo="Typo.subtitle1">04:38 minutes</MudText>
         </div>
     </div>
 
+    <!-- Call action buttons section -->
     <div class="row mt-10" style="display: flex; justify-content: space-evenly;margin-bottom: 14px;">
-
+        <!-- Close call button -->
         <div class="col" style="margin-right: 15px; margin-top: 5px;">
             <MudFab Color="Color.Error" StartIcon="@Icons.Material.Filled.Close" />
         </div>
+        <!-- Mic button -->
         <div class="col" style="margin-right: 15px; margin-top: 5px;">
             <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Mic" />
         </div>
+        <!-- Campaign button -->
         <div class="col" style="margin-right: 15px; margin-top: 5px;">
             <MudFab Color="Color.Warning" StartIcon="@Icons.Material.Filled.Campaign" />
         </div>
@@ -62,21 +66,16 @@
 
 </div>
 
-
-
-
 @code {
 
     public string Message { get; set; }
 
     @inject NavigationManager Navigation;
 
+    // Method to navigate back to the Home page
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
 
-
-
 }
-

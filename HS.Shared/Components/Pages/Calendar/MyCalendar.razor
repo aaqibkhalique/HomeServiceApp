@@ -1,120 +1,135 @@
-﻿@page "/MyCalendar"
+﻿<!-- My Calendar page -->
+@page "/MyCalendar"
 
+<!-- Importing necessary components and layouts -->
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
+<!-- Styling for the page -->
 <style>
-
+    /* Styling for container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
-        height:900px;
+        height:900px; /* Set container height */
     }
 
+    /* Styling for centering divs */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icons with text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 20px;
     }
 
+    /* Styling for right-aligned icons */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text elements */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for small text */
     .smalltext {
         font-size: smaller;
     }
-
-    .mud-picker-datepicker-toolbar{
+     .mud-picker-datepicker-toolbar{
         display:none!important;
     }
-
+    /* Styling for calendar container */
     .mud-picker-calendar-container {
-        background-color: #F4ECFF;
-        border-radius: 13px;
-      
+        background-color: #F4ECFF; /* Set background color */
+        border-radius: 13px; /* Set border radius */
     }
 
+    /* Styling for navigation buttons */
     .mud-picker-nav-button-prev{
-        background-color: #F4ECFF!important;
+        background-color: #F4ECFF!important; /* Set background color for previous button */
     }
 
     .mud-picker-nav-button-next{
-        background-color: #F4ECFF !important;
+        background-color: #F4ECFF !important; /* Set background color for next button */
     }
 
-
+    /* Styling for service cards */
     .ServiceCard {
-        height: 144px;
-        margin-right: 5px;
-        border-radius: 38px;
-        margin-top: 20px;
+        height: 144px; /* Set card height */
+        margin-right: 5px; /* Set right margin */
+        border-radius: 38px; /* Set border radius */
+        margin-top: 20px; /* Set top margin */
     }
 
+    /* Styling for header content */
     .headerContent {
         display: flex;
     }
 
+    /* Styling for service name */
     .serviceName {
         margin-top: 7px;
     }
 
+    /* Styling for price */
     .price {
         margin-top: 3px;
     }
 
+    /* Styling for reviews */
     .reviews {
         margin-top: 7px;
     }
 
+    /* Media query for smaller screens */
     @@media (max-width: 410px) {
         .ServiceCard {
-            width: 355px;
-            height: 161px;
+            width: 355px; /* Adjust card width */
+            height: 161px; /* Adjust card height */
         }
 
         .serviceName {
             margin-top: 2px;
-            font-size: larger;
+            font-size: larger; /* Increase font size */
         }
 
         .reviews {
-            font-size: 14px;
-            margin-top: 8px;
+            font-size: 14px; /* Set font size */
+            margin-top: 8px; /* Set top margin */
         }
     }
 
+    /* Media query for even smaller screens */
     @@media (max-width: 375px) {
         .ServiceCard {
-            width: 345px;
+            width: 345px; /* Adjust card width */
         }
 
         .serviceName {
             margin-top: 2px;
-            font-size: larger;
+            font-size: larger; /* Increase font size */
         }
 
         .reviews {
-            margin-top: 2px;
-            font-size: small;
+            margin-top: 2px; /* Set top margin */
+            font-size: small; /* Set font size */
         }
     }
 
-    .chatimage{
-        margin-top: 44px;
-        margin-right: 10px;
+    /* Styling for chat image */
+    .chatimage {
+        margin-top: 44px; /* Set top margin */
+        margin-right: 10px; /* Set right margin */
     }
 
+    /* Styling for booking text */
     .Bookingtext {
         display: flex;
         justify-content: space-between;
@@ -122,84 +137,94 @@
     }
 </style>
 
-
-
-
-
+<!-- Main container for the page -->
 <div class="container">
 
+    <!-- Header section -->
     <div class="row" style="margin-top: 9px;margin-left: 5px;">
         <div class="col ml-3 mt-1">
+            <!-- Logo and title -->
             <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
             <span class="IconText">My Calendar</span>
+            <!-- More options icon -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
-   
 
+    <!-- Date picker section -->
     <div class="row DivCenter ">
         <div class="col DivCenter ml-10">
+            <!-- MudDatePicker component -->
             <MudDatePicker PickerVariant="PickerVariant.Static" Color="Color.Primary" Rounded="true" Date="@(DateTime.Today)" />
         </div>
     </div>
+
+    <!-- Services booking section -->
     <div class="row">
         <div class="col ml-3 ">
+            <!-- Service booking header -->
             <MudCardActions Class="text Bookingtext">
                 <MudText Style="font-weight:bold" Typo="Typo.h6">Services Booking(2)</MudText>
+                <!-- See all button -->
                 <MudButton Variant="Variant.Text"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
             </MudCardActions>
         </div>
     </div>
+
+    <!-- Service cards section -->
     <div class="row">
         <div class="col ml-2  mb-5 ">
+            <!-- Service card 1 -->
             <MudCard Elevation="5" Class="ServiceCard">
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="headerContent">
+                            <!-- Service image -->
                             <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
                             <div style="margin-left:26px;">
+                                <!-- Service name -->
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
+                                <!-- Service provider -->
                                 <MudText Typo="Typo.subtitle1">Jerry Wilson</MudText>
+                                <!-- Chip for status -->
                                 <MudChip Variant="Variant.Text" Color="Color.Primary">Upcoming</MudChip>
-                             
                             </div>
                         </div>
                     </CardHeaderContent>
                     <CardHeaderActions>
+                        <!-- Chat icon -->
                         <MudImage Class="img-fluid chatimage" Src="images/chatIcon.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderActions>
                 </MudCardHeader>
             </MudCard>
+            <!-- Service card 2 -->
             <MudCard Elevation="5" Class="ServiceCard">
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="headerContent">
+                            <!-- Service image -->
                             <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
                             <div style="margin-left:26px;">
+                                <!-- Service name -->
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">Appliance Service</MudText>
+                                <!-- Service provider -->
                                 <MudText Typo="Typo.subtitle1">Alex Niguyen</MudText>
+                                <!-- Chip for status -->
                                 <MudChip Variant="Variant.Text" Color="Color.Primary">Upcoming</MudChip>
-
                             </div>
                         </div>
                     </CardHeaderContent>
                     <CardHeaderActions>
+                        <!-- Chat icon -->
                         <MudImage Class="img-fluid chatimage" Src="images/chatIcon.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderActions>
                 </MudCardHeader>
             </MudCard>
         </div>
-
     </div>
-
-
 </div>
 
-
+<!-- Code section for functionality -->
 @code {
-
-   
-
-
+    // Code for functionality can be added here
 }
-

@@ -2,7 +2,9 @@
 @page "/"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
+
 <style>
+    /* Styling for container */
     .container {
         display: flex;
         justify-content: center;
@@ -11,12 +13,14 @@
         overflow-x: hidden;
     }
 
+    /* Styling for next button */
     .nextBtn {
         border-radius: 30px;
         margin-top: 89px;
         width: 330px;
     }
 
+    /* Styling for text */
     .text {
         font-weight: bolder;
         margin-top: 89px;
@@ -24,39 +28,41 @@
         text-align: center;
     }
 
+    /* Styling for centering columns */
     .col-sm-1 {
         display: flex !important;
         justify-content: center !important;
     }
-
 </style>
 
-
+<!-- Main container -->
 <div class="container">
+    <!-- Image -->
     <MudImage Src="images/img1.png" Elevation="0" Height="380" Width="500" />
 </div>
 
+<!-- Row for text and button -->
 <div class="row">
+    <!-- Column for text -->
     <div class="col-sm-1">
-
+        <!-- Text -->
         <MudText Typo="Typo.h4" Class="text">We provide professional service at a friendly price</MudText>
     </div>
 
-    <div class="col-sm-1 ">
+    <!-- Column for button -->
+    <div class="col-sm-1">
+        <!-- Next button -->
         <MudButton Class="nextBtn" Variant="Variant.Filled" OnClick="BtnNextClick" Color="Color.Primary">Next</MudButton>
     </div>
-
-
-
 </div>
 
-
 @code {
+    // Inject NavigationManager for navigation
     @inject NavigationManager Navigation;
 
+    // Function to handle next button click
     private void BtnNextClick()
     {
         Navigation.NavigateTo("SignIn");
     }
-
 }

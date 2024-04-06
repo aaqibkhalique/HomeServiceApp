@@ -3,37 +3,43 @@
 @layout EmptyLayout
 
 <style>
-
+    /* Container styles */
     .container {
         overflow-y: auto;
         overflow-x: hidden;
         height: 80vh;
     }
 
+    /* Center alignment for flex items */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Large and bold text for icons and headings */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styles for right-aligned icons */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Bold text */
     .Text {
         font-weight: bold;
     }
 
+    /* Smaller text size */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Styling for sticky footer */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -41,12 +47,14 @@
         width: 100%;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Flex container for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
@@ -68,80 +76,94 @@
     }
 </style>
 
-
-
-
-
 <div class="container">
 
+    <!-- Header row -->
     <div class="row" style="margin-top: 20px;">
-        <div class="col ml-3  mt-1">
+        <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Title -->
             <span class="IconText">Edit Profile</span>
+            <!-- More options icon -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
-
+    <!-- Edit fields -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Card name input -->
             <MudTextField @bind-Value="CardName" Variant="Variant.Filled"></MudTextField>
+            <!-- Comment: Input field for card name -->
         </div>
     </div>
-
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Username input -->
             <MudTextField @bind-Value="UserName" Variant="Variant.Filled"></MudTextField>
+            <!-- Comment: Input field for username -->
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Date of Birth input -->
             <MudDatePicker @bind-Date="date" Variant="Variant.Filled" />
+            <!-- Comment: Input field for date of birth -->
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Email input -->
             <MudTextField @bind-Value="email" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Email"></MudTextField>
+            <!-- Comment: Input field for email -->
         </div>
-    </div> 
+    </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
-            <MudSelect @bind-Value="country"  Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+            <!-- Country select -->
+            <MudSelect @bind-Value="country" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
                 <MudSelectItem Value="@("United States")" />
                 <MudSelectItem Value="@("Australia")" />
                 <MudSelectItem Value="@("India")" />
                 <MudSelectItem Value="@("Brazil")" />
             </MudSelect>
+            <!-- Comment: Dropdown for country selection -->
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Phone number input -->
             <MudTextField @bind-Value="number" Variant="Variant.Filled"></MudTextField>
+            <!-- Comment: Input field for phone number -->
         </div>
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
-            <MudSelect @bind-Value="Gender"  Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
+            <!-- Gender select -->
+            <MudSelect @bind-Value="Gender" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
                 <MudSelectItem Value="@("Male")" />
                 <MudSelectItem Value="@("Female")" />
             </MudSelect>
+            <!-- Comment: Dropdown for gender selection -->
         </div>
     </div>
-
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3">
+            <!-- Address input -->
             <MudTextField @bind-Value="Address" Variant="Variant.Filled"></MudTextField>
+            <!-- Comment: Input field for address -->
         </div>
     </div>
 </div>
 
+<!-- Sticky footer for update button -->
 <MudCard Class="Sticky DivCenter">
     <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Update</MudButton>
 </MudCard>
 
 
 @code {
-
     @inject NavigationManager Navigation;
 
     public string CardName { get; set; } = "Andrew Ainsley";
@@ -153,12 +175,10 @@
     public string Address { get; set; } = "267 New Avenue Park, New York";
 
     DateTime? date = DateTime.Today;
+
+    // Method to handle back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
-
-
-
 }
-

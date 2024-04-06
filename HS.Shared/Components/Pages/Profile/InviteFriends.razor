@@ -1,73 +1,71 @@
-﻿@page "/InviteFriends"
-@using HS.Shared.Components.Layout
-@layout EmptyLayout
+﻿@page "/InviteFriends" // Page route for InviteFriends page
+@using HS.Shared.Components.Layout // Importing layout component from shared components
+@layout EmptyLayout // Using EmptyLayout as the layout for this page
 
 <style>
 
     .container {
-        overflow-y: auto;
+        overflow-y: auto; /* Container with vertical scrollbar */
     }
 
     .DivCenter {
-        display: flex;
-        justify-content: center;
+        display: flex; /* Flex display for center alignment */
+        justify-content: center; /* Center alignment for flex items */
     }
 
     .IconText {
-        font-size: xx-large;
-        font-weight: bold;
-        margin-left: 8px;
+        font-size: xx-large; /* Large font size for icon text */
+        font-weight: bold; /* Bold font weight for icon text */
+        margin-left: 8px; /* Left margin for icon text */
     }
 
     .mud-card-header .mud-card-header-actions {
-        margin-top: 10px;
+        margin-top: 10px; /* Top margin for card header actions */
     }
 
     .image {
-        height: 65px;
+        height: 65px; /* Height for avatar images */
     }
 
     .mud-list-item {
-        padding: 0px;
+        padding: 0px; /* No padding for list items */
     }
 
     .mud-card-header {
-        padding-top: 0px;
-        padding-bottom: 0px;
+        padding-top: 0px; /* No top padding for card header */
+        padding-bottom: 0px; /* No bottom padding for card header */
     }
 </style>
 
-
-
-
-
 <div class="container">
 
+    <!-- Header with back button and title -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
-            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
-            <span class="IconText">Invite Friends</span>
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton> <!-- Back button -->
+            <span class="IconText">Invite Friends</span> <!-- Title -->
         </div>
     </div>
 
-
+    <!-- Paper component containing a list of invitees -->
     <MudPaper Elevation="0">
 
         <MudList>
 
+            <!-- List item with card header for each invitee -->
             <MudListItem>
                 <MudCardHeader>
                     <CardHeaderAvatar>
-                        <MudImage Class="image" Src="images/inv1.png"></MudImage>
+                        <MudImage Class="image" Src="images/inv1.png"></MudImage> <!-- Avatar image -->
                     </CardHeaderAvatar>
                     <CardHeaderContent>
-                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Tynisha Obey</MudText>
+                        <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Tynisha Obey</MudText> <!-- Invitee name -->
                         <MudText Typo="Typo.body2">
-                            +1-300-555-0135
+                            +1-300-555-0135 <!-- Invitee phone number -->
                         </MudText>
                     </CardHeaderContent>
                     <CardHeaderActions>
-                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" />
+                        <MudFab Label="Invite" Color="Color.Primary" Size="Size.Small" Class="mr-2 mt-2" /> <!-- Invite button -->
                     </CardHeaderActions>
                 </MudCardHeader>
             </MudListItem>
@@ -140,7 +138,6 @@
                     </CardHeaderActions>
                 </MudCardHeader>
             </MudListItem>
-
             <MudListItem>
                 <MudCardHeader>
                     <CardHeaderAvatar>
@@ -227,39 +224,22 @@
                     </CardHeaderActions>
                 </MudCardHeader>
             </MudListItem>
-
-
+          
 
         </MudList>
 
     </MudPaper>
 
-
-
-
 </div>
-
-
 
 @code {
 
 
-    public string SelectedOption1 { get; set; }
-    public string SelectedOption2 { get; set; }
-    public string SelectedOption3 { get; set; }
-    public string SelectedOption4 { get; set; }
-    public string SelectedOption5 { get; set; }
-    public string SelectedOption6 { get; set; }
-    public string SelectedOption7 { get; set; }
+    @inject NavigationManager Navigation; // Injecting NavigationManager for navigation functionality
 
-    @inject NavigationManager Navigation;
-
-    private void ClickBack()
+    private void ClickBack() // Method to handle back button click
     {
-        Navigation.NavigateTo("Home");
+        Navigation.NavigateTo("Home"); // Navigate to Home page
     }
 
-
-
 }
-

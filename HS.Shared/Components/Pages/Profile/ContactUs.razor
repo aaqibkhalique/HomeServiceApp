@@ -3,36 +3,42 @@
 @layout EmptyLayout
 
 <style>
-
+    /* Styling for container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icon and text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for small text */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Styling for sticky footer */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -40,21 +46,25 @@
         width: 100%;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
+    /* Styling for input control */
     .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styling for card */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
@@ -62,24 +72,20 @@
     }
 </style>
 
-
-
-
-
+<!-- Main container -->
 <div class="container">
-
- 
-
+    <!-- Customer service card -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderAvatar>
-                     
+                        <!-- Customer service icon -->
                         <MudIcon Size="Size.Large" Icon="@Icons.Material.Filled.HeadsetMic" Color="Color.Primary">  </MudIcon>
                     </CardHeaderAvatar>
                     <CardHeaderContent>
                         <div class="cardContent">
+                            <!-- Customer service text -->
                             <div>
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;">Customer Service</MudText>
                             </div>
@@ -90,16 +96,18 @@
         </div>
     </div>
 
+    <!-- WhatsApp card -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderAvatar>
-
+                        <!-- WhatsApp icon -->
                         <MudIcon Size="Size.Large" Icon="@Icons.Custom.Brands.WhatsApp" Color="Color.Primary">  </MudIcon>
                     </CardHeaderAvatar>
                     <CardHeaderContent>
                         <div class="cardContent">
+                            <!-- WhatsApp text -->
                             <div>
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;">WhatsAap</MudText>
                             </div>
@@ -145,7 +153,7 @@
                     </CardHeaderContent>
                 </MudCardHeader>
             </MudCard>
-        </div>
+    </div>
     </div>
 
     <div class="row">
@@ -190,17 +198,14 @@
 </div>
 
 
-
+   
 @code {
-
+    // Inject NavigationManager for navigation
     @inject NavigationManager Navigation;
 
+    // Function to handle back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
-
-
-
 }
-

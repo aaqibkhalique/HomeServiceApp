@@ -1,11 +1,10 @@
 ﻿@using MudBlazor
 @page "/Home"
-@page "/Home/{Param?}"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 <style>
   
-
+    /* Styles for positioning the tabs toolbar */
     .mud-tabs-toolbar {
         position: fixed !important;
         bottom: -28px !important;
@@ -14,85 +13,88 @@
         z-index:500;
     }
 
+    /* Styles for InboxDiv positioning */
     .InboxDiv {
         position: fixed !important;
     }
  
-   /* For screens smaller than 768px (e.g., smartphones) */
-@@media (max-width: 767px) {
+    /* Responsive styles for Mydiv width */
+    /* For screens smaller than 768px (e.g., smartphones) */
+    @@media (max-width: 767px) {
         .Mydiv {
-    width: 100%;
-
-  }
-
-        .mud-tabs-toolbar{
-           width :375px;
+            width: 100%;
         }
-}
 
-/* For screens between 768px and 992px (e.g., tablets) */
-@@media (min-width: 768px)  {
-        .Mydiv {
-    width: 80%;
-  }
-}
-
-/* For screens between 993px and 1200px (e.g., small laptops) */
-@@media (min-width: 992px)  {
-        .Mydiv {
-    width: 60%;
-  }
-}
-
-/* For screens larger than 1200px (e.g., desktops) */
-    @@media (min-width: 1200px) {
-        .Mydiv {
-    width: 50%;
-  }
-}
-
-    .mud-tabs-toolbar{
-        width:100%
+        .mud-tabs-toolbar {
+            width: 375px;
+        }
     }
 
-    .mud-tooltip-root{
+    /* For screens between 768px and 992px (e.g., tablets) */
+    @@media (min-width: 768px)  {
+        .Mydiv {
+            width: 80%;
+        }
+    }
+
+    /* For screens between 993px and 1200px (e.g., small laptops) */
+    @@media (min-width: 992px)  {
+        .Mydiv {
+            width: 60%;
+        }
+    }
+
+    /* For screens larger than 1200px (e.g., desktops) */
+    @@media (min-width: 1200px) {
+        .Mydiv {
+            width: 50%;
+        }
+    }
+
+    /* Additional styles for MudTabs and MudTooltip */
+    .mud-tabs-toolbar {
+        width: 100%;
+    }
+
+    .mud-tooltip-root {
         padding-left: 10px;
         padding-right: 10px;
     }
    
-    .mud-tab-slider{
+    .mud-tab-slider {
         background: #00000000;
     }
-
-
 </style>
-
-
 
 <MudCard>
     <MudTabs @ref="tabs" Elevation="0" Rounded="true" Position="Position.Bottom" ApplyEffectsToContainer="true" MinimumTabWidth="10px" Centered="true">
         <MudTabPanel Icon="@Icons.Material.Filled.Home" @ref="panel01" ID="@("pn_Menu")">
             <div class="Mydiv">
+                <!-- Inserted ActionMenu component -->
                 <HS.Shared.Components.Pages.Menu.ActionMenu></HS.Shared.Components.Pages.Menu.ActionMenu>
             </div>
         </MudTabPanel>
         <MudTabPanel Icon="@Icons.Material.Filled.Article" @ref="panel02" ID="@("pn_MyBookings")">
             <div class="InboxDiv Mydiv">
+                <!-- Inserted MyBookings component -->
                 <HS.Shared.Components.Pages.MyBookings.MyBookings></HS.Shared.Components.Pages.MyBookings.MyBookings>
             </div>
         </MudTabPanel>
         <MudTabPanel Icon="@Icons.Material.Filled.CalendarMonth" @ref="panel03" ID="@("pn_Calendar")">
             <div class="Mydiv">
+                <!-- Inserted MyCalendar component -->
                 <HS.Shared.Components.Pages.Calendar.MyCalendar></HS.Shared.Components.Pages.Calendar.MyCalendar>
             </div>
         </MudTabPanel>
         <MudTabPanel Icon="@Icons.Material.Filled.Sms" ID="@("pn_Inbox")">
             <div class="InboxDiv Mydiv">
+                <!-- Inserted Inbox component -->
                 <HS.Shared.Components.Pages.Inbox.Inbox></HS.Shared.Components.Pages.Inbox.Inbox>
             </div>
         </MudTabPanel>
         <MudTabPanel Icon="@Icons.Material.Filled.Person" ID="@("pn_Profile")">
             <div class="Mydiv">
+                <!-- Inserted Profile component -->
                 <HS.Shared.Components.Pages.Profile.Profile></HS.Shared.Components.Pages.Profile.Profile>
             </div>
         </MudTabPanel>
@@ -100,39 +102,18 @@
     </MudTabs>
 </MudCard>
 
-
-
 @code {
-   
-
+    // Inject NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
+    // Reference variables for MudTabs and MudTabPanel components
     MudTabs tabs;
     MudTabPanel panel01;
     MudTabPanel panel02;
     MudTabPanel panel03;
-    [Parameter]
-    public string? Param { get; set; }
-
-    public override async Task SetParametersAsync(ParameterView parameters)
-    {
-
-        await base.SetParametersAsync(parameters);
-    }
    
-
-
+    // Method to handle button click for navigation
     private void BtnNextClick()
     {
         Navigation.NavigateTo("SignUp");
-    }
-
-    void Activate(object id)
-    {
-
-        if (id == "pn_MyBookings")
-        {
-            tabs.ActivatePanel(panel02);
-        }
-
     }
 }

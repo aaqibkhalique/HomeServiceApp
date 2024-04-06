@@ -17,7 +17,7 @@ namespace HS.Mobile
                 });
 
             builder.Services.AddMauiBlazorWebView();
-            builder.Services.AddScoped<ThemeService>();
+          
 
 
             builder.Services.AddMudServices();

@@ -1,118 +1,107 @@
-﻿
-@page "/HelpCenter"
-
-@using HS.Shared.Components.Layout
-@layout EmptyLayout
+﻿@page "/HelpCenter" // Page route for HelpCenter page
+@using HS.Shared.Components.Layout // Importing layout component from shared components
+@layout EmptyLayout // Using EmptyLayout as the layout for this page
 
 <style>
 
     .container {
-        overflow-y: hidden;
-        overflow-x: hidden;
+        overflow-y: hidden; /* Container with hidden overflow on y-axis */
+        overflow-x: hidden; /* Container with hidden overflow on x-axis */
     }
 
     .DivCenter {
-        display: flex;
-        justify-content: center;
+        display: flex; /* Flex display for center alignment */
+        justify-content: center; /* Center alignment for flex items */
     }
 
     .IconText {
-        font-size: xx-large;
-        font-weight: bold;
-        margin-left: 20px;
+        font-size: xx-large; /* Large font size for icon text */
+        font-weight: bold; /* Bold font weight for icon text */
+        margin-left: 20px; /* Left margin for icon text */
     }
 
     .rightIcon .mud-icon-root {
-        border: solid;
-        border-radius: 12px;
+        border: solid; /* Solid border for right icon */
+        border-radius: 12px; /* Border radius for right icon */
     }
 
     .Text {
-        font-weight: bold;
+        font-weight: bold; /* Bold font weight for text */
     }
 
     .smalltext {
-        font-size: smaller;
+        font-size: smaller; /* Smaller font size for small text */
     }
-
-
-
-
-
 
     .chatimage {
-        margin-top: 44px;
-        margin-right: 10px;
+        margin-top: 44px; /* Top margin for chat image */
+        margin-right: 10px; /* Right margin for chat image */
     }
 
-
     .chatbtn {
-        border-bottom: solid 6px var(--mud-palette-primary);
-        color: var(--mud-palette-primary);
+        border-bottom: solid 6px var(--mud-palette-primary); /* Bottom border for chat button */
+        color: var(--mud-palette-primary); /* Text color for chat button */
     }
 </style>
 
-
-
-
-
 <div class="container">
 
+    <!-- Header with back button, title, and more options button -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
-            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack"  Style="padding-top: 1px;"></MudIconButton>
-            <span class="IconText">Help Center </span>
-        
-            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" Style="padding-top: 1px;"></MudIconButton> <!-- Back button -->
+            <span class="IconText">Help Center </span> <!-- Title -->
+            <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton> <!-- More options button -->
         </div>
     </div>
 
+    <!-- Sticky top row with FAQ and Contact Us buttons -->
     <div class="row sticky-top">
         <div class="col d-flex justify-content-center" style="width: 100%;">
-            <MudButton Class="@_chatClass" FullWidth="true" OnClick="OnChatClick">FAQ</MudButton>
-            <MudDivider Vertical="true" FlexItem="true" />
-            <MudButton Class="@_callClass" FullWidth="true" OnClick="OnCallClick">Contact Us</MudButton>
+            <MudButton Class="@_chatClass" FullWidth="true" OnClick="OnChatClick">FAQ</MudButton> <!-- FAQ button -->
+            <MudDivider Vertical="true" FlexItem="true" /> <!-- Vertical divider -->
+            <MudButton Class="@_callClass" FullWidth="true" OnClick="OnCallClick">Contact Us</MudButton> <!-- Contact Us button -->
         </div>
     </div>
 
-    <div class="row" >
+    <!-- Content area with collapsible FAQ and Contact Us sections -->
+    <div class="row">
         <div class="col">
             <MudStack Spacing="2">
                 <MudCollapse Expanded="_chat">
-                    <HS.Shared.Components.Pages.Profile.FAQ></HS.Shared.Components.Pages.Profile.FAQ>
+                    <HS.Shared.Components.Pages.Profile.FAQ></HS.Shared.Components.Pages.Profile.FAQ> <!-- FAQ content -->
                 </MudCollapse>
                 <MudCollapse Expanded="_call">
-                    <HS.Shared.Components.Pages.Profile.ContactUs></HS.Shared.Components.Pages.Profile.ContactUs>
+                    <HS.Shared.Components.Pages.Profile.ContactUs></HS.Shared.Components.Pages.Profile.ContactUs> <!-- Contact Us content -->
                 </MudCollapse>
             </MudStack>
         </div>
     </div>
-
-
 
 </div>
 
 
 @code {
 
-    string _chatClass = "chatbtn";
-    string _callClass = "";
+    string _chatClass = "chatbtn"; // Class for styling active state of FAQ button
+    string _callClass = ""; // Class for styling active state of Contact Us button
 
-    bool _chat = true;
-    bool _call = false;
-    private void OnChatClick()
+    bool _chat = true; // State for showing FAQ content
+    bool _call = false; // State for showing Contact Us content
+
+    private void OnChatClick() // Method to handle FAQ button click
     {
-        _chat = true;
-        _call = false;
-        _callClass = "";
-        _chatClass = "chatbtn";
+        _chat = true; // Show FAQ content
+        _call = false; // Hide Contact Us content
+        _callClass = ""; // Remove active class from Contact Us button
+        _chatClass = "chatbtn"; // Add active class to FAQ button
     }
-    private void OnCallClick()
+
+    private void OnCallClick() // Method to handle Contact Us button click
     {
-        _chat = false;
-        _call = true;
-        _chatClass = "";
-        _callClass = "chatbtn";
+        _chat = false; // Hide FAQ content
+        _call = true; // Show Contact Us content
+        _chatClass = ""; // Remove active class from FAQ button
+        _callClass = "chatbtn"; // Add active class to Contact Us button
     }
 }
-

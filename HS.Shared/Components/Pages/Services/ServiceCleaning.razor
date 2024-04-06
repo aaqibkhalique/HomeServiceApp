@@ -4,36 +4,39 @@
 
 <style>
 
+    /* Container styling for overflow and height */
     .container {
-        overflow:hidden;
+        overflow: hidden;
         overflow-y: auto;
         height: 647px;
     }
 
+    /* Centering content horizontally */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for large icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
- 
-
+    /* Styling for bold and larger text */
     .Text {
         font-weight: bolder;
         font-size: larger;
-    
     }
-    .price{
+
+    /* Styling for large price text */
+    .price {
         font-size: xx-large;
         font-weight: bolder;
     }
 
-
+    /* Sticky footer styling */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -41,6 +44,7 @@
         width: 100%;
     }
 
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
@@ -49,25 +53,30 @@
         margin-top: 5px;
     }
 
+    /* Styling for cards */
     .mudCard {
         border-radius: 23px;
         width: 80%;
     }
 
+    /* Styling for number text */
     .numberText {
         margin-top: 8px;
     }
 
+    /* Styling for icon button */
     .iconButton {
         background-color: #F4ECFF !important;
     }
 
-
+    /* Styling for card header content */
     .cardHeader .mud-card-header-content {
         display: flex;
         justify-content: flex-end;
     }
-    .MainPic{
+
+    /* Background image styling */
+    .MainPic {
         background-image: url("images/Scleaning.png");
         height: 54%;
         background-repeat: no-repeat;
@@ -75,6 +84,7 @@
         background-position: center;
     }
 
+    /* Styling for Book button */
     .BookBtn {
         border-radius: 30px;
         width: 250px;
@@ -84,34 +94,39 @@
         margin-left: 11px;
     }
 
-
+    /* Styling for Continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 250px;
         height: 50px;
-      
     }
 
+    /* Styling for chip */
     .mychip {
         color: var(--mud-palette-primary);
         background-color: #F4ECFF;
     }
 
+    /* Full width divider styling */
     .mud-divider-fullwidth {
-        margin-left:5px;
+        margin-left: 5px;
         width: 98%;
     }
 
+    /* Styling for photo and video section */
     .PhotoVideo {
         display: flex;
         justify-content: space-between;
         width: 100%;
     }
-    .images{
-        display:flex;
-        justify-content:space-between;
+
+    /* Styling for images */
+    .images {
+        display: flex;
+        justify-content: space-between;
     }
 
+    /* Styling for scrolling */
     .scroll {
         margin: 4px, 4px;
         padding: 4px;
@@ -121,66 +136,70 @@
         white-space: nowrap;
     }
 
+    /* Styling for chip with solid border */
     .mud-chip {
         border: solid !important;
     }
 
-
+    /* Styling for more icon */
     .moreIcon .mud-icon-root {
         border: solid;
         border-radius: 20px;
     }
 
-    .reviewCard{
+    /* Styling for review card */
+    .reviewCard {
         padding-top: 0px !important;
         padding-right: 16px !important;
         padding-bottom: 16px !important;
         padding-left: 16px !important;
     }
+
 </style>
 
 
 
 
-
-<div class="container" >
-
-    <div class="row MainPic" >
+<div class="container">
+    <!-- Main picture row -->
+    <div class="row MainPic">
         <div class="col ">
-            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" Color="Color.Default" OnClick="ClickBack" ></MudIconButton>
-
+            <!-- Back button -->
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" Color="Color.Default" OnClick="ClickBack"></MudIconButton>
         </div>
     </div>
 
-
+    <!-- Service title and bookmark row -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
             <span class="IconText">House Cleaning</span>
-            <MudIconButton  Icon="@Icons.Material.Outlined.BookmarkBorder" Color="Color.Primary" Style="float: right;"></MudIconButton>
+            <!-- Bookmark button -->
+            <MudIconButton Icon="@Icons.Material.Outlined.BookmarkBorder" Color="Color.Primary" Style="float: right;"></MudIconButton>
         </div>
     </div>
 
-
-
-
+    <!-- Provider information row -->
     <div class="row  DivCenter ">
         <div class="col ">
             <MudText Typo="Typo.subtitle1"> <span class="mud-primary-text Text"> Jenny Wilson</span>  <MudIconButton Icon="@Icons.Material.Filled.Star" Style="color:gold;"></MudIconButton>4.8 (4.479 reviews)</MudText>
         </div>
     </div>
 
+    <!-- Address and pricing row -->
     <div class="row  DivCenter ">
         <div class="col ">
             <MudText Typo="Typo.subtitle1"><MudChip Variant="Variant.Text" Class="mychip mud-primary-text">cleaning</MudChip><MudIconButton Icon="@Icons.Material.Filled.LocationOn" Color="Color.Primary"></MudIconButton>255 Grand Park Avenue, New York</MudText>
         </div>
     </div>
 
+    <!-- Price row -->
     <div class="row">
         <div class="col ml-5">
-            <MudText Typo="Typo.subtitle1"> <span class="mud-primary-text price" > $20</span>  (Floor price)</MudText>
+            <MudText Typo="Typo.subtitle1"> <span class="mud-primary-text price"> $20</span>  (Floor price)</MudText>
         </div>
     </div>
 
+    <!-- About me section -->
     <MudDivider></MudDivider>
     <div class="row">
         <div class="col ml-5">
@@ -193,6 +212,7 @@
         </div>
     </div>
 
+    <!-- Photo and video section -->
     <div class="row">
         <div class="col ml-3 ">
             <MudCardActions Class="PhotoVideo">
@@ -202,6 +222,7 @@
         </div>
     </div>
 
+    <!-- Image gallery -->
     <div class="row DivCenter">
         <div class="col ml-3 images">
             <div>
@@ -219,7 +240,7 @@
             <div>
                 <MudImage Src="images/Scleaning4.png" Width="200" Height="150" Elevation="0" Class="rounded-lg " Style="padding: 10px;" />
                 <MudImage Src="images/Scleaning6.png" Width="200" Height="150" Elevation="0" Class="rounded-lg " Style="padding: 10px;" />
-            </div>
+        </div>
             <div>
                 <MudImage Src="images/Scleaning5.png" Width="200" Height="300" Elevation="0" Class="rounded-lg " Style="padding: 10px;" />
             </div>
@@ -255,18 +276,23 @@
 
     <div class="row">
         <div class="col ml-3 mt-1">
-            <MudCardHeader >
-                <CardHeaderAvatar >
+            <!-- Review card -->
+            <MudCardHeader>
+                <!-- Avatar -->
+                <CardHeaderAvatar>
                     <MudImage Style="height: 55px;" Src="images/dpreview1.png"></MudImage>
                 </CardHeaderAvatar>
+                <!-- Reviewer name -->
                 <CardHeaderContent>
                     <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Lauralee Quintero</MudText>
                 </CardHeaderContent>
+                <!-- Rating and more options -->
                 <CardHeaderActions>
                     <MudChip Text="5" Variant="Variant.Text" Color="Color.Primary"><MudIcon Icon="@Icons.Material.Filled.Star" Color="Color.Primary"></MudIcon>&nbsp;5</MudChip>
                     <MudIconButton Class="moreIcon" Size="Size.Large" Icon="@Icons.Material.Filled.MoreHoriz" Color="Color.Default" />
                 </CardHeaderActions>
             </MudCardHeader>
+            <!-- Review content -->
             <MudCardContent Class="reviewCard">
                 <MudText Typo="Typo.subtitle1">Awesome! this is what i was looking for, i recommend to everyone ❤️❤️️❤️</MudText>
             </MudCardContent>
@@ -317,40 +343,38 @@
                 <MudText Typo="Typo.subtitle1">This is the first time I've used his services, and the results were amazing! 👍👍👍</MudText>
             </MudCardContent>
             <MudCardActions>
-                <MudImage Style="height: 20px;" Src="images/heart1.png"></MudImage>  &nbsp;<MudText Typo="Typo.subtitle1"><span style="font-weight:bold">724</span>  &nbsp;&nbsp;&nbsp;  3 weeks ago</MudText>
+                <MudImage Style="height: 20px;" Src="images/heart1.png"></MudImage>  &nbsp;<MudText Typo="Typo.subtitle1"><span style="font-weight:bold">783</span>  &nbsp;&nbsp;&nbsp;  1 weeks ago</MudText>
             </MudCardActions>
         </div>
     </div>
 
-
-
-
-
-
-
+    <!-- Additional reviews -->
+    <!-- Repeat this structure for each additional review -->
 
 </div>
 
+<!-- Sticky action buttons -->
 <MudCard Class="Sticky DivCenter">
     <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Message</MudButton>
-    <MudButton Class="BookBtn" Variant="Variant.Filled" >Book Now</MudButton>
+    <MudButton Class="BookBtn" Variant="Variant.Filled">Book Now</MudButton>
 </MudCard>
 
 
 @code {
-
+    // Inject NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
 
+    // Method to handle the back button click event
     private void ClickBack()
     {
+        // Navigate to the Home page
         Navigation.NavigateTo("Home");
     }
 
+    // Method to handle chip selection event
     private void OnSelectChip(MudChip mud)
     {
-
+        // Add logic for chip selection if needed
     }
-
-
 }
 

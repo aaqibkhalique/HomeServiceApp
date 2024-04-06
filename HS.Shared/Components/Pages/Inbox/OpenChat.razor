@@ -3,54 +3,59 @@
 @layout EmptyLayout
 
 <style>
-
-  
-
+    /* Styles for container */
     .container {
-        overflow-y: hidden;
+        overflow-y: hidden; /* Hide vertical overflow */
     }
 
+    /* Center content horizontally */
     .DivCenter {
         display: flex;
         justify-content: space-around;
     }
 
+    /* Styling for large icons with text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for icons on the right side */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Bold text style */
     .Text {
         font-weight: bold;
     }
 
+    /* Small text style */
     .smalltext {
         font-size: smaller;
     }
 
-
-
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
-    ..mud-input-control.mud-input-control-boolean-input {
+    /* Styling for Mud input control */
+    .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styling for Mud card */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
@@ -59,16 +64,15 @@
         height: 536px;
     }
 
-
-    /* Chat container */
+    /* Styling for chat container */
     .chat {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        padding:10px;
+        padding: 10px;
     }
 
-    /* Style for messages from the other user */
+    /* Styling for messages from other users */
     .OtherUserSays {
         align-self: flex-start;
         background-color: #f1f0f0;
@@ -81,7 +85,7 @@
         width: 300px;
     }
 
-    /* Style for messages from the current user */
+    /* Styling for messages from current user */
     .userSays {
         align-self: flex-end;
         background-color: var(--mud-palette-primary);
@@ -94,39 +98,34 @@
         margin-top: 3px;
         width: 300px;
     }
-    .userImages{
+    /* Styling for user images */
+    .userImages {
         align-self: flex-end;
         width: 245px;
     }
-
 
     /* Text styling */
     .text {
         margin: 0;
     }
 
-    /* Example styling for paragraph elements inside chat messages */
+    /* Paragraph elements inside chat messages */
     p {
         margin: 5px 0;
     }
 
-    .CenterSays{
+    /* Styling for center messages */
+    .CenterSays {
         align-self: center;
         background-color: #f1f0f0;
         border-radius: 10px;
         padding: 5px;
         max-width: 100%;
     }
-
-
 </style>
 
-
-
-
-
 <div class="container">
-
+    <!-- Back button and icons -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
@@ -135,72 +134,71 @@
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
- 
 
+    <!-- Chat messages -->
     <div class="row">
         <div class="col">
-
             <div class="chat">
-
-
+                <!-- Center message -->
                 <div class="CenterSays">
                     <div class="text">
-                        <p>Today</p>
+                        <p>Today</p> <!-- Display current date -->
                     </div>
                 </div>
 
-
+                <!-- User messages -->
                 <div class="userSays">
                     <div class="text">
-                        <p>Hi Jenny, good morning 😄  <span style="float:right">10:00</span></p>
-                      
+                        <p>Hi Jenny, good morning 😄  <span style="float:right">10:00</span></p> <!-- Display user message with timestamp -->
                     </div>
                 </div>
 
+                <!-- More user messages -->
                 <div class="userSays">
                     <div class="text">
-                        <p> I have booked your house cleaning service for December 23 at 10 AM 😁  <span style="float:right">10:00</span></p>
+                        <p> I have booked your house cleaning service for December 23 at 10 AM 😁  <span style="float:right">10:00</span></p> <!-- Display user message with timestamp -->
                     </div>
                 </div>
 
+                <!-- Other user messages -->
                 <div class="OtherUserSays">
                     <div class="text">
-                        <p>Hi, morning too Andrew!  <span style="float:right">10:00</span></p>
-                      
+                        <p>Hi, morning too Andrew!  <span style="float:right">10:00</span></p> <!-- Display other user message with timestamp -->
                     </div>
-                </div> 
+                </div>
 
+                <!-- More other user messages -->
                 <div class="OtherUserSays">
                     <div class="text">
-                        <p>Yes, I have received your order. I will come on that date! 😁😁 <span style="float:right">10:00</span></p>
-                      
+                        <p>Yes, I have received your order. I will come on that date! 😁😁 <span style="float:right">10:00</span></p> <!-- Display other user message with timestamp -->
                     </div>
                 </div>
 
+                <!-- Another user message -->
                 <div class="userSays">
                     <div class="text">
-                        <p>Good, thanks Jenny... <span style="float:right">10:00</span></p>
-                    </div>
-                </div> 
-                
-                <div class="userSays">
-                    <div class="text">
-                        <p>Here I send a photo of room & my house 😁😁 <span style="float:right">10:00</span></p>
+                        <p>Good, thanks Jenny... <span style="float:right">10:00</span></p> <!-- Display user message with timestamp -->
                     </div>
                 </div>
 
+                <!-- Additional user message -->
+                <div class="userSays">
+                    <div class="text">
+                        <p>Here I send a photo of room & my house 😁😁 <span style="float:right">10:00</span></p> <!-- Display user message with timestamp -->
+                    </div>
+                </div>
+
+                <!-- User images -->
                 <div class="userImages">
                     <MudImage Src="images/openchat1.png" Width="120" Height="120" Elevation="0" Class="rounded-lg " Style="padding: 10px;" />
                     <MudImage Src="images/openchat2.png" Width="120" Height="120" Elevation="0" Class="rounded-lg " Style="padding: 10px;" />
                 </div>
 
             </div>
-
         </div>
     </div>
 
-
-
+    <!-- Message input and microphone button -->
     <div class="row DivCenter">
         <div class="col " style="width: 74%;">
             <MudTextField FullWidth="true" @bind-Value="Message" Label="Message" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Image" AdornmentColor="Color.Default" />
@@ -212,21 +210,14 @@
 
 </div>
 
-
-
-
 @code {
+    public string Message { get; set; } // Variable to store user message
 
-    public string Message { get; set; }        
+    @inject NavigationManager Navigation; // Inject NavigationManager for navigation
 
-    @inject NavigationManager Navigation;
-
+    // Method to navigate back to home page
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
-
-
-
 }
-

@@ -5,45 +5,38 @@
 <style>
 
     .container {
-        overflow-y: hidden;
-        overflow-x: hidden;
+        overflow-y: hidden; /* Container for FAQ page with hidden overflow on y-axis */
+        overflow-x: hidden; /* Container with hidden overflow on x-axis */
     }
 
     .DivCenter {
-        display: flex;
-        justify-content: center;
+        display: flex; /* Flex display for center alignment */
+        justify-content: center; /* Center alignment for flex items */
     }
-
-
 
     .scroll {
-        margin: 4px, 4px;
-        padding: 4px;
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
+        margin: 4px, 4px; /* Margin for scrolling area */
+        padding: 4px; /* Padding for scrolling area */
+        width: 100%; /* Full width for scrolling area */
+        overflow-x: auto; /* Horizontal overflow for scrolling */
+        overflow-y: hidden; /* Hidden vertical overflow for scrolling */
+        white-space: nowrap; /* Prevent line breaks for scrolling content */
     }
 
-
     .mud-paper {
-        border-radius: 27px;
-        margin: 20px;
+        border-radius: 27px; /* Border radius for mud-paper element */
+        margin: 20px; /* Margin for mud-paper element */
     }
 
     .mud-button-label {
-        justify-content: space-between;
-        font-weight: bolder;
+        justify-content: space-between; /* Space between alignment for button label */
+        font-weight: bolder; /* Bold font weight for button label */
     }
 </style>
 
-
-
-
-
 <div class="container">
 
-
+    <!-- ChipSet for filtering FAQ topics -->
     <div class="row">
         <div class="col">
             <div class="scroll">
@@ -54,17 +47,17 @@
                     <MudChip Text="Payment" Variant="Variant.Text" Color="Color.Primary">Payment</MudChip>
                 </MudChipSet>
             </div>
-
         </div>
     </div>
 
-
+    <!-- Search input field -->
     <div class="row">
         <div class="col">
             <MudTextField @bind-Value="Search" Label="Search" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.FilterList" AdornmentColor="Color.Primary" />
-
         </div>
     </div>
+
+    <!-- FAQ Cards with expandable content -->
     <div class="row">
         <div class="col">
             <MudCard>
@@ -173,33 +166,33 @@
 
 </div>
 
-
-
 @code {
 
-    @inject NavigationManager Navigation;
+    @inject NavigationManager Navigation; // Inject NavigationManager for navigation functionality
 
-    public string Search { get; set; }
+    public string Search { get; set; } // Bindable property for search input
 
-    private void ClickBack()
+    private void ClickBack() // Method to handle back navigation
     {
-        Navigation.NavigateTo("Home");
+        Navigation.NavigateTo("Home"); // Navigate to Home page
     }
 
-    private void OnSelectChip(MudChip mud)
+    private void OnSelectChip(MudChip mud) // Method to handle chip selection
     {
-
+        // Implement chip selection logic here
     }
 
-
+    // Boolean variables to control expand/collapse state of FAQ items
     bool _expanded1 = true;
     bool _expanded2 = false;
     bool _expanded3 = false;
     bool _expanded4 = false;
     bool _expanded5 = false;
 
+    // Method to handle expand/collapse button click for FAQ items
     private void OnExpandCollapseClick(int num)
     {
+        // Toggle expand/collapse state based on FAQ item number
         if (num == 1)
         {
             _expanded1 = !_expanded1;
@@ -215,11 +208,10 @@
         else if (num == 4)
         {
             _expanded4 = !_expanded4;
-        } 
+        }
         else if (num == 5)
         {
             _expanded5 = !_expanded5;
         }
     }
 }
-

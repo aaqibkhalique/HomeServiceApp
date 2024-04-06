@@ -1,51 +1,64 @@
-﻿<style>
+﻿<!-- Styling for MudDialog component -->
+<style>
+    /* Styling for MudDialog */
     .mud-dialog {
-  
-        width: 350px;
-        border-radius: 44px;
+        width: 350px; /* Set dialog width */
+        border-radius: 44px; /* Set border radius */
     }
 
-
+    /* Styling for receipt button */
     .ReceiptBtn {
-        border-radius: 30px;
-        width: 250px;
-        height: 50px;
-        margin-top: 30px;
+        border-radius: 30px; /* Set button border radius */
+        width: 250px; /* Set button width */
+        height: 50px; /* Set button height */
+        margin-top: 30px; /* Set top margin */
     }
 
+    /* Styling for message button */
     .MessageBtn {
-        border-radius: 30px;
-        width: 250px;
-        height: 50px;
-        margin-top: 30px;
-        color: var(--mud-palette-primary);
-        background-color: #F4ECFF;
+        border-radius: 30px; /* Set button border radius */
+        width: 250px; /* Set button width */
+        height: 50px; /* Set button height */
+        margin-top: 30px; /* Set top margin */
+        color: var(--mud-palette-primary); /* Set text color */
+        background-color: #F4ECFF; /* Set background color */
     }
-
 </style>
 
+<!-- MudDialog component -->
 <MudDialog>
     <DialogContent>
+        <!-- Content inside the dialog -->
         <div class="text-center" style="text-align:center;">
+            <!-- Image in the dialog -->
             <MudImage Src="images/dialog.png" Elevation="0" Style="width:200px;" />
+            <!-- Heading for successful booking -->
             <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Booking Successful</MudText>
-            <MudText Typo="Typo.subtitle1" Style="margin-top:12px;">You have successfully made payment and book the services</MudText>
+            <!-- Message about successful booking -->
+            <MudText Typo="Typo.subtitle1" Style="margin-top:12px;">You have successfully made payment and booked the services</MudText>
+            <!-- View E-Receipt button -->
             <MudButton Class="ReceiptBtn" Variant="Variant.Filled" OnClick="Submit" Color="Color.Primary">View E-Receipt</MudButton>
+            <!-- Message Workers button -->
             <MudButton Class="MessageBtn" Variant="Variant.Filled" OnClick="Cancel">Message Workers</MudButton>
-            <br>
+            <br> <!-- Line break -->
         </div>
     </DialogContent>
 </MudDialog>
 
 @code {
+    // Inject MudDialogInstance for handling dialog operations
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    // Inject NavigationManager for navigation operations
     @inject NavigationManager Navigation;
+
+    // Method to cancel and close the dialog
     void Cancel() => MudDialog.Cancel();
+
+    // Method to submit and navigate to the receipt page
     void Submit()
     {
-        MudDialog.Close(DialogResult.Ok(true));
-        Navigation.NavigateTo("Receipt");
+        MudDialog.Close(DialogResult.Ok(true)); // Close the dialog with a result
+        Navigation.NavigateTo("Receipt"); // Navigate to the Receipt page
     }
-
-
 }

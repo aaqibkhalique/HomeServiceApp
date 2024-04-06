@@ -5,49 +5,56 @@
 
 <style>
 
+    /* Styling for the container */
     .container {
         overflow-y: hidden;
         overflow-x: hidden;
         height: 900px;
     }
 
+    /* Centering elements horizontally */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for the text icon */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 20px;
     }
 
+    /* Styling for the right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
-
-
+    /* Styling for the large avatar */
     .mud-avatar.mud-avatar-large {
         width: 100px;
         height: 100px;
     }
 
+    /* Styling for the badge */
     .mud-badge {
         margin-top: 77px;
         border-radius: 7px;
         position: static;
     }
 
+    /* Styling for the list icon */
     .listIcon {
         float: right;
     }
 
+    /* Styling for the logout link */
     .Logout {
         color: red;
     }
 
+    /* Styling for the typography within list items */
     .mud-list-item-text .mud-typography {
         font-weight: bolder;
     }
@@ -58,8 +65,11 @@
 
     <div class="row" style="margin-top: 9px;margin-left: 5px;">
         <div class="col ml-3 mt-1">
+            <!-- Logo image -->
             <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
+            <!-- Text icon for profile -->
             <span class="IconText">Profile</span>
+            <!-- More options icon -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
@@ -67,57 +77,68 @@
 
     <div class="row">
         <div class="col ">
+            <!-- Card for profile information -->
             <MudCard Elevation="0">
                 <MudCardContent Style="text-align: center;">
+                    <!-- Badge with edit icon -->
                     <MudBadge Color="Color.Primary" Icon="@Icons.Material.Filled.Edit" Overlap="true" Bordered="true">
+                        <!-- Large avatar image -->
                         <MudAvatar Size="Size.Large" Image="images/DP.png" />
                     </MudBadge>
+                    <!-- Profile name -->
                     <MudText Typo="Typo.h6" Style="font-weight:bolder;">Andrew Ainsley</MudText>
+                    <!-- Email -->
                     <MudText Typo="Typo.body2" Style="font-weight:bolder;">andrew_ainsley@yourdomain.com</MudText>
                 </MudCardContent>
             </MudCard>
         </div>
     </div>
 
+    <!-- Divider -->
     <MudDivider DividerType="DividerType.Middle"></MudDivider>
 
+    <!-- Paper component for list -->
     <MudPaper Elevation="0">
+        <!-- List of clickable items -->
         <MudList Clickable="true">
-           @*  <MudListItem>
-                <MudSelect HelperText="Change Theme" OnClose="SelectTheme" Style="height: 38px;" @bind-Value="Theme" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter">
-                    <MudSelectItem Value="@("Purple")" />
-                    <MudSelectItem Value="@("Blue")" />
-                    <MudSelectItem Value="@("Green")" />
-                </MudSelect>
-            </MudListItem> *@
+            <!-- Edit Profile -->
             <MudListItem Icon="@Icons.Material.Filled.Person" @onclick=@(() => NavigateTo("EditProfile"))>
                 Edit Profile   <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
+            <!-- Notification -->
             <MudListItem Icon="@Icons.Material.Filled.Notifications" @onclick=@(() => NavigateTo("ProfileNotification"))>
                 Notification  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
+            <!-- Payment -->
             <MudListItem Icon="@Icons.Material.Filled.Payment" @onclick=@(() => NavigateTo("ProfilePayment"))>
                 Payment  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
+            <!-- Security -->
             <MudListItem Icon="@Icons.Material.Filled.SystemSecurityUpdateGood" @onclick=@(() => NavigateTo("ProfileSecurity"))>
                 Security  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
+            <!-- Language -->
             <MudListItem Icon="@Icons.Material.Rounded.Casino" @onclick=@(() => NavigateTo("ProfileLanguage"))>
                 Language   <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon> <p class="listIcon mr-5">English(US)</p>
             </MudListItem>
+            <!-- Dark Mode switch -->
             <MudListItem Icon="@Icons.Material.Rounded.RemoveRedEye">
                 Dark Mode  <MudSwitch Style="float: right;height: 24px;" @bind-Value="@DarkModeSwitch" />
             </MudListItem>
+            <!-- Privacy Policy -->
             <MudListItem Icon="@Icons.Material.Rounded.Lock" @onclick=@(() => NavigateTo("PrivacyPolicy"))>
                 Privacy Policy  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
+            <!-- Help Center -->
             <MudListItem Icon="@Icons.Material.Filled.Info" @onclick=@(() => NavigateTo("HelpCenter"))>
                 Help Center  <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
+            <!-- Invite Friends -->
             <MudListItem Icon="@Icons.Material.Filled.People" @onclick=@(() => NavigateTo("InviteFriends"))>
                 Invite Friends   <MudIcon Class="listIcon" Icon="@Icons.Material.Filled.ArrowForwardIos"></MudIcon>
             </MudListItem>
 
+            <!-- Logout -->
             <MudListItem Class="Logout" AdornmentColor="Color.Error" IconColor="Color.Error" Icon="@Icons.Material.Filled.Logout" @onclick=@(() => NavigateTo("SignIn"))>
                 Logout
             </MudListItem>
@@ -129,37 +150,16 @@
 
 @code {
 
-  
-    @inject ThemeService _themeService
     @inject NavigationManager Navigation;
     public bool DarkModeSwitch { get; set; } = false;
+
+    // Method to navigate to specified page
     private void NavigateTo(string page)
     {
         Navigation.NavigateTo(page);
     }
 
-    public string Theme { get; set; } 
-
-    private void SelectTheme()
-    {
-
-
-        if (Theme == "Purple")
-        {
-            _themeService.ChangeTheme(new MudTheme { Palette = new PaletteLight { Primary = "#7210FF" } });
-
-        }
-        else if (Theme == "Blue")
-        {
-            _themeService.ChangeTheme(new MudTheme { Palette = new PaletteLight { Primary = "#246BFD" } });
-
-        }
-        else if (Theme == "Green")
-        {
-            _themeService.ChangeTheme(new MudTheme { Palette = new PaletteLight { Primary = "#4ADE80" } });
-
-        }
-    }
+  
 
 }
 

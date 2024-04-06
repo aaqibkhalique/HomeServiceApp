@@ -1,39 +1,43 @@
 ﻿@page "/ProfileLanguage"
+
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
 <style>
-
+    /* Styling for the container */
     .container {
         overflow-y: auto;
     }
 
+    /* Centering elements horizontally */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for the text icon */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
-
-
-
+    /* Styling for typography within list items */
     .mud-list-item-text .mud-typography {
         font-weight: bolder;
     }
 
+    /* Styling for the boolean input control */
     .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Padding adjustment for list item gutters */
     .mud-list-item-gutters {
         padding-right: 0px;
     }
 
+    /* Button styling */
     .Btn {
         border-radius: 30px;
         width: 303px;
@@ -44,30 +48,30 @@
         font-weight: bolder;
         margin-bottom: 5px;
     }
-
 </style>
-
-
-
-
 
 <div class="container">
 
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Text icon for language selection -->
             <span class="IconText">Language</span>
         </div>
     </div>
 
-
+    <!-- Paper component for language selection -->
     <MudPaper Elevation="0">
 
         <MudList>
-            <MudRadioGroup @bind-Value="@SelectedOption1">
+            <!-- Radio group for language options -->
+            <MudRadioGroup @bind-Value="@SelectedOption">
+                <!-- Subheader for suggested languages -->
                 <MudListSubheader>
                     <MudText Typo="Typo.h6" Color="Color.Dark" Style="font-weight:bolder">Suggested</MudText>
                 </MudListSubheader>
+                <!-- Suggested language options -->
                 <MudListItem>
                     English (US)
                     <MudRadio Value="@("English (US)")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
@@ -78,10 +82,13 @@
                 </MudListItem>
                 <MudDivider DividerType="DividerType.Middle"></MudDivider>
 
+                <!-- Subheader for all languages -->
                 <MudListSubheader>
                     <MudText Typo="Typo.h6" Color="Color.Dark" Style="font-weight:bolder">Language</MudText>
                 </MudListSubheader>
 
+                <!-- List of all language options -->
+                <!-- Each language option has a radio button for selection -->
                 <MudListItem>
                     Mandarin
                     <MudRadio Value="@("Mandarin")" Color="Color.Primary" Style="float: right;height: 24px;"></MudRadio>
@@ -144,32 +151,16 @@
 
     </MudPaper>
 
-
-
-
 </div>
 
-
-
 @code {
-
-
-    public string SelectedOption1 { get; set; }
-    public string SelectedOption2 { get; set; }
-    public string SelectedOption3 { get; set; }
-    public string SelectedOption4 { get; set; }
-    public string SelectedOption5 { get; set; }
-    public string SelectedOption6 { get; set; }
-    public string SelectedOption7 { get; set; }
+    public string SelectedOption { get; set; }
 
     @inject NavigationManager Navigation;
 
+    // Method to navigate back to the home page
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
-
-
-
 }
-

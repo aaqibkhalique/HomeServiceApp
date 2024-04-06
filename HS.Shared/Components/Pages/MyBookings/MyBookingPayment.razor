@@ -3,35 +3,41 @@
 @layout EmptyLayout
 
 <style>
-
+    /* Styling for container */
     .container {
         overflow-y: auto;
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text */
     .Text {
         font-weight: bold;
     }
 
+    /* Styling for small text */
     .smalltext {
         font-size: smaller;
     }
 
+    /* Sticky footer */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -39,21 +45,25 @@
         width: 100%;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
     }
 
+    /* Styling for MudInputControl boolean input */
     .mud-input-control.mud-input-control-boolean-input {
         margin-top: 6px;
     }
 
+    /* Styling for MudCard */
     .mudCard {
         border-radius: 10px;
         margin-top: 25px;
@@ -61,38 +71,46 @@
     }
 </style>
 
-
-
-
-
+<!-- Main container -->
 <div class="container">
 
+    <!-- Row for header -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Payment Methods title -->
             <span class="IconText">Payment Methods</span>
+            <!-- More options icon -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
+
+    <!-- Row for message -->
     <div class="row  DivCenter  mt-10">
         <div class="col DivCenter">
+            <!-- Payment refund message -->
             <MudText Typo="Typo.body1">Please select a payment refund method (only 80% will be refunded).</MudText>
         </div>
     </div>
 
+    <!-- Row for PayPal payment option -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
                 <MudCardHeader>
                     <CardHeaderAvatar>
+                        <!-- PayPal logo -->
                         <MudImage Class="img-fluid" Src="images/paypal.png" Elevation="0" Height="50" Width="50" />
                     </CardHeaderAvatar>
                     <CardHeaderContent>
                         <div class="cardContent">
                             <div>
+                                <!-- PayPal text -->
                                 <MudText Typo="Typo.subtitle1" Style="font-weight:bold;margin-top:12px;">Paypal</MudText>
                             </div>
                             <div>
+                                <!-- PayPal checkbox -->
                                 <MudCheckBox @bind-Value="@CheckBox1" Color="Color.Primary" CheckedIcon="@Icons.Material.Filled.Circle" UncheckedIcon="@Icons.Material.Outlined.Circle"></MudCheckBox>
                             </div>
                         </div>
@@ -101,7 +119,7 @@
             </MudCard>
         </div>
     </div>
-
+    <!-- Rows for other payment options -->
     <div class="row">
         <div class="col DivCenter">
             <MudCard Class="mudCard">
@@ -165,28 +183,28 @@
             </MudCard>
         </div>
     </div>
-  
+
 </div>
 
+<!-- Sticky footer with continue button -->
 <MudCard Class="Sticky DivCenter">
     <MudButton Class="ContinueBtn" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
 </MudCard>
 
-
 @code {
-
+    // Injecting NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
+
+    // Checkbox variables for payment methods
     public bool CheckBox1 { get; set; } = false;
     public bool CheckBox2 { get; set; } = false;
     public bool CheckBox3 { get; set; } = false;
     public bool CheckBox4 { get; set; } = true;
     public bool CheckBox5 { get; set; } = false;
+
+    // Function to handle back button click
     private void ClickBack()
     {
         Navigation.NavigateTo("Home");
     }
-
-
-
 }
-

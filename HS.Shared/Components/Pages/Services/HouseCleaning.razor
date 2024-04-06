@@ -1,39 +1,41 @@
-﻿
-@page "/HouseCleaning"
+﻿@page "/HouseCleaning"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
 <style>
-
+    /* Styling for the container */
     .container {
         overflow-y: auto;
-        height: 647px;
+        height: 647px; /* Set container height */
     }
 
+    /* Styling for centering elements */
     .DivCenter {
         display: flex;
         justify-content: center;
     }
 
+    /* Styling for main icon text */
     .IconText {
         font-size: xx-large;
         font-weight: bold;
         margin-left: 8px;
     }
 
+    /* Styling for right icon */
     .rightIcon .mud-icon-root {
         border: solid;
         border-radius: 12px;
     }
 
+    /* Styling for text elements */
     .Text {
         font-weight: 500;
         width: 333px;
         margin-top: 10px;
     }
 
-   
-
+    /* Styling for sticky footer */
     .Sticky {
         padding: 20px;
         position: fixed;
@@ -41,59 +43,68 @@
         width: 100%;
     }
 
+    /* Styling for continue button */
     .ContinueBtn {
         border-radius: 30px;
         width: 330px;
         height: 50px;
     }
 
+    /* Styling for card content */
     .cardContent {
         display: flex;
         justify-content: space-between;
         width: 135px;
-        margin-left: 41px;
+        margin-left: 41px; /* Adjust margin */
         margin-top: 5px;
     }
-    
+
+    /* Styling for MudCard */
     .mudCard {
         border-radius: 23px;
         width: 80%;
     }
- 
+
+    /* Styling for number text */
     .numberText {
-         margin-top: 8px;
+        margin-top: 8px;
     }
-    .iconButton{
+
+    /* Styling for icon button */
+    .iconButton {
         background-color: #F4ECFF !important;
     }
 
-
+    /* Styling for card header content */
     .cardHeader .mud-card-header-content {
         display: flex;
         justify-content: flex-end;
     }
 </style>
 
-
-
-
-
 <div class="container">
 
+    <!-- Header section -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
+            <!-- Back button -->
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
+            <!-- Title for the page -->
             <span class="IconText">House Cleaning</span>
+            <!-- Right icon button -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
-    <div class="row  DivCenter  ">
+    <!-- Description section -->
+    <div class="row DivCenter">
         <div class="col DivCenter">
             <MudText Typo="Typo.subtitle1" Class="Text">Enter the number of items to be cleaned</MudText>
         </div>
     </div>
 
-    <div class="row  mt-5">
+    <!-- Card sections for different rooms -->
+    <div class="row mt-5">
+        <!-- Living Room card -->
         <div class="col DivCenter mb-5">
             <MudCard Class="mudCard">
                 <MudCardHeader Class="cardHeader">
@@ -102,12 +113,15 @@
                     </CardHeaderAvatar>
                     <CardHeaderContent>
                         <div class="cardContent">
+                            <!-- Decrease items button -->
                             <div>
                                 <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
                             </div>
+                            <!-- Number of items text -->
                             <div>
                                 <MudText Class="numberText" Typo="Typo.h6">0</MudText>
                             </div>
+                            <!-- Increase items button -->
                             <div>
                                 <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Add" Color="Color.Primary"></MudIconButton>
                             </div>
@@ -130,7 +144,7 @@
 
                             <div>
                                 <MudIconButton Class="iconButton" Icon="@Icons.Material.Filled.Remove" Color="Color.Primary"></MudIconButton>
-                            </div>
+</div>
                             <div>
                                 <MudText Class="numberText" Typo="Typo.h6">0</MudText>
                             </div>
@@ -276,7 +290,6 @@
     <MudButton Class="ContinueBtn" OnClick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue - $0</MudButton>
 </MudCard>
 
-
 @code {
 
     @inject NavigationManager Navigation;
@@ -292,4 +305,3 @@
     }
 
 }
-
