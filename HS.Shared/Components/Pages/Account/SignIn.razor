@@ -96,6 +96,16 @@
     .mud-input-slot {
         margin-left: 34px !important;
     }
+
+
+    /* Responsive styles */
+
+
+
+    @@media only screen and (min-width: 700px) and (max-width: 1024px) {
+        /* Adjustments for medium screens (tablets) */
+    }
+
 </style>
 
 <!-- Main container for the page -->
@@ -108,6 +118,8 @@
         </div>
     </div>
     <!-- Title section -->
+    <div class="formDiv">
+  
     <div class="row">
         <div class="col  ml-5 text">
             <!-- Page title -->
@@ -116,27 +128,29 @@
     </div>
 
     <!-- Email and password input section -->
-    <div class="row mt-5">
-        <!-- Email input -->
-        <div class="col-12 ml-7  mr-5 email DivCenter">
-            <div class="EmailIcon">
-                <!-- Email icon -->
-                <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Email" Size="Size.Medium" />
+    <div class="row mt-5 ">
+      
+            <!-- Email input -->
+            <div class="col ml-7  mr-5 email DivCenter">
+                <div class="EmailIcon">
+                    <!-- Email icon -->
+                    <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Email" Size="Size.Medium" />
+                </div>
+                <!-- Email input field -->
+                <MudTextField Class="mr-7" @bind-Value="Email" Label="Email" Variant="Variant.Filled" Adornment="Adornment.None" />
             </div>
-            <!-- Email input field -->
-            <MudTextField Class="mr-7" @bind-Value="Email" Label="Email" Variant="Variant.Filled" Adornment="Adornment.None" />
-        </div>
-        <!-- Password input -->
-        <div class="col-12 ml-7 mr-5 mt-5 DivCenter">
-            <div class="PasswordIcon">
-                <!-- Password icon -->
-                <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Lock" Size="Size.Medium" />
+            <!-- Password input -->
+            <div class="col ml-7 mr-5 mt-5 DivCenter">
+                <div class="PasswordIcon">
+                    <!-- Password icon -->
+                    <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Lock" Size="Size.Medium" />
+                </div>
+                <!-- Password input field -->
+                <MudTextField Class="mr-7" @bind-Value="Password" Label="Password" Variant="Variant.Filled" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ShowPassword" />
             </div>
-            <!-- Password input field -->
-            <MudTextField Class="mr-7" @bind-Value="Password" Label="Password" Variant="Variant.Filled" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ShowPassword" />
-        </div>
+      
     </div>
-
+    </div>
     <!-- Remember me checkbox section -->
     <div class="row">
         <div class="col DivCenter">
