@@ -49,6 +49,8 @@
         margin-top: 7px;
     }
 
+  
+
     /* Media query for smaller screens */
     @@media (max-width: 410px) {
         .ServiceCard {
@@ -81,6 +83,9 @@
             margin-top: 2px;
             font-size: small;
         }
+
+      
+
     }
 
     /* Styling for card content */
@@ -117,7 +122,7 @@
         padding: 20px;
         position: fixed;
         bottom: 36px;
-        width: 100%;
+        width: 95%;
         border-top-left-radius: 55px;
         border-top-right-radius: 55px;
         text-align: center;
@@ -269,25 +274,25 @@
     <MudCard Class="Sticky DivCenter ">
         <div>
             <!-- Cancellation header -->
-            <MudText Class="DivCenter" Typo="Typo.h4" Style="font-weight: bold;" Color="Color.Error">Cancel Booking</MudText>
+            <MudText Class="DivCenter cardInsideText" Typo="Typo.h4" Style="font-weight: bold;" Color="Color.Error">Cancel Booking</MudText>
             <br />
             <MudDivider DividerType="DividerType.Middle"> </MudDivider>
             <!-- Cancellation confirmation text -->
-            <MudText Class="DivCenter" Typo="Typo.h4" Style="font-weight: bold;">
+            <MudText Class="DivCenter cardInsideText" Typo="Typo.h4" Style="font-weight: bold;">
                 Are you sure want to cancel your
                 service booking?
             </MudText>
             <span class="DivCenter mt-2"></span>
             <!-- Cancellation policy text -->
-            <MudText Class="DivCenter mt-2" Typo="Typo.h6">
+            <MudText Class="DivCenter mt-2 cardInsideText" Typo="Typo.h6">
                 Only 80% of the money you can refund from
                 your payment according to our policy
             </MudText>
             <MudDivider Class="mt-5"> </MudDivider>
             <!-- Cancel and confirm buttons -->
             <div class="Collapse">
-                <MudButton Class="cardbtn cancelBtn" OnClick="OnCancelClick" Variant="Variant.Filled">Cancel</MudButton>
-                <MudButton Class="cardbtn" OnClick="OnCancelClick" Variant="Variant.Filled" Color="Color.Primary">Yes,Cancel Booking</MudButton>
+                <MudButton Class="cardbtn cancelBtn Collapsebtn" OnClick="OnCancelClick" Variant="Variant.Filled">Cancel</MudButton>
+                <MudButton Class="cardbtn Collapsebtn" OnClick="OnCancelClick" Variant="Variant.Filled" Color="Color.Primary">Yes,Cancel Booking</MudButton>
             </div>
         </div>
     </MudCard>

@@ -49,7 +49,7 @@
     <!-- Header with back button, title, and more options button -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
-            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" Style="padding-top: 1px;"></MudIconButton> <!-- Back button -->
+            <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" Style="padding-top: 1px;" OnClick="ClickBack"></MudIconButton> <!-- Back button -->
             <span class="IconText">Help Center </span> <!-- Title -->
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton> <!-- More options button -->
         </div>
@@ -82,7 +82,7 @@
 
 
 @code {
-
+    @inject NavigationManager Navigation; // Inject NavigationManager for navigation functionality
     string _chatClass = "chatbtn"; // Class for styling active state of FAQ button
     string _callClass = ""; // Class for styling active state of Contact Us button
 
@@ -103,5 +103,10 @@
         _call = true; // Show Contact Us content
         _chatClass = ""; // Remove active class from FAQ button
         _callClass = "chatbtn"; // Add active class to Contact Us button
+    }
+
+    private void ClickBack() // Method to handle back navigation
+    {
+        Navigation.NavigateTo("Home/4"); // Navigate to Home page
     }
 }

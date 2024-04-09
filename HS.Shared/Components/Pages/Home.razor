@@ -1,5 +1,6 @@
 ﻿@using MudBlazor
 @page "/Home"
+@page "/Home/{InitialValue:int?}"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 <style>
@@ -40,20 +41,20 @@
 </style>
 
 <MudCard>
-    <MudTabs @ref="tabs" Elevation="0" Rounded="true" Position="Position.Bottom" ApplyEffectsToContainer="true" MinimumTabWidth="10px" Centered="true">
-        <MudTabPanel Icon="@Icons.Material.Filled.Home" @ref="panel01" ID="@("pn_Menu")">
+    <MudTabs @bind-ActivePanelIndex="activeIndex" @ref="tabs" Elevation="0" Rounded="true" Position="Position.Bottom" ApplyEffectsToContainer="true" MinimumTabWidth="10px" Centered="true">
+        <MudTabPanel Icon="@Icons.Material.Filled.Home" ID="@("pn_Menu")">
             <div class="Mydiv">
                 <!-- Inserted ActionMenu component -->
                 <HS.Shared.Components.Pages.Menu.ActionMenu></HS.Shared.Components.Pages.Menu.ActionMenu>
             </div>
         </MudTabPanel>
-        <MudTabPanel Icon="@Icons.Material.Filled.Article" @ref="panel02" ID="@("pn_MyBookings")">
+        <MudTabPanel Icon="@Icons.Material.Filled.Article"  ID="@("pn_MyBookings")">
             <div class=" Mydiv">
                 <!-- Inserted MyBookings component -->
                 <HS.Shared.Components.Pages.MyBookings.MyBookings></HS.Shared.Components.Pages.MyBookings.MyBookings>
             </div>
         </MudTabPanel>
-        <MudTabPanel Icon="@Icons.Material.Filled.CalendarMonth" @ref="panel03" ID="@("pn_Calendar")">
+        <MudTabPanel Icon="@Icons.Material.Filled.CalendarMonth"  ID="@("pn_Calendar")">
             <div class="Mydiv">
                 <!-- Inserted MyCalendar component -->
                 <HS.Shared.Components.Pages.Calendar.MyCalendar></HS.Shared.Components.Pages.Calendar.MyCalendar>
@@ -79,11 +80,22 @@
     // Inject NavigationManager for navigation functionality
     @inject NavigationManager Navigation;
     // Reference variables for MudTabs and MudTabPanel components
-    MudTabs tabs;
-    MudTabPanel panel01;
-    MudTabPanel panel02;
-    MudTabPanel panel03;
+    MudTabs? tabs;
+    int activeIndex = 0;
+
+    [Parameter]
+    public int? InitialValue { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (InitialValue is not null)
+        {
+            activeIndex = (int)InitialValue;
+        }
+        StateHasChanged();
+    }
    
+ 
     // Method to handle button click for navigation
     private void BtnNextClick()
     {
