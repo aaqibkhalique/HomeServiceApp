@@ -16,7 +16,8 @@
     /* Styling for text */
     .text {
         font-weight: bolder;
-        margin-top: 15px;
+        margin-top: 5vh;
+        font-size: 5vh;
     }
 
     /* Styling for email input */
@@ -35,6 +36,7 @@
         border-radius: 30px;
         width: 330px;
         height: 50px;
+        margin-top:20px;
     }
 
     /* Styling for horizontal divider */
@@ -96,6 +98,28 @@
     .mud-input-slot {
         margin-left: 34px !important;
     }
+
+    @@media only screen and (max-device-width: 480px) {
+
+        .text {
+            font-weight: bolder;
+            margin-top: 0vh;
+            font-size: 4vh;
+        }
+
+        .SignUpBtn {
+            border-radius: 30px;
+            width: 268px;
+            height: 40px;
+        }
+
+
+        .hr-sect {
+            margin-top: 12px;
+        }
+
+    }
+
 </style>
 
 <!-- Main container for the page -->
@@ -146,14 +170,14 @@
 
     <!-- Sign up button section -->
     <div class="row ">
-        <div class="col mt-5 DivCenter">
+        <div class="col DivCenter">
             <!-- Sign up button -->
             <MudButton Class="SignUpBtn" OnClick="Click" Variant="Variant.Filled" Color="Color.Primary">Sign Up</MudButton>
         </div>
     </div>
 
     <!-- Horizontal divider section -->
-    <div class="row mt-5">
+    <div class="row ">
         <div class="col  DivCenter">
             <!-- Horizontal divider -->
             <div class="hr-sect"> <p style="font-weight:200;">or continue with</p></div>

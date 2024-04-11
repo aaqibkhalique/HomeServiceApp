@@ -16,7 +16,8 @@
     /* Styling for text */
     .text {
         font-weight: bolder;
-        margin-top: 15px;
+        margin-top: 5vh;
+        font-size: 5vh;
     }
 
     /* Styling for email input */
@@ -101,10 +102,22 @@
     /* Responsive styles */
 
 
+    @@media only screen and  (max-device-width: 480px) {
+    
+        .text {
+            font-weight: bolder;
+            margin-top: 0vh;
+            font-size: 4vh;
+        }
 
-    @@media only screen and (min-width: 700px) and (max-width: 1024px) {
-        /* Adjustments for medium screens (tablets) */
-    }
+        .SignUpBtn {
+            border-radius: 30px;
+            width: 268px;
+            height: 40px;
+        }
+
+     }
+
 
 </style>
 
@@ -123,7 +136,7 @@
     <div class="row">
         <div class="col  ml-5 text">
             <!-- Page title -->
-            <MudText Typo="Typo.h3" Class="text">Login to your Account</MudText>
+            <MudText  Class="text">Login to your Account</MudText>
         </div>
     </div>
 

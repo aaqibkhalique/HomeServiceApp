@@ -119,6 +119,30 @@
             font-size: small;
         }
     }
+
+    @@media only screen and (max-device-width: 480px) {
+
+        .headerText {
+            font-size: 2vh;
+        }
+
+        .contentText {
+            font-size: 3vh;
+        }
+
+        .headerIcon {
+            padding-left: 2px;
+        }
+
+        .ServiceImages {
+            height: 50px;
+            width: 50px;
+        }
+
+        .ServicesText{
+            font-size:2vh;
+        }
+    }
 </style>
 
 <!-- HTML content -->
@@ -135,13 +159,13 @@
                 </CardHeaderAvatar>
                 <CardHeaderContent>
                     <!-- Greeting text -->
-                    <MudText Typo="Typo.body2">Good Morning 👋</MudText>
+                    <MudText Class="headerText" Typo="Typo.body2">Good Morning 👋</MudText>
                     <!-- User's name -->
-                    <MudText Style="font-weight:bold" Typo="Typo.subtitle1">Andrew Ainsley</MudText>
+                    <MudText Class="headerText" Style="font-weight:bold" Typo="Typo.subtitle1">Andrew Ainsley</MudText>
                 </CardHeaderContent>
                 <CardHeaderActions>
                     <!-- Notification and bookmark icons -->
-                    <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.NotificationsNone" Color="Color.Default" OnClick="NavigateToNotification" />
+                    <MudIconButton Size="Size.Large" Class="headerIcon" Icon="@Icons.Material.Filled.NotificationsNone" Color="Color.Default" OnClick="NavigateToNotification" />
                     <MudIconButton Size="Size.Large" Icon="@Icons.Material.Filled.BookmarkBorder" Color="Color.Default" OnClick="NavigateToBookmark" />
                 </CardHeaderActions>
             </MudCardHeader>
@@ -189,7 +213,7 @@
         <div class="col ml-3 ">
             <!-- MudCardActions for services heading -->
             <MudCardActions Class="text">
-                <MudText Style="font-weight:bold" Typo="Typo.h6">Services</MudText>
+                <MudText Style="font-weight:bold" Class="contentText" Typo="Typo.h6">Services</MudText>
                 <MudButton Variant="Variant.Text"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
             </MudCardActions>
         </div>
@@ -197,44 +221,44 @@
     <div class="row">
         <div class="col ml-3 services">
             <div style="text-align:center">
-                <MudImage Src="images/cleaning.png" Elevation="0" Height="70" Width="70" />
-                <h5 class="mt-3">Cleaning</h5>
+
+                <MudImage Src="images/cleaning.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3 ServicesText">Cleaning</h5>
             </div>
             <div style="text-align:center">
-                <MudImage Src="images/repairing.png" Elevation="0" Height="70" Width="70" />
-                <h5 class="mt-3">Repairing</h5>
+                <MudImage Src="images/repairing.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3 ServicesText">Repairing</h5>
             </div>
 
             <div style="text-align:center">
-                <MudImage Src="images/painting.png" Elevation="0" Height="70" Width="70" />
-                <h5 class="mt-3">Painting</h5>
+                <MudImage Src="images/painting.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3 ServicesText">Painting</h5>
             </div>
 
             <div style="text-align:center">
-                <MudImage Src="images/laundry.png" Elevation="0" Height="70" Width="70" />
-                <h5 class="mt-3">Laundry</h5>
+                <MudImage Src="images/laundry.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3 ServicesText">Laundry</h5>
             </div>
         </div>
     </div>
     <div class="row mt-5">
         <div class="col ml-3 services">
             <div style="text-align:center">
-                <MudImage Src="images/appliances.png" Elevation="0" Height="70" Width="70" />
-                <h5 class="mt-3">Appliances</h5>
+                <MudImage Src="images/appliances.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3 ServicesText">Appliances</h5>
             </div>
             <div style="text-align:center">
-                <MudImage Src="images/plumbing.png" Elevation="0" Height="70" Width="70" />
-                <h5 class="mt-3">Plumbing</h5>
+                <MudImage Src="images/plumbing.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3 ServicesText">Plumbing</h5>
             </div>
 
             <div style="text-align:center">
-                <MudImage Src="images/shifting.png" Elevation="0" Height="70" Width="70" />
-                <h5 class="mt-3">Shifting</h5>
+                <MudImage Src="images/shifting.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3 ServicesText">Shifting</h5>
             </div>
-
             <div style="text-align:center" @onclick=@(() => NavigateToAllServices())>
-                <MudImage Src="images/more.png" Elevation="0" Height="70" Width="70" />
-                <h5 class="mt-3">More</h5>
+                <MudImage Src="images/more.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
+                <h5 class="mt-3 ServicesText" >More</h5>
             </div>
         </div>
     </div>
@@ -244,7 +268,7 @@
         <div class="col ml-3 linetop ">
 
             <MudCardActions Class="text">
-                <MudText Style="font-weight:bold" Typo="Typo.h6">Most Popular Services</MudText>
+                <MudText Style="font-weight:bold" Class="contentText" Typo="Typo.h6">Most Popular Services</MudText>
                 <MudButton Variant="Variant.Text" OnClick="NavigateToBookmark"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
             </MudCardActions>
         </div>
@@ -274,7 +298,7 @@
         <div class="col ml-2 mt-5 mb-5 ">
             <MudCard Elevation="5" Class="ServiceCard">
                 <MudCardHeader>
-                    <CardHeaderContent  >
+                    <CardHeaderContent>
                         <div class="headerContent">
                             <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
                             <div style="margin-left:26px;">
@@ -302,7 +326,7 @@
                                 <MudText Class="price font-weight-bold" Color="Color.Primary" Typo="Typo.h6">$25</MudText>
                                 <MudText Class="reviews" Typo="Typo.subtitle1"><MudIcon Class="reviews" Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />     <span>4.9 | 6.182 reviews</span></MudText>
                             </div>
-                           
+
                         </div>
                     </CardHeaderContent>
                     <CardHeaderActions>
@@ -310,9 +334,9 @@
                     </CardHeaderActions>
                 </MudCardHeader>
             </MudCard>
-                   <MudCard Elevation="5" Class="ServiceCard">
+            <MudCard Elevation="5" Class="ServiceCard">
                 <MudCardHeader>
-                    <CardHeaderContent  >
+                    <CardHeaderContent>
                         <div class="headerContent">
                             <MudImage Src="images/s3.png" Elevation="0" Style="height:120px;" />
                             <div style="margin-left:26px;">
@@ -330,7 +354,7 @@
             </MudCard>
             <MudCard Elevation="5" Class="ServiceCard">
                 <MudCardHeader>
-                    <CardHeaderContent >
+                    <CardHeaderContent>
                         <div class="headerContent">
                             <MudImage Src="images/s4.png" Elevation="0" Style="height:120px;" />
                             <div style="margin-left:26px;">
@@ -340,7 +364,7 @@
                                 <MudText Class="reviews" Typo="Typo.subtitle1"><MudIcon Class="reviews" Icon="@Icons.Material.Filled.Star" Color="Color.Warning" />     <span>4.9 | 6.182 reviews</span></MudText>
                             </div>
                         </div>
-                       
+
                     </CardHeaderContent>
                     <CardHeaderActions>
                         <MudIconButton Icon="@Icons.Material.Filled.BookmarkBorder" Color="Color.Default" />
@@ -392,7 +416,7 @@
     {
         Navigation.NavigateTo("Notification");
     }
-    
+
     private void NavigateToAllServices()
     {
         Navigation.NavigateTo("AllServices");

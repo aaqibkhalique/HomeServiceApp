@@ -35,9 +35,24 @@
         background: #00000000;
     }
 
-    * {
-        box-sizing: content-box;
+   
+
+    @@media only screen and (max-device-width: 480px) {
+
+        .mud-tooltip-root {
+             padding-left: 0px;
+           padding-right: 0px;
+        }
+
+        .mud-tabs-scroll-button{
+            display:none;
+        }
+
+        .mud-tabs-toolbar-content {
+            overflow-x: hidden;
+        }
     }
+
 </style>
 
 <MudCard>

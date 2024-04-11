@@ -9,23 +9,23 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow-y: hidden;
-        overflow-x: hidden;
+        
     }
 
     /* Styling for next button */
     .nextBtn {
         border-radius: 30px;
         margin-top: 89px;
-        width: 330px;
+        width: 50vh;
     }
 
     /* Styling for text */
     .text {
         font-weight: bolder;
-        margin-top: 89px;
-        width: 330px;
+        margin-top: 30px;
+        width: 50vh;
         text-align: center;
+        font-size: 5vh;
     }
 
     /* Styling for centering columns */
@@ -33,28 +33,44 @@
         display: flex !important;
         justify-content: center !important;
     }
+
+    .main{
+        height: 10vh;
+    }
+    
+    .mud-image.fluid {
+        max-width: 100%;
+        height: 50vh;
+    }
 </style>
 
-<!-- Main container -->
-<div class="container">
-    <!-- Image -->
-    <MudImage Src="images/img1.png" Elevation="0" Height="380" Width="500" />
-</div>
 
-<!-- Row for text and button -->
-<div class="row">
-    <!-- Column for text -->
-    <div class="col-sm-1">
-        <!-- Text -->
-        <MudText Typo="Typo.h4" Class="text">We provide professional service at a friendly price</MudText>
+<div class="main">
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Image -->
+        <MudImage Src="images/img1.png" Fluid="true" Elevation="0"  />
     </div>
 
-    <!-- Column for button -->
-    <div class="col-sm-1">
-        <!-- Next button -->
-        <MudButton Class="nextBtn" Variant="Variant.Filled" OnClick="BtnNextClick" Color="Color.Primary">Next</MudButton>
+    <!-- Row for text and button -->
+    <div class="row">
+        <!-- Column for text -->
+        <div class="col-sm-1">
+            <!-- Text -->
+            <MudText Typo="Typo.h4" Class="text">We provide professional service at a friendly price</MudText>
+        </div>
+
+        <!-- Column for button -->
+        <div class="col-sm-1">
+            <!-- Next button -->
+            <MudButton Class="nextBtn" Variant="Variant.Filled" OnClick="BtnNextClick" Color="Color.Primary">Next</MudButton>
+        </div>
     </div>
+
+
 </div>
+
 
 @code {
     // Inject NavigationManager for navigation
