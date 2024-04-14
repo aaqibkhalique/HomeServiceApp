@@ -1,0 +1,71 @@
+﻿
+<!-- Styling for MudDialog component -->
+<style>
+    /* Styling for MudDialog */
+    .mud-dialog {
+        width: 350px; /* Set dialog width */
+        border-radius: 44px; /* Set border radius */
+    }
+
+    /* Styling for receipt button */
+    .ReceiptBtn {
+        border-radius: 30px; /* Set button border radius */
+        width: 250px; /* Set button width */
+        height: 50px; /* Set button height */
+        margin-top: 30px; /* Set top margin */
+    }
+
+    /* Styling for message button */
+    .MessageBtn {
+        border-radius: 30px; /* Set button border radius */
+        width: 250px; /* Set button width */
+        height: 50px; /* Set button height */
+        margin-top: 30px; /* Set top margin */
+        color: var(--mud-palette-primary); /* Set text color */
+        background-color: #F4ECFF; /* Set background color */
+    }
+</style>
+
+<!-- MudDialog component -->
+<MudDialog>
+    <DialogContent>
+        <!-- Content inside the dialog -->
+        <div class="text-center" style="text-align:center;">
+            <!-- Image in the dialog -->
+            <MudImage Src="images/dialog.png" Elevation="0" Style="width:200px;" />
+            <!-- Heading for successful booking -->
+            <MudText Typo="Typo.subtitle1" Color="Color.Primary" Style="font-weight:bold;margin-top:12px;">Congratulations!</MudText>
+            <!-- Message about successful booking -->
+            <MudText Typo="Typo.subtitle1" Style="margin-top:12px;">Your Account is ready to use.You will be redirected to the homepage in a few seconds</MudText>
+           
+        </div>
+    </DialogContent>
+</MudDialog>
+
+@code {
+    // Inject MudDialogInstance for handling dialog operations
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    // Inject NavigationManager for navigation operations
+    @inject NavigationManager Navigation;
+
+    // Method to cancel and close the dialog
+    void Cancel() => MudDialog.Cancel();
+
+    // Method to submit and navigate to the receipt page
+    void Submit()
+    {
+        MudDialog.Close(DialogResult.Ok(true)); // Close the dialog with a result
+        Navigation.NavigateTo("CreateNewPassword"); // Navigate to the Receipt page
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Delay for 5 seconds using Task.Delay
+        await Task.Delay(2000);
+
+        // Redirect to the home page
+        Navigation.NavigateTo("/SignIn", true);
+    }
+}

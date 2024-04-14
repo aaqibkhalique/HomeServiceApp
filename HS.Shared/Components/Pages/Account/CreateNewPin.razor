@@ -3,6 +3,7 @@
 
 <!-- Importing necessary components and layouts -->
 @using HS.Shared.Components.Layout
+@using HS.Shared.Components.Pages.Dialogs
 @layout EmptyLayout
 
 <!-- Styling for the page -->
@@ -95,7 +96,7 @@
     <!-- Continue button -->
     <div class="row">
         <div class="col mt-5 DivCenter">
-            <MudButton Class="ContinueBtn" @onclick="Continue" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
+            <MudButton Class="ContinueBtn" OnClick="@((e) => OpenDialog(disableBackdropClick))" Variant="Variant.Filled" Color="Color.Primary">Continue</MudButton>
         </div>
     </div>
 
@@ -116,13 +117,19 @@
     // Method for back button click
     private void ClickBack()
     {
-        Navigation.NavigateTo("ForgetPasswordOne");
+        Navigation.NavigateTo("FillProfile");
     }
 
 
-    // Method for continue button click
-    private void Continue()
+  
+    
+    @inject IDialogService Dialog
+
+    DialogOptions disableBackdropClick = new DialogOptions() { DisableBackdropClick = true };
+
+    // Method to open dialog
+    private void OpenDialog(DialogOptions options)
     {
-        Navigation.NavigateTo("SetFinger");
+        Dialog.Show<SecondDialog>("", options);
     }
 }

@@ -23,6 +23,7 @@
     /* Styling for email input */
     .email {
         margin-top: 20px;
+        width: 340px;
     }
 
     /* Styling for centering divs */
@@ -36,6 +37,7 @@
         border-radius: 30px;
         width: 330px;
         height: 50px;
+        margin-top: 20px;
     }
 
     /* Styling for horizontal divider */
@@ -114,8 +116,22 @@
             border-radius: 30px;
             width: 268px;
             height: 40px;
+            margin-top: 2px;
         }
 
+       
+
+        .EmailIcon{
+            margin-left:30px;
+        }
+
+        .PasswordIcon {
+            margin-left: 30px;
+        }
+        
+        .InputField {
+            width: 228px;
+        }
      }
 
 
@@ -141,26 +157,37 @@
     </div>
 
     <!-- Email and password input section -->
-    <div class="row mt-5 ">
+    <div class="row  ">
       
             <!-- Email input -->
-            <div class="col ml-7  mr-5 email DivCenter">
-                <div class="EmailIcon">
-                    <!-- Email icon -->
-                    <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Email" Size="Size.Medium" />
+            <div class="row">
+                <div class="col DivCenter ">
+                    <div class="col ml-7  mr-5 email DivCenter" >
+                        <div class="EmailIcon">
+                            <!-- Email icon -->
+                            <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Email" Size="Size.Medium" />
+                        </div>
+                        <!-- Email input field -->
+                        <MudTextField Class="mr-7 InputField" @bind-Value="Email" Label="Email" Variant="Variant.Filled" Adornment="Adornment.None" />
+                    </div>
                 </div>
-                <!-- Email input field -->
-                <MudTextField Class="mr-7" @bind-Value="Email" Label="Email" Variant="Variant.Filled" Adornment="Adornment.None" />
             </div>
+
             <!-- Password input -->
-            <div class="col ml-7 mr-5 mt-5 DivCenter">
-                <div class="PasswordIcon">
-                    <!-- Password icon -->
-                    <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Lock" Size="Size.Medium" />
+            <div class="row">
+                <div class="col DivCenter">
+             
+                    <div class="col ml-7 mr-5 mt-5 DivCenter ">
+                        <div class="PasswordIcon">
+                            <!-- Password icon -->
+                            <MudIcon Color="Color.Default" Icon="@Icons.Material.Filled.Lock" Size="Size.Medium" />
+                        </div>
+                        <!-- Password input field -->
+                        <MudTextField Class="mr-7 InputField" @bind-Value="Password" Label="Password" Variant="Variant.Filled" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ShowPassword" />
+                    </div>
                 </div>
-                <!-- Password input field -->
-                <MudTextField Class="mr-7" @bind-Value="Password" Label="Password" Variant="Variant.Filled" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="ShowPassword" />
             </div>
+          
       
     </div>
     </div>
@@ -174,7 +201,7 @@
 
     <!-- Sign in button section -->
     <div class="row">
-        <div class="col mt-5 DivCenter">
+        <div class="col  DivCenter">
             <!-- Sign in button -->
             <MudButton Class="SignUpBtn" Variant="Variant.Filled" OnClick="Login" Color="Color.Primary">Sign In</MudButton>
         </div>
@@ -182,14 +209,14 @@
 
     <!-- Forgot password link section -->
     <div class="row">
-        <div class="col mt-5 DivCenter">
+        <div class="col mt-3 DivCenter">
             <!-- Forgot password link -->
             <MudLink Href="/ForgetPasswordOne" Style="font-weight:bolder;">Forgot the password?</MudLink>
         </div>
     </div>
 
     <!-- Horizontal divider section -->
-    <div class="row mt-5">
+    <div class="row mt-1">
         <div class="col  DivCenter">
             <!-- Horizontal divider -->
             <div class="hr-sect"> <p style="font-weight:200;">or continue with</p></div>
@@ -197,7 +224,7 @@
     </div>
 
     <!-- Social login buttons section -->
-    <div class="row" style="margin-top:10px;">
+    <div class="row" >
         <div class="col DivCenter">
             <!-- Facebook login button -->
             <MudButton Class="BtnIcon" Variant="Variant.Outlined" Style="@($"color:{Colors.Blue.Default};")" Size="Size.Large"><MudIcon Icon="@Icons.Custom.Brands.Facebook" Size="Size.Large" /></MudButton>
@@ -209,7 +236,7 @@
     </div>
 
     <!-- Sign up link section -->
-    <div class="row" style="margin-top:20px;">
+    <div class="row" style="margin-top:10px;">
         <div class="col DivCenter">
             <!-- Sign up link -->
             <MudLink Href="#" Disabled="true">Don't have an account?  </MudLink> &nbsp;&nbsp; <MudLink Href="/SignUp" Style="font-weight:bolder;">  Sign Up</MudLink>

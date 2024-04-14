@@ -88,38 +88,53 @@
         margin-top: 7px;
     }
 
-    /* Media query for smaller screens */
-    @@media (max-width: 410px) {
-        .ServiceCard {
-            width: 355px; /* Adjust card width */
-            height: 161px; /* Adjust card height */
+
+    @@media only screen and (max-device-width: 480px) {
+
+        .headerText {
+            font-size: 2vh;
+        }
+
+        .contentText {
+            font-size: 3vh;
+        }
+
+        .headerIcon {
+            padding-left: 2px;
+        }
+
+        .ServiceImages {
+            height: 50px;
+            width: 50px;
+        }
+
+        .ServicesText {
+            font-size: 2vh;
+        }
+
+        .ServiceCard .mud-card-header {
+            width: 275px;
+            height: 161px;
+            margin-right: 0px;
         }
 
         .serviceName {
-            margin-top: 2px;
-            font-size: larger; /* Increase font size */
+            margin-top: 7px;
+            font-size: larger;
         }
 
-        .reviews {
-            font-size: 14px; /* Set font size */
-            margin-top: 8px; /* Set top margin */
+        .CCardImg {
+            height: 80px;
+            margin-top: 22px;
         }
+
+       
     }
 
-    /* Media query for even smaller screens */
-    @@media (max-width: 375px) {
-        .ServiceCard {
-            width: 345px; /* Adjust card width */
-        }
+    @@media only screen and (min-device-width: 480px) {
 
-        .serviceName {
-            margin-top: 2px;
-            font-size: larger; /* Increase font size */
-        }
-
-        .reviews {
-            margin-top: 2px; /* Set top margin */
-            font-size: small; /* Set font size */
+        .CCardImg {
+            height: 120px;
         }
     }
 
@@ -141,7 +156,7 @@
 <div class="container">
 
     <!-- Header section -->
-    <div class="row" style="margin-top: 9px;margin-left: 5px;">
+    <div class="row" style="margin-top: 9px;">
         <div class="col ml-3 mt-1">
             <!-- Logo and title -->
             <MudImage Class="mx-auto my-auto" Src="images/logo.png" Elevation="0" Style="height:30px" />
@@ -153,7 +168,7 @@
 
     <!-- Date picker section -->
     <div class="row DivCenter ">
-        <div class="col DivCenter ml-10">
+        <div class="col DivCenter ">
             <!-- MudDatePicker component -->
             <MudDatePicker PickerVariant="PickerVariant.Static" Color="Color.Primary" Rounded="true" Date="@(DateTime.Today)" />
         </div>
@@ -180,7 +195,7 @@
                     <CardHeaderContent>
                         <div class="headerContent">
                             <!-- Service image -->
-                            <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s1.png" Elevation="0" Class="CCardImg" />
                             <div style="margin-left:26px;">
                                 <!-- Service name -->
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
@@ -203,7 +218,7 @@
                     <CardHeaderContent>
                         <div class="headerContent">
                             <!-- Service image -->
-                            <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s1.png" Elevation="0" Class="CCardImg" />
                             <div style="margin-left:26px;">
                                 <!-- Service name -->
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">Appliance Service</MudText>

@@ -49,39 +49,8 @@
         margin-top: 7px;
     }
 
-    /* Media query for smaller screens */
-    @@media (max-width: 410px) {
-        .ServiceCard {
-            width: 355px;
-        }
+   
 
-        .serviceName {
-            margin-top: 2px;
-            font-size: larger;
-        }
-
-        .reviews {
-            font-size: 14px;
-            margin-top: 8px;
-        }
-    }
-
-    /* Media query for even smaller screens */
-    @@media (max-width: 375px) {
-        .ServiceCard {
-            width: 345px;
-        }
-
-        .serviceName {
-            margin-top: 2px;
-            font-size: larger;
-        }
-
-        .reviews {
-            margin-top: 2px;
-            font-size: small;
-        }
-    }
 
     /* Styling for card content */
     .cardContent {
@@ -110,6 +79,11 @@
         padding: 16px;
     }
 
+    .Collapsebtn{
+        border-radius: 32px;
+        padding: 5px;
+        margin-top: 10px;
+    }
     /* Styling for cancel button */
     .cancelBtn {
         background-color: #F4ECFF !important;
@@ -131,6 +105,82 @@
     .HideCancel {
         display: none;
     }
+
+
+    @@media only screen and (max-device-width: 480px) {
+
+        .headerText {
+            font-size: 2vh;
+        }
+
+        .contentText {
+            font-size: 3vh;
+        }
+
+        .headerIcon {
+            padding-left: 2px;
+        }
+
+        .ServiceImages {
+            height: 50px;
+            width: 50px;
+        }
+
+        .ServicesText {
+            font-size: 2vh;
+        }
+
+        .ServiceCard .mud-card-header {
+            width: 275px;
+            height: 161px;
+            margin-right: 0px;
+        }
+
+        .serviceName {
+            margin-top: 7px;
+            font-size: larger;
+        }
+      
+        .BCardImg {
+            height: 80px;
+            margin-top: 22px;   
+        }
+        .chatIcon {
+            height: 56px;
+            margin-top: 27px;
+            margin-right: 0px;
+        }
+
+        .UpcomingStatus {
+           
+            width: 108%;
+           
+        }
+
+        .cardbtn {
+            font-size: xx-small;
+        }
+
+        .cardInsideText{
+            font-size: x-small;
+            text-align: center;
+            width: 88%;
+        }
+
+        .cardbtn {
+            font-size: xx-small;
+            width: 138px;
+            margin-left: 14px;
+        }
+    }
+
+    @@media only screen and (min-device-width: 480px) {
+
+        .BCardImg {
+            height:120px;
+        }
+    }
+
 </style>
 
 <!-- Upcoming Container -->
@@ -138,7 +188,7 @@
 
     <!-- Row for cards -->
     <div class="row">
-        <div class="col ml-3 mt-5 mb-5 ">
+        <div class="col mt-5 mb-5 ">
 
             <!-- First Service Card -->
             <MudCard Elevation="5" Class="ServiceCard">
@@ -146,7 +196,7 @@
                     <CardHeaderContent>
                         <!-- Header Content -->
                         <div class="headerContent">
-                            <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s1.png" Elevation="0" Class="BCardImg" />
                             <div style="margin-left:26px;">
                                 <!-- Service Name -->
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
@@ -159,7 +209,7 @@
                     </CardHeaderContent>
                     <CardHeaderActions>
                         <!-- Chat Icon -->
-                        <MudImage Src="images/chatIcon.png" Elevation="0" Class="chatIcon" />
+                        <MudImage Src="images/chatIcon.png" Elevation="0" Class="chatIcon"  />
                     </CardHeaderActions>
                 </MudCardHeader>
                 <MudCardContent>
@@ -191,7 +241,7 @@
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="headerContent">
-                            <MudImage Src="images/s2.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s2.png" Elevation="0" Class="BCardImg" />
                             <div style="margin-left:26px;">
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">Garage Cleaning</MudText>
                                 <MudText Class="mt-2" Typo="Typo.subtitle1">Florencio Dorrance</MudText>
@@ -229,7 +279,7 @@
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="headerContent">
-                            <MudImage Src="images/s3.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s3.png" Elevation="0" Class="BCardImg" />
                             <div style="margin-left:26px;">
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">Painting the Walls</MudText>
                                 <MudText Class="mt-2" Typo="Typo.subtitle1">Benny Spanbauer</MudText>
@@ -272,25 +322,29 @@
     <MudCard Class="Sticky DivCenter ">
         <div>
             <!-- Cancellation header -->
-            <MudText Class="DivCenter cardInsideText" Typo="Typo.h4" Style="font-weight: bold;" Color="Color.Error">Cancel Booking</MudText>
+            <MudText Class=" cardInsideText" Typo="Typo.h4" Style="font-weight: bold;" Color="Color.Error">Cancel Booking</MudText>
             <br />
             <MudDivider DividerType="DividerType.Middle"> </MudDivider>
             <!-- Cancellation confirmation text -->
-            <MudText Class="DivCenter cardInsideText" Typo="Typo.h4" Style="font-weight: bold;">
+            <MudText Class=" cardInsideText" Typo="Typo.h4" Style="font-weight: bold;">
                 Are you sure want to cancel your
                 service booking?
             </MudText>
             <span class="DivCenter mt-2"></span>
             <!-- Cancellation policy text -->
-            <MudText Class="DivCenter mt-2 cardInsideText" Typo="Typo.h6">
+            <MudText Class=" mt-2 cardInsideText" Typo="Typo.h6">
                 Only 80% of the money you can refund from
+               
+            </MudText>
+            <MudText Class="  cardInsideText" Typo="Typo.h6">
+               
                 your payment according to our policy
             </MudText>
             <MudDivider Class="mt-5"> </MudDivider>
             <!-- Cancel and confirm buttons -->
             <div class="Collapse">
-                <MudButton Class="cardbtn cancelBtn Collapsebtn" OnClick="OnCancelClick" Variant="Variant.Filled">Cancel</MudButton>
-                <MudButton Class="cardbtn Collapsebtn" OnClick="OnCancelClick" Variant="Variant.Filled" Color="Color.Primary">Yes,Cancel Booking</MudButton>
+                <MudButton Class=" cancelBtn Collapsebtn" OnClick="OnCancelClick" Variant="Variant.Filled">Cancel</MudButton>
+                <MudButton Class=" Collapsebtn" OnClick="OnCancelClick" Variant="Variant.Filled" Color="Color.Primary">Yes,Cancel Booking</MudButton>
             </div>
         </div>
     </MudCard>

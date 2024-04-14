@@ -65,7 +65,7 @@
         <div class="col ml-3 mt-5 services">
             <!-- Cleaning service -->
             <div style="text-align:center">
-                <MudButton @onclick=@(() => ClickToNext("HouseCleaning"))>
+                <MudButton @onclick=@(() => ClickToNext("ServiceCleaning"))>
                     <MudImage Src="images/cleaning.png" Fluid="true" Elevation="0" Height="70" Width="70" />
                 </MudButton>
                 <h5 class="mt-3">Cleaning</h5>
@@ -78,7 +78,9 @@
 
             <!-- Painting service -->
             <div style="text-align:center">
-                <MudImage Src="images/painting.png" Fluid="true" Elevation="0" Height="70" Width="70" />
+                <MudButton @onclick=@(() => ClickToNext("Painting"))>
+                    <MudImage Src="images/painting.png" Fluid="true" Elevation="0" Height="70" Width="70" />
+                </MudButton>
                 <h5 class="mt-3">Painting</h5>
             </div>
 

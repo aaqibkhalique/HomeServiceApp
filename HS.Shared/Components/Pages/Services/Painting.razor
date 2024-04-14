@@ -1,4 +1,5 @@
-﻿@page "/ServiceCleaning"
+﻿
+@page "/Painting"
 @using HS.Shared.Components.Layout
 @layout EmptyLayout
 
@@ -77,7 +78,7 @@
 
     /* Background image styling */
     .MainPic {
-        background-image: url("images/Scleaning.png");
+        background-image: url("images/Spainting.png");
         height: 54%;
         background-repeat: no-repeat;
         background-size: contain;
@@ -172,7 +173,7 @@
     <!-- Service title and bookmark row -->
     <div class="row" style="margin-top: 20px;">
         <div class="col ml-3 mt-1">
-            <span class="IconText">House Cleaning</span>
+            <span class="IconText">Painting House Walls</span>
             <!-- Bookmark button -->
             <MudIconButton Icon="@Icons.Material.Outlined.BookmarkBorder" Color="Color.Primary" Style="float: right;"></MudIconButton>
         </div>
@@ -181,21 +182,21 @@
     <!-- Provider information row -->
     <div class="row  DivCenter ">
         <div class="col ">
-            <MudText Typo="Typo.subtitle1"> <span class="mud-primary-text Text"> Jenny Wilson</span>  <MudIconButton Icon="@Icons.Material.Filled.Star" Style="color:gold;"></MudIconButton>4.8 (4.479 reviews)</MudText>
+            <MudText Typo="Typo.subtitle1"> <span class="mud-primary-text Text"> Brokly Simmon</span>  <MudIconButton Icon="@Icons.Material.Filled.Star" Style="color:gold;"></MudIconButton>4.8 (4.479 reviews)</MudText>
         </div>
     </div>
 
     <!-- Address and pricing row -->
     <div class="row  DivCenter ">
         <div class="col ">
-            <MudText Typo="Typo.subtitle1"><MudChip Variant="Variant.Text" Class="mychip mud-primary-text">cleaning</MudChip><MudIconButton Icon="@Icons.Material.Filled.LocationOn" Color="Color.Primary"></MudIconButton>255 Grand Park Avenue, New York</MudText>
+            <MudText Typo="Typo.subtitle1"><MudChip Variant="Variant.Text" Class="mychip mud-primary-text">painting</MudChip><MudIconButton Icon="@Icons.Material.Filled.LocationOn" Color="Color.Primary"></MudIconButton>255 Grand Park Avenue, New York</MudText>
         </div>
     </div>
 
     <!-- Price row -->
     <div class="row">
         <div class="col ml-5">
-            <MudText Typo="Typo.subtitle1"> <span class="mud-primary-text price"> $20</span>  (Floor price)</MudText>
+            <MudText Typo="Typo.subtitle1"> <span class="mud-primary-text price"> $22</span>  (Floor price)</MudText>
         </div>
     </div>
 
@@ -240,11 +241,11 @@
             <div>
                 <MudImage Src="images/Scleaning4.png" Width="200" Height="150" Elevation="0" Class="rounded-lg " Style="padding: 10px;" />
                 <MudImage Src="images/Scleaning6.png" Width="200" Height="150" Elevation="0" Class="rounded-lg " Style="padding: 10px;" />
-        </div>
+            </div>
             <div>
                 <MudImage Src="images/Scleaning5.png" Width="200" Height="300" Elevation="0" Class="rounded-lg " Style="padding: 10px;" />
             </div>
-            
+
         </div>
     </div>
     <div class="row">
@@ -296,7 +297,7 @@
             <MudCardContent Class="reviewCard">
                 <MudText Typo="Typo.subtitle1">Awesome! this is what i was looking for, i recommend to everyone ❤️❤️️❤️</MudText>
             </MudCardContent>
-            <MudCardActions >
+            <MudCardActions>
                 <MudImage Style="height: 20px;" Src="images/heart1.png"></MudImage>  &nbsp;<MudText Typo="Typo.subtitle1"><span style="font-weight:bold">783</span>  &nbsp;&nbsp;&nbsp;  1 weeks ago</MudText>
             </MudCardActions>
         </div>
@@ -369,11 +370,12 @@
     {
         // Navigate to the Home page
         Navigation.NavigateTo("Home");
-    }
-     private void Continue()
+    } 
+    
+    private void Continue()
     {
         // Navigate to the Home page
-        Navigation.NavigateTo("HouseCleaning");
+        Navigation.NavigateTo("AddPromo");
     }
 
     // Method to handle chip selection event

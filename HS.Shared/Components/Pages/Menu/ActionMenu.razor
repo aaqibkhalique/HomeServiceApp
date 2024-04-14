@@ -116,10 +116,15 @@
 
         .reviews {
             margin-top: 2px;
-            font-size: small;
+            font-size: smaller;
+        }
+
+        .CardImg {
+            height: 70px;
         }
     }
 
+ 
     @@media only screen and (max-device-width: 480px) {
 
         .headerText {
@@ -142,7 +147,111 @@
         .ServicesText{
             font-size:2vh;
         }
+
+        .ServiceCard {
+            width: 300px;
+            height: 161px;
+        }
+
+        .CardImg {
+            height: 80px;
+        }
+    
+       
     }
+
+    @@media only screen and (max-width: 420px) {
+
+        .carosel {
+            height: 30vh;
+        }
+
+       
+    }
+
+    /* For screens larger than 1200px wide */
+    @@media only screen and (min-width: 420px) {
+    
+        .carosel {
+            height: 35vh;
+        }
+
+        .CardImg {
+            height: 120px;
+        }
+    }
+
+    @@media only screen and (min-width: 520px) {
+
+        .carosel {
+            height: 40vh;
+        }
+
+        .CardImg {
+            height: 120px;
+        }
+    }   
+    
+    @@media only screen and (min-width: 550px) {
+
+        .carosel {
+            height: 45vh;
+        }
+    }
+
+    @@media only screen and (min-width: 600px) {
+
+        .carosel {
+            height: 50vh;
+        }
+    }  
+    @@media only screen and (min-width: 650px) {
+
+        .carosel {
+            height: 55vh;
+        }
+    }
+
+    @@media only screen and (min-width: 750px) {
+
+        .carosel {
+            height: 60vh;
+        }
+    } 
+    @@media only screen and (min-width: 800px) {
+
+        .carosel {
+            height: 65vh;
+        }
+    }
+
+    @@media only screen and (min-width: 900px) {
+
+        .carosel {
+            height: 75vh;
+        }
+    }
+
+    @@media only screen and (min-width: 1000px) {
+        .carosel {
+            height: 80vh;
+        }
+    } 
+    @@media only screen and (min-width: 1150px) {
+        .carosel {
+            height: 85vh;
+        }
+    } 
+    @@media only screen and (min-width: 1200px) {
+        .carosel {
+            height: 90vh;
+        }
+    }
+    .caroselImg {
+        height: 100%;
+        width: 100%
+    }
+
 </style>
 
 <!-- HTML content -->
@@ -171,7 +280,7 @@
             </MudCardHeader>
             <!-- MudTextField for search -->
             <MudCardContent>
-                <MudTextField @bind-Value="Search" Label="Search" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.FilterList" AdornmentColor="Color.Primary" />
+                <MudTextField @bind-Value="Search" OnKeyDown="@(() => ClickToNext("FilterResults"))" Label="Search" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.FilterList" AdornmentColor="Color.Primary" />
             </MudCardContent>
             <!-- MudCardActions for special offers -->
             <MudCardActions Class="text">
@@ -183,26 +292,26 @@
 
     <!-- Row for MudCarousel -->
     <div class="row">
-        <MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="false" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="true" TData="object">
+        <MudCarousel Class="mud-width-full carosel"  ShowArrows="false" ShowBullets="false" EnableSwipeGesture="true" AutoCycle="true" TData="object">
             <!-- Carousel items with MudImage -->
             <MudCarouselItem Transition="transition">
-                <div class="d-flex" style="height:100%">
-                    <MudImage Fluid="true" Class="mx-auto my-auto" Src="images/T1.png" Elevation="0" Style="height:100%;width:100%" />
+                <div class="d-flex" >
+                    <MudImage Fluid="true" Class="mx-auto my-auto caroselImg" Src="images/T1.png" Elevation="0" />
                 </div>
             </MudCarouselItem>
             <MudCarouselItem Transition="transition">
-                <div class="d-flex" style="height:100%">
-                    <MudImage Fluid="true" Class="mx-auto my-auto" Src="images/T2.png" Elevation="0" Style="height:100%;width:100%" />
+                <div class="d-flex" >
+                    <MudImage Fluid="true" Class="mx-auto my-auto caroselImg" Src="images/T2.png" Elevation="0"  />
                 </div>
             </MudCarouselItem>
             <MudCarouselItem Transition="transition">
-                <div class="d-flex" style="height:100%">
-                    <MudImage Fluid="true" Class="mx-auto my-auto" Src="images/T3.png" Elevation="0" Style="height:100%;width:100%" />
+                <div class="d-flex" >
+                    <MudImage Fluid="true" Class="mx-auto my-auto caroselImg" Src="images/T3.png" Elevation="0"  />
                 </div>
             </MudCarouselItem>
             <MudCarouselItem Transition="transition">
-                <div class="d-flex" style="height:100%">
-                    <MudImage Fluid="true" Class="mx-auto my-auto" Src="images/T4.png" Elevation="0" Style="height:100%;width:100%" />
+                <div class="d-flex" >
+                    <MudImage Fluid="true" Class="mx-auto my-auto caroselImg" Src="images/T4.png" Elevation="0"  />
                 </div>
             </MudCarouselItem>
         </MudCarousel>
@@ -220,7 +329,7 @@
     </div>
     <div class="row">
         <div class="col ml-3 services">
-            <div style="text-align:center">
+            <div style="text-align:center" @onclick=@(() => ClickToNext("ServiceCleaning"))>
 
                 <MudImage Src="images/cleaning.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
                 <h5 class="mt-3 ServicesText">Cleaning</h5>
@@ -230,7 +339,7 @@
                 <h5 class="mt-3 ServicesText">Repairing</h5>
             </div>
 
-            <div style="text-align:center">
+            <div style="text-align:center" @onclick=@(() => ClickToNext("Painting"))>
                 <MudImage Src="images/painting.png" Class="ServiceImages" Elevation="0" Height="70" Width="70" />
                 <h5 class="mt-3 ServicesText">Painting</h5>
             </div>
@@ -266,7 +375,6 @@
     <div class="row mt-5">
 
         <div class="col ml-3 linetop ">
-
             <MudCardActions Class="text">
                 <MudText Style="font-weight:bold" Class="contentText" Typo="Typo.h6">Most Popular Services</MudText>
                 <MudButton Variant="Variant.Text" OnClick="NavigateToBookmark"> <MudText Color="Color.Primary" Style="font-weight:bold" Typo="Typo.h6">See All</MudText></MudButton>
@@ -294,13 +402,13 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col ml-2 mt-5 mb-5 ">
+    <div class="row" >
+        <div class="col  mt-5 mb-5 ">
             <MudCard Elevation="5" Class="ServiceCard">
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="headerContent">
-                            <MudImage Src="images/s1.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s1.png"  Elevation="0" Class="CardImg" /> 
                             <div style="margin-left:26px;">
                                 <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
@@ -319,7 +427,7 @@
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="headerContent">
-                            <MudImage Src="images/s2.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s2.png" Elevation="0"  Class="CardImg" />
                             <div style="margin-left:26px;">
                                 <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
@@ -338,7 +446,7 @@
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="headerContent">
-                            <MudImage Src="images/s3.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s3.png" Elevation="0"Class="CardImg" />
                             <div style="margin-left:26px;">
                                 <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
@@ -356,7 +464,7 @@
                 <MudCardHeader>
                     <CardHeaderContent>
                         <div class="headerContent">
-                            <MudImage Src="images/s4.png" Elevation="0" Style="height:120px;" />
+                            <MudImage Src="images/s4.png" Elevation="0"  Class="CardImg" />
                             <div style="margin-left:26px;">
                                 <MudText Typo="Typo.subtitle1">Kylie Danford</MudText>
                                 <MudText Class="serviceName font-weight-bold" Typo="Typo.h6">House Cleaning</MudText>
@@ -426,5 +534,10 @@
     private void OnSelectChip(MudChip mud)
     {
         // Add logic for handling selected chip
+    }
+
+    private void ClickToNext(string path)
+    {
+        Navigation.NavigateTo(path);
     }
 }
