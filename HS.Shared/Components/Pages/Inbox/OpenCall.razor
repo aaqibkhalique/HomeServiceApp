@@ -7,6 +7,7 @@
     /* Styling for the container */
     .container {
         overflow-y: hidden;
+        overflow-x:hidden;
     }
 
     .DivCenter {
@@ -14,6 +15,43 @@
         justify-content: center;
     }
 
+    @@media only screen and (max-device-width: 480px) {
+
+        .callingImage {
+            padding: 5px;
+            height: 300px;
+        }
+
+        .callButtonAction {
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 14px;
+            margin-left:2px;
+        }
+
+        .CallRow {
+            margin-top: 0px;
+        }
+    }
+
+    @@media only screen and (min-device-width: 480px) {
+
+        .callingImage{
+            padding: 10px;
+            height: 345px;
+        }
+
+        .callButtonAction{
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 14px;
+            margin-top:40px;
+        }
+
+        .CallRow{
+            margin-top: 20px;
+        }
+    }
 </style>
 
 <div class="container">
@@ -27,21 +65,21 @@
     </div>
 
     <!-- Call details section -->
-    <div class="row mt-5">
+    <div class="row CallRow">
         <div class="col DivCenter">
             <!-- Call image -->
-            <MudImage Src="images/opencall1.png" Elevation="0" Style="padding: 10px;height: 345px;" />
+            <MudImage Src="images/opencall1.png" Elevation="0" Class="callingImage" />
         </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row CallRow">
         <div class="col DivCenter">
             <!-- Caller's name -->
             <MudText Style="font-weight:bolder" Typo="Typo.h6">Jenny Wilson</MudText>
         </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row CallRow">
         <div class="col DivCenter">
             <!-- Call duration -->
             <MudText Typo="Typo.subtitle1">04:38 minutes</MudText>
@@ -49,7 +87,7 @@
     </div>
 
     <!-- Call action buttons section -->
-    <div class="row mt-10" style="display: flex; justify-content: space-evenly;margin-bottom: 14px;">
+    <div class="row  callButtonAction" >
         <!-- Close call button -->
         <div class="col" style="margin-right: 15px; margin-top: 5px;">
             <MudFab Color="Color.Error" StartIcon="@Icons.Material.Filled.Close" />

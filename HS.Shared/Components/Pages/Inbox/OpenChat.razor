@@ -11,7 +11,7 @@
     /* Center content horizontally */
     .DivCenter {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     /* Styling for large icons with text */
@@ -122,6 +122,31 @@
         padding: 5px;
         max-width: 100%;
     }
+
+
+    @@media only screen and (max-device-width: 480px) {
+
+        .msgText {
+            width: 80%;
+        }
+
+        .MicIn {
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+    }
+
+    @@media only screen and (min-device-width: 480px) {
+
+        .msgText {
+            width: 74%;
+        }
+        .MicIn{
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+    }
+
 </style>
 
 <div class="container">
@@ -130,7 +155,7 @@
         <div class="col ml-3 mt-1">
             <MudIconButton Icon="@Icons.Material.Filled.ArrowBack" OnClick="ClickBack" Style="padding-top: 1px;"></MudIconButton>
             <span class="IconText">Jenny Wilson </span>
-            <MudIconButton Icon="@Icons.Material.Filled.Call" Style="float: right;"></MudIconButton>
+            <MudIconButton Icon="@Icons.Material.Filled.Call" Style="float: right;" OnClick="GotoCall"></MudIconButton>
             <MudIconButton Class="rightIcon" Icon="@Icons.Material.Outlined.MoreHoriz" Style="float: right;"></MudIconButton>
         </div>
     </div>
@@ -200,10 +225,10 @@
 
     <!-- Message input and microphone button -->
     <div class="row DivCenter">
-        <div class="col " style="width: 74%;">
-            <MudTextField FullWidth="true" @bind-Value="Message" Label="Message" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Image" AdornmentColor="Color.Default" />
+        <div class="col msgText" >
+            <MudTextField FullWidth="true" Class="msgText" @bind-Value="Message" Label="Message" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Image" AdornmentColor="Color.Default" />
         </div>
-        <div class="col" style="margin-right: 15px; margin-top: 5px;">
+        <div class="col MicIn" >
             <MudFab Color="Color.Primary" StartIcon="@Icons.Material.Filled.Mic" />
         </div>
     </div>
@@ -219,5 +244,10 @@
     private void ClickBack()
     {
         Navigation.NavigateTo("Home/3");
+    }
+    
+    private void GotoCall()
+    {
+        Navigation.NavigateTo("OpenCall");
     }
 }
